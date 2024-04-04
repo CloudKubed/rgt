@@ -1,0 +1,97 @@
+[
+  {
+    "CdsFCBContext": "{\"FileType\":true,\"ImageExternalStorage\":true}",
+    "EntitySetName": "cr110_treat_data_v2_officestaffs",
+    "IsHidden": false,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "LogicalName": "cr110_treat_data_v2_officestaff",
+    "MaxGetRowsCount": 500,
+    "Name": "Treat_Data_V2_OfficeStaffs",
+    "NativeCDSDataSourceInfoNameMapping": {
+      "_ownerid_value": "Owner",
+      "cr110_staff_email_id": "Staff_Email_ID",
+      "cr110_treat_data_v2_officestaff_AsyncOperations": "System Jobs",
+      "cr110_treat_data_v2_officestaff_BulkDeleteFailures": "Bulk Delete Failures",
+      "cr110_treat_data_v2_officestaff_DuplicateBaseRecord": "Duplicate Records (cr110_treat_data_v2_officestaff_DuplicateBaseRecord)",
+      "cr110_treat_data_v2_officestaff_DuplicateMatchingRecord": "Duplicate Records (cr110_treat_data_v2_officestaff_DuplicateMatchingRecord)",
+      "cr110_treat_data_v2_officestaff_MailboxTrackingFolders": "Mailbox Auto Tracking Folders",
+      "cr110_treat_data_v2_officestaff_PrincipalObjectAttributeAccesses": "Field Sharing",
+      "cr110_treat_data_v2_officestaff_ProcessSession": "Process Sessions",
+      "cr110_treat_data_v2_officestaff_SyncErrors": "Sync Errors",
+      "cr110_treat_data_v2_officestaffid": "Treat_Data_V2_OfficeStaff",
+      "createdby": "Created By",
+      "createdon": "Created On",
+      "createdonbehalfby": "Created By (Delegate)",
+      "importsequencenumber": "Import Sequence Number",
+      "modifiedby": "Modified By",
+      "modifiedon": "Modified On",
+      "modifiedonbehalfby": "Modified By (Delegate)",
+      "overriddencreatedon": "Record Created On",
+      "owningbusinessunit": "Owning Business Unit",
+      "owningteam": "Owning Team",
+      "owninguser": "Owning User",
+      "statecode": "Status",
+      "statuscode": "Status Reason",
+      "timezoneruleversionnumber": "Time Zone Rule Version Number",
+      "utcconversiontimezonecode": "UTC Conversion Time Zone Code",
+      "versionnumber": "Version Number"
+    },
+    "PreferredName": "Treat_Data_V2_OfficeStaffs",
+    "Type": "NativeCDSDataSourceInfo"
+  },
+  {
+    "DisplayName": "Treat_Data_V2_OfficeStaffs (Views)",
+    "Name": "_cr110_treat_data_v2_officestaff_views",
+    "RelatedEntityName": "Treat_Data_V2_OfficeStaffs",
+    "TrimmedViewName": true,
+    "Type": "ViewInfo",
+    "ViewInfoNameMapping": {
+      "2f02ebc8-1d3f-4b4a-93a6-204b739bdceb": "Treat_Data_V2_OfficeStaff Advanced Find View",
+      "31056c70-2b7b-42ce-9d52-6f0bf64b59a6": "Active Treat_Data_V2_OfficeStaffs",
+      "76330134-b9ad-4e65-a018-8398f40468b1": "Treat_Data_V2_OfficeStaff Lookup View",
+      "b4ec12cd-ead9-47a8-8064-49c08bb28b63": "Inactive Treat_Data_V2_OfficeStaffs",
+      "f07a7ebd-488e-4bb2-9a97-0bc4675435b4": "Treat_Data_V2_OfficeStaff Associated View"
+    }
+  },
+  {
+    "DisplayName": "Status (Treat_Data_V2_OfficeStaffs)",
+    "Name": "cr110_treat_data_v2_officestaff_statecode",
+    "OptionSetInfoNameMapping": {
+      "0": "Active",
+      "1": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statecode",
+        "OptionSetReferenceEntityName": "Treat_Data_V2_OfficeStaffs"
+      }
+    },
+    "OptionSetTypeKey": "StateType",
+    "RelatedColumnInvariantName": "statecode",
+    "RelatedEntityName": "Treat_Data_V2_OfficeStaffs",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status Reason (Treat_Data_V2_OfficeStaffs)",
+    "Name": "cr110_treat_data_v2_officestaff_statuscode",
+    "OptionSetInfoNameMapping": {
+      "1": "Active",
+      "2": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statuscode",
+        "OptionSetReferenceEntityName": "Treat_Data_V2_OfficeStaffs"
+      }
+    },
+    "OptionSetTypeKey": "StatusType",
+    "RelatedColumnInvariantName": "statuscode",
+    "RelatedEntityName": "Treat_Data_V2_OfficeStaffs",
+    "Type": "OptionSetInfo"
+  }
+]

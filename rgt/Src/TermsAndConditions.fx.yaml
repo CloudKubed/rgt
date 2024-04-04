@@ -1,0 +1,67 @@
+TermsAndConditions As screen:
+    Fill: =RGBA(241, 244, 249, 1)
+
+    icoMetadata As icon.BackArrow:
+        Height: =117
+        Icon: =Icon.BackArrow
+        OnSelect: =Navigate(Metadata)
+        Width: =112
+        X: =64
+        Y: =621
+        ZIndex: =8
+
+    icoAddCollborators As icon.NextArrow:
+        Color: =If(chbTermsAndConditions.Value=true,RGBA(0, 18, 107, 1),RGBA(219, 219, 219, 1))
+        Fill: =RGBA(244,244,249,1)
+        Height: =117
+        Icon: =Icon.NextArrow
+        OnSelect: =If(chbTermsAndConditions.Value=true,Navigate(AddCollaborators)); Set(varshowprevious, true); Set(varshowfinish, true); Set(varshowtable,true)
+        Width: =112
+        X: =1167
+        Y: =621
+        ZIndex: =9
+
+    lblTermsAndConditions As label:
+        Align: =Align.Center
+        BorderColor: =RGBA(0, 0, 0, 1)
+        BorderThickness: =2
+        Height: =424
+        Size: =20
+        Text: |-
+            ="All of the above information I have provided is accurate and correct and I acknowledge and agree to the terms and conditions for the accessing of and use of the Trusted Research Environment (TRE).
+            
+            I agree to abide by all College policies and procedures that govern the use of the environment and acknowledge that any deviation from College policy may result to revocation of my access to the TRE."
+        Width: =804
+        X: =284
+        Y: =175
+        ZIndex: =17
+
+    chbTermsAndConditions As checkbox:
+        BorderStyle: =
+        Height: =64
+        Text: ="Accept Terms And Conditions."
+        Width: =376
+        X: =501
+        Y: =624
+        ZIndex: =18
+
+    Component1_6 As Component1:
+        ZIndex: =19
+
+    lblTitle6 As label:
+        Align: =Align.Center
+        Color: =RGBA(255, 255, 255, 1)
+        FontWeight: =FontWeight.Bold
+        Height: =126
+        Size: =32
+        Text: ="Terms And Conditions"
+        Width: =1366
+        ZIndex: =20
+
+    "'Home Button_4' As icon.Home":
+        Icon: =Icon.Home
+        OnSelect: =Navigate(Welcome)
+        X: =1283
+        Y: =31
+        ZIndex: =21
+

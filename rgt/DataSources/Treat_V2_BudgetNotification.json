@@ -1,0 +1,10 @@
+[
+  {
+    "ApiId": "/providers/microsoft.powerapps/apis/shared_logicflows",
+    "FlowNameId": "3615dacd-aed9-4687-bb04-becac9f442af",
+    "Name": "Treat_V2_BudgetNotification",
+    "ServiceKind": "ConnectedWadl",
+    "Type": "ServiceInfo",
+    "WorkflowEntityId": "2337a115-fc82-ee11-8179-6045bdaa8a35"
+  }
+]

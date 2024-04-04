@@ -1,0 +1,227 @@
+AddWorkspaces As screen:
+    Fill: =RGBA(241, 244, 249, 1)
+    OnVisible: =
+
+    Component1_19 As Component1:
+
+    Label7_4 As label:
+        Align: =Align.Center
+        Color: =RGBA(255, 255, 255, 1)
+        FontWeight: =FontWeight.Bold
+        Height: =126
+        Size: =32
+        Text: ="Add Workspaces And Services"
+        Width: =674
+        X: =379
+        ZIndex: =4
+
+    Label7_5 As label:
+        Align: =Align.Center
+        FontWeight: =FontWeight.Bold
+        Height: =96
+        Size: =20
+        Text: ="Add Workspaces"
+        Visible: =varshowtext
+        Width: =522
+        X: =422
+        Y: =139
+        ZIndex: =9
+
+    btnNextpage As button:
+        BorderColor: =ColorFade(Self.Fill, -200%)
+        BorderThickness: =0
+        DisplayMode: |
+            =If(!IsEmpty(CollWorkspace),
+            DisplayMode.Edit
+            ,
+            DisplayMode.Disabled
+            )
+        Height: =59
+        HoverFill: =Self.Fill
+        OnSelect: |
+            =ClearCollect(CollServices,Blank());
+            Navigate(AddServices,BorderStyle.None, {varRecord:Gallery1.Selected,selectedWorkspace:CollWorkspace});
+        RadiusBottomLeft: =25
+        RadiusBottomRight: =25
+        RadiusTopLeft: =25
+        RadiusTopRight: =25
+        Size: =20
+        Text: ="Next"
+        Width: =200
+        X: =946
+        Y: =640
+        ZIndex: =11
+
+    Container1 As groupContainer.manualLayoutContainer:
+        BorderThickness: =1
+        Height: =361
+        Width: =954
+        X: =192
+        Y: =248
+        ZIndex: =13
+
+        Label26 As label:
+            Font: =Font.Arial
+            FontWeight: =FontWeight.Bold
+            Size: =15
+            Text: ="Workspace"
+            X: =98
+            Y: =8
+            ZIndex: =2
+
+        Label26_1 As label:
+            FontWeight: =FontWeight.Bold
+            Size: =15
+            Text: ="Data Import/Export Governance "
+            Width: =342
+            X: =359
+            Y: =8
+            ZIndex: =3
+
+        Label26_2 As label:
+            FontWeight: =FontWeight.Bold
+            Size: =15
+            Text: ="Select one"
+            Width: =122
+            X: =731
+            Y: =8
+            ZIndex: =4
+
+        "Gallery5 As gallery.'BrowseLayout_Vertical_TwoTextOneImageVariant_ver5.0'":
+            BorderThickness: =1
+            DelayItemLoading: =true
+            Height: =301
+            Items: =Treat_Data_V2_MasterWorkspaces
+            Layout: =Layout.Vertical
+            LoadingSpinner: =LoadingSpinner.Data
+            TemplatePadding: =0
+            TemplateSize: =54
+            Width: =954
+            Y: =60
+            ZIndex: =19
+
+            Image7 As image:
+                Height: =72
+                OnSelect: =Select(Parent)
+                RadiusBottomLeft: =8
+                RadiusBottomRight: =8
+                RadiusTopLeft: =8
+                RadiusTopRight: =8
+                Visible: =false
+                Width: =72
+                X: =16
+                Y: =(Parent.TemplateHeight / 2) - (Self.Height / 2)
+                ZIndex: =1
+
+            Title2 As label:
+                FontWeight: =If(ThisItem.IsSelected, FontWeight.Semibold, FontWeight.Normal)
+                Height: =27
+                OnSelect: =Select(Parent)
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Text: =ThisItem.Workspaces
+                VerticalAlign: =VerticalAlign.Top
+                Width: =332
+                X: =95
+                Y: =27
+                ZIndex: =2
+
+            Subtitle3 As label:
+                Align: =Align.Center
+                FontWeight: =If(ThisItem.IsSelected, FontWeight.Semibold, FontWeight.Normal)
+                Height: =Self.Size * 1.8
+                OnSelect: =Select(Parent)
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Text: =ThisItem.'Data Import/Export Governance'
+                VerticalAlign: =VerticalAlign.Top
+                Width: =Title2.Width
+                X: =333
+                Y: =29
+                ZIndex: =3
+
+            NextArrow2 As icon.ChevronRight:
+                AccessibleLabel: =Self.Tooltip
+                Color: =RGBA(166, 166, 166, 1)
+                Height: =50
+                Icon: =Icon.ChevronRight
+                OnSelect: =Select(Parent)
+                PaddingBottom: =16
+                PaddingLeft: =16
+                PaddingRight: =16
+                PaddingTop: =16
+                Tooltip: ="View item details"
+                Visible: =false
+                Width: =50
+                X: =Parent.TemplateWidth - Self.Width - 12
+                Y: =(Parent.TemplateHeight / 2) - (Self.Height / 2)
+                ZIndex: =4
+
+            Separator9 As rectangle:
+                Height: =8
+                OnSelect: =Select(Parent)
+                Width: =Parent.TemplateWidth
+                Y: =46
+                ZIndex: =5
+
+            Rectangle6 As rectangle:
+                Height: =Parent.TemplateHeight - Separator9.Height
+                OnSelect: =Select(Parent)
+                Visible: =ThisItem.IsSelected
+                Width: =4
+                ZIndex: =6
+
+            Checkbox1 As checkbox:
+                BorderColor: =Gallery5.Fill
+                Default: |-
+                    =If(CountRows(Filter(CollWorkspace,Workspaces=ThisItem.Workspaces))>0,true,false)
+                    //If(CountRows(Filter(Treat_Data_V2_Workspaces,GUID(WorkspaceID) = ThisItem.Treat_Data_V2_Workspaces ))>0 Or 
+                    //CountRows(Filter(CollWorkspace,Workspaces=ThisItem.Workspaces))>0
+                    
+                    //,true,false)
+                OnCheck: =ClearCollect(CollWorkspace,ThisItem)
+                OnSelect: =Select(Parent)
+                OnUncheck: =Remove(CollWorkspace,ThisItem)
+                PressedBorderColor: =ColorFade(Self.BorderColor, -10%)
+                Text: =""
+                Width: =45
+                X: =764
+                Y: =7
+                ZIndex: =9
+
+        Icon1_42 As icon.Information:
+            Height: =25
+            Icon: =Icon.Information
+            Tooltip: ="Select the workspace of choice."
+            Width: =25
+            X: =853
+            Y: =15
+            ZIndex: =20
+
+    btnNextpage_2 As button:
+        BorderColor: =ColorFade(Self.Fill, -200%)
+        BorderThickness: =0
+        DisplayMode: |
+            =//If(chkBase Or chkCustomsed Or chkUnrestricted,
+            DisplayMode.Edit
+            //,
+            //DisplayMode.Disabled
+            //)
+        Height: =59
+        HoverFill: =Self.Fill
+        OnSelect: =Navigate(DataRegistration)
+        RadiusBottomLeft: =25
+        RadiusBottomRight: =25
+        RadiusTopLeft: =25
+        RadiusTopRight: =25
+        Size: =20
+        Text: ="Back"
+        Width: =200
+        X: =192
+        Y: =640
+        ZIndex: =14
+

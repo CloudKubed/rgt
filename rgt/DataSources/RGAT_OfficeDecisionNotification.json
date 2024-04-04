@@ -1,0 +1,10 @@
+[
+  {
+    "ApiId": "/providers/microsoft.powerapps/apis/shared_logicflows",
+    "FlowNameId": "0d84ef84-bf8f-4f56-a4e7-840f843f8c59",
+    "Name": "RGAT_OfficeDecisionNotification",
+    "ServiceKind": "ConnectedWadl",
+    "Type": "ServiceInfo",
+    "WorkflowEntityId": "de07e6a7-0bcf-ee11-9079-6045bdc1e5e4"
+  }
+]

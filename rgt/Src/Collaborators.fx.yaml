@@ -1,0 +1,447 @@
+Collaborators As screen:
+    Fill: =RGBA(241, 244, 249, 1)
+
+    Component1_11 As Component1:
+
+    frmCollaborators As form:
+        BorderColor: =RGBA(0, 0, 0, 1)
+        BorderThickness: =2
+        DataSource: =Treat_Data_V2_Collaborators
+        DefaultMode: =FormMode.New
+        Fill: =RGBA(255, 255, 255, 1)
+        Height: =478
+        NumberOfColumns: =1
+        OnSuccess: =Navigate(AddCollaborators)
+        Width: =925
+        X: =220
+        Y: =174
+        ZIndex: =3
+
+        AC_LastName_DataCard1 As typedDataCard.textualEditCard:
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="cr110_ac_lastname"
+            Default: =ThisItem.AC_LastName
+            DisplayMode: =Parent.DisplayMode
+            DisplayName: =DataSourceInfo([@Treat_Data_V2_Collaborators],DataSourceInfo.DisplayName,"cr110_ac_lastname")
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =50
+            MaxLength: =DataSourceInfo([@Treat_Data_V2_Collaborators], DataSourceInfo.MaxLength, "cr110_ac_lastname")
+            Required: =true
+            Update: =DataCardValue9.Text
+            Width: =923
+            X: =0
+            Y: =1
+            ZIndex: =1
+
+            DataCardKey16 As label:
+                AutoHeight: =true
+                Height: =34
+                Text: ="Last name"
+                Width: =Parent.Width - 60
+                Wrap: =false
+                X: =30
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue9 As text:
+                BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                Default: =Parent.Default
+                DelayOutput: =true
+                DisplayMode: =Parent.DisplayMode
+                HintText: ="Please type in collaborator’s last name here"
+                MaxLength: =Parent.MaxLength
+                PaddingLeft: =5
+                RadiusBottomLeft: =0
+                RadiusBottomRight: =0
+                RadiusTopLeft: =0
+                RadiusTopRight: =0
+                Tooltip: =Parent.DisplayName
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardKey16.Y + DataCardKey16.Height + 5
+                ZIndex: =2
+
+            ErrorMessage15 As label:
+                AutoHeight: =true
+                Height: =10
+                Live: =Live.Assertive
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Text: =Parent.Error
+                Visible: =Parent.DisplayMode=DisplayMode.Edit
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardValue9.Y + DataCardValue9.Height
+                ZIndex: =3
+
+            StarVisible15 As label:
+                Align: =Align.Center
+                Height: =DataCardKey16.Height
+                Text: ="*"
+                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                Width: =30
+                Wrap: =false
+                Y: =DataCardKey16.Y
+                ZIndex: =4
+
+            Icon1_33 As icon.Information:
+                Height: =25
+                Icon: =Icon.Information
+                Tooltip: ="Provide the last name of a collaborator or any other person that should have access to this"
+                Width: =25
+                X: =127
+                Y: =15
+                ZIndex: =5
+
+        AC_Email_DataCard1 As typedDataCard.textualEditCard:
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="cr110_ac_email"
+            Default: =ThisItem.AC_Email
+            DisplayMode: =Parent.DisplayMode
+            DisplayName: =DataSourceInfo([@Treat_Data_V2_Collaborators],DataSourceInfo.DisplayName,"cr110_ac_email")
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =50
+            MaxLength: =DataSourceInfo([@Treat_Data_V2_Collaborators], DataSourceInfo.MaxLength, "cr110_ac_email")
+            Required: =true
+            Update: =DataCardValue14.Text
+            Width: =923
+            X: =0
+            Y: =2
+            ZIndex: =1
+
+            DataCardKey17 As label:
+                AutoHeight: =true
+                Height: =34
+                Text: ="Email"
+                Width: =Parent.Width - 60
+                Wrap: =false
+                X: =30
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue14 As text:
+                BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                Default: =Parent.Default
+                DelayOutput: =true
+                DisplayMode: =Parent.DisplayMode
+                HintText: ="Please type in collaborator’s email address here"
+                MaxLength: =Parent.MaxLength
+                PaddingLeft: =5
+                RadiusBottomLeft: =0
+                RadiusBottomRight: =0
+                RadiusTopLeft: =0
+                RadiusTopRight: =0
+                Tooltip: =Parent.DisplayName
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardKey17.Y + DataCardKey17.Height + 5
+                ZIndex: =2
+
+            ErrorMessage16 As label:
+                AutoHeight: =true
+                Height: =10
+                Live: =Live.Assertive
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Text: =Parent.Error
+                Visible: =Parent.DisplayMode=DisplayMode.Edit
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardValue14.Y + DataCardValue14.Height
+                ZIndex: =3
+
+            StarVisible16 As label:
+                Align: =Align.Center
+                Height: =DataCardKey17.Height
+                Text: ="*"
+                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                Width: =30
+                Wrap: =false
+                Y: =DataCardKey17.Y
+                ZIndex: =4
+
+            Icon1_34 As icon.Information:
+                Height: =25
+                Icon: =Icon.Information
+                Tooltip: ="Provide the email address of a collaborator or any other person that should have access to this"
+                Width: =25
+                X: =85
+                Y: =14
+                ZIndex: =5
+
+        AC_Role_DataCard1 As typedDataCard.textualEditCard:
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="cr110_ac_role"
+            Default: =ThisItem.AC_Role
+            DisplayMode: =Parent.DisplayMode
+            DisplayName: =DataSourceInfo([@Treat_Data_V2_Collaborators],DataSourceInfo.DisplayName,"cr110_ac_role")
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =50
+            MaxLength: =DataSourceInfo([@Treat_Data_V2_Collaborators], DataSourceInfo.MaxLength, "cr110_ac_role")
+            Required: =true
+            Update: =DataCardValue15.Text
+            Width: =923
+            X: =0
+            Y: =3
+            ZIndex: =1
+
+            DataCardKey18 As label:
+                AutoHeight: =true
+                Height: =34
+                Text: ="Role"
+                Width: =Parent.Width - 60
+                Wrap: =false
+                X: =30
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue15 As text:
+                BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                Default: =Parent.Default
+                DelayOutput: =true
+                DisplayMode: =Parent.DisplayMode
+                HintText: ="Please type in collaborator’s role here e.g. co-investigator"
+                MaxLength: =Parent.MaxLength
+                PaddingLeft: =5
+                RadiusBottomLeft: =0
+                RadiusBottomRight: =0
+                RadiusTopLeft: =0
+                RadiusTopRight: =0
+                Tooltip: =Parent.DisplayName
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardKey18.Y + DataCardKey18.Height + 5
+                ZIndex: =2
+
+            ErrorMessage17 As label:
+                AutoHeight: =true
+                Height: =10
+                Live: =Live.Assertive
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Text: =Parent.Error
+                Visible: =Parent.DisplayMode=DisplayMode.Edit
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardValue15.Y + DataCardValue15.Height
+                ZIndex: =3
+
+            StarVisible17 As label:
+                Align: =Align.Center
+                Height: =DataCardKey18.Height
+                Text: ="*"
+                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                Width: =30
+                Wrap: =false
+                Y: =DataCardKey18.Y
+                ZIndex: =4
+
+            Icon1_35 As icon.Information:
+                Height: =25
+                Icon: =Icon.Information
+                Tooltip: ="Provide the title of the role of collaborator e.g. co-investigator"
+                Width: =25
+                X: =75
+                Y: =15
+                ZIndex: =5
+
+        ParentID_DataCard1 As typedDataCard.textualEditCard:
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="cr110_parentid"
+            Default: =ThisItem.ParentID
+            DisplayMode: =Parent.DisplayMode
+            DisplayName: =DataSourceInfo([@Treat_Data_V2_Collaborators],DataSourceInfo.DisplayName,"cr110_parentid")
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =50
+            MaxLength: =DataSourceInfo([@Treat_Data_V2_Collaborators], DataSourceInfo.MaxLength, "cr110_parentid")
+            Required: =false
+            Update: =DataCardValue69.Text
+            Visible: =false
+            Width: =925
+            X: =0
+            Y: =4
+            ZIndex: =1
+
+            DataCardKey74 As label:
+                AutoHeight: =true
+                Height: =34
+                Text: =Parent.DisplayName
+                Width: =Parent.Width - 60
+                Wrap: =false
+                X: =30
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue69 As text:
+                BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                Default: =varRecord.Treat_Data_V2
+                DelayOutput: =true
+                DisplayMode: =Parent.DisplayMode
+                MaxLength: =Parent.MaxLength
+                PaddingLeft: =5
+                RadiusBottomLeft: =0
+                RadiusBottomRight: =0
+                RadiusTopLeft: =0
+                RadiusTopRight: =0
+                Tooltip: =Parent.DisplayName
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardKey74.Y + DataCardKey74.Height + 5
+                ZIndex: =2
+
+            ErrorMessage81 As label:
+                AutoHeight: =true
+                Height: =10
+                Live: =Live.Assertive
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Text: =Parent.Error
+                Visible: =Parent.DisplayMode=DisplayMode.Edit
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardValue69.Y + DataCardValue69.Height
+                ZIndex: =3
+
+            StarVisible81 As label:
+                Align: =Align.Center
+                Height: =DataCardKey74.Height
+                Text: ="*"
+                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                Width: =30
+                Wrap: =false
+                Y: =DataCardKey74.Y
+                ZIndex: =4
+
+        AC_FirstName_DataCard1 As typedDataCard.textualEditCard:
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="cr110_ac_firstname"
+            Default: =ThisItem.AC_FirstName
+            DisplayMode: =Parent.DisplayMode
+            DisplayName: =DataSourceInfo([@Treat_Data_V2_Collaborators],DataSourceInfo.DisplayName,"cr110_ac_firstname")
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =50
+            MaxLength: =DataSourceInfo([@Treat_Data_V2_Collaborators], DataSourceInfo.MaxLength, "cr110_ac_firstname")
+            Required: =true
+            Update: =DataCardValue2.Text
+            Width: =923
+            X: =0
+            Y: =0
+            ZIndex: =4
+
+            DataCardKey2 As label:
+                AutoHeight: =true
+                Height: =34
+                Text: ="First name"
+                Width: =Parent.Width - 60
+                Wrap: =false
+                X: =30
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue2 As text:
+                BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                Default: =Parent.Default
+                DelayOutput: =true
+                DisplayMode: =Parent.DisplayMode
+                HintText: ="Please type in collaborator’s first name here"
+                MaxLength: =Parent.MaxLength
+                PaddingLeft: =5
+                RadiusBottomLeft: =0
+                RadiusBottomRight: =0
+                RadiusTopLeft: =0
+                RadiusTopRight: =0
+                Tooltip: =Parent.DisplayName
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardKey2.Y + DataCardKey2.Height + 5
+                ZIndex: =2
+
+            ErrorMessage10 As label:
+                AutoHeight: =true
+                Height: =10
+                Live: =Live.Assertive
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Text: =Parent.Error
+                Visible: =Parent.DisplayMode=DisplayMode.Edit
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardValue2.Y + DataCardValue2.Height
+                ZIndex: =3
+
+            StarVisible10 As label:
+                Align: =Align.Center
+                Height: =DataCardKey2.Height
+                Text: ="*"
+                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                Width: =30
+                Wrap: =false
+                Y: =DataCardKey2.Y
+                ZIndex: =4
+
+            Icon1_32 As icon.Information:
+                Height: =25
+                Icon: =Icon.Information
+                Tooltip: ="Provide the first name of a collaborator or any other person that should have access to this project/data/application"
+                Width: =25
+                X: =130
+                Y: =15
+                ZIndex: =5
+
+    btnAdd As button:
+        BorderColor: =ColorFade(Self.Fill, -200%)
+        BorderThickness: =0
+        Height: =48
+        OnSelect: =SubmitForm(frmCollaborators);
+        RadiusBottomLeft: =25
+        RadiusBottomRight: =25
+        RadiusTopLeft: =25
+        RadiusTopRight: =25
+        Text: ="Add"
+        Width: =210
+        X: =935
+        Y: =684
+        ZIndex: =4
+
+    btnCancel As button:
+        BorderColor: =ColorFade(Self.Fill, -200%)
+        BorderThickness: =0
+        Height: =48
+        OnSelect: =ResetForm(frmCollaborators);Navigate(AddCollaborators)
+        RadiusBottomLeft: =25
+        RadiusBottomRight: =25
+        RadiusTopLeft: =25
+        RadiusTopRight: =25
+        Text: ="Cancel"
+        Width: =210
+        X: =220
+        Y: =684
+        ZIndex: =5
+
+    lblTitle7_1 As label:
+        Align: =Align.Center
+        Color: =RGBA(255, 255, 255, 1)
+        FontWeight: =FontWeight.Bold
+        Height: =126
+        Size: =32
+        Text: ="Add Collaborators"
+        Width: =1366
+        ZIndex: =8
+
+    "'Home Button_6' As icon.Home":
+        Icon: =Icon.Home
+        OnSelect: =Navigate(Welcome)
+        X: =1283
+        Y: =31
+        ZIndex: =9
+

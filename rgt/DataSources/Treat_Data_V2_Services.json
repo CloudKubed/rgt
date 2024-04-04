@@ -1,0 +1,98 @@
+[
+  {
+    "CdsFCBContext": "{\"FileType\":true,\"ImageExternalStorage\":true}",
+    "EntitySetName": "cr110_treat_data_v2_serviceses",
+    "IsHidden": false,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "LogicalName": "cr110_treat_data_v2_services",
+    "MaxGetRowsCount": 500,
+    "Name": "Treat_Data_V2_Services",
+    "NativeCDSDataSourceInfoNameMapping": {
+      "_ownerid_value": "Owner",
+      "cr110_parentid": "ParentID",
+      "cr110_treat_data_v2_services_AsyncOperations": "System Jobs",
+      "cr110_treat_data_v2_services_BulkDeleteFailures": "Bulk Delete Failures",
+      "cr110_treat_data_v2_services_DuplicateBaseRecord": "Duplicate Records (cr110_treat_data_v2_services_DuplicateBaseRecord)",
+      "cr110_treat_data_v2_services_DuplicateMatchingRecord": "Duplicate Records (cr110_treat_data_v2_services_DuplicateMatchingRecord)",
+      "cr110_treat_data_v2_services_MailboxTrackingFolders": "Mailbox Auto Tracking Folders",
+      "cr110_treat_data_v2_services_PrincipalObjectAttributeAccesses": "Field Sharing",
+      "cr110_treat_data_v2_services_ProcessSession": "Process Sessions",
+      "cr110_treat_data_v2_services_SyncErrors": "Sync Errors",
+      "cr110_treat_data_v2_servicesid": "Treat_Data_V2_Services",
+      "cr110_workspaceid": "WorkspaceID",
+      "createdby": "Created By",
+      "createdon": "Created On",
+      "createdonbehalfby": "Created By (Delegate)",
+      "importsequencenumber": "Import Sequence Number",
+      "modifiedby": "Modified By",
+      "modifiedon": "Modified On",
+      "modifiedonbehalfby": "Modified By (Delegate)",
+      "overriddencreatedon": "Record Created On",
+      "owningbusinessunit": "Owning Business Unit",
+      "owningteam": "Owning Team",
+      "owninguser": "Owning User",
+      "statecode": "Status",
+      "statuscode": "Status Reason",
+      "timezoneruleversionnumber": "Time Zone Rule Version Number",
+      "utcconversiontimezonecode": "UTC Conversion Time Zone Code",
+      "versionnumber": "Version Number"
+    },
+    "PreferredName": "Treat_Data_V2_Services",
+    "Type": "NativeCDSDataSourceInfo"
+  },
+  {
+    "DisplayName": "Treat_Data_V2_Services (Views)",
+    "Name": "_cr110_treat_data_v2_services_views",
+    "RelatedEntityName": "Treat_Data_V2_Services",
+    "TrimmedViewName": true,
+    "Type": "ViewInfo",
+    "ViewInfoNameMapping": {
+      "02c33050-6be6-4923-b56c-06208381b4dc": "Inactive Treat_Data_V2_Services",
+      "10fbf1e2-f0d2-4cdb-b627-9400ba6ae6ee": "Treat_Data_V2_Services Lookup View",
+      "12dfc8b3-7a51-455d-8e45-18262f33b73c": "Treat_Data_V2_Services Advanced Find View",
+      "6dc615cb-6f73-41f3-ab18-cb720b5b368f": "Treat_Data_V2_Services Associated View",
+      "84a42175-b210-429d-b635-ec89b8328f28": "Active Treat_Data_V2_Services"
+    }
+  },
+  {
+    "DisplayName": "Status (Treat_Data_V2_Services)",
+    "Name": "cr110_treat_data_v2_services_statecode",
+    "OptionSetInfoNameMapping": {
+      "0": "Active",
+      "1": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statecode",
+        "OptionSetReferenceEntityName": "Treat_Data_V2_Services"
+      }
+    },
+    "OptionSetTypeKey": "StateType",
+    "RelatedColumnInvariantName": "statecode",
+    "RelatedEntityName": "Treat_Data_V2_Services",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status Reason (Treat_Data_V2_Services)",
+    "Name": "cr110_treat_data_v2_services_statuscode",
+    "OptionSetInfoNameMapping": {
+      "1": "Active",
+      "2": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statuscode",
+        "OptionSetReferenceEntityName": "Treat_Data_V2_Services"
+      }
+    },
+    "OptionSetTypeKey": "StatusType",
+    "RelatedColumnInvariantName": "statuscode",
+    "RelatedEntityName": "Treat_Data_V2_Services",
+    "Type": "OptionSetInfo"
+  }
+]

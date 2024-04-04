@@ -1,0 +1,107 @@
+[
+  {
+    "CdsFCBContext": "{\"FileType\":true,\"ImageExternalStorage\":true}",
+    "EntitySetName": "cr110_treat_data_v2_masteruserresourceses",
+    "IsHidden": false,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "LogicalName": "cr110_treat_data_v2_masteruserresources",
+    "MaxGetRowsCount": 500,
+    "Name": "Treat_Data_V2_MasterUserResources",
+    "NativeCDSDataSourceInfoNameMapping": {
+      "_ownerid_value": "Owner",
+      "cr110_availablecomputememoryspecifications": "Available Compute & Memory Specifications",
+      "cr110_cr110_treat_data_v2_masteruserresourcesde": "Treat_Data_V2_MasterUserResourcesDetails (cr110_cr110_treat_data_v2_masteruserresourcesde)",
+      "cr110_ostype": "OS Type",
+      "cr110_resource_id": "Resource_ID",
+      "cr110_servicetype": "Service Type",
+      "cr110_softwareavailability": "Software availability",
+      "cr110_standardvmdisksize": "Standard VM disk size",
+      "cr110_totalcost": "TotalCost",
+      "cr110_treat_data_v2_masteruserresources_AsyncOperations": "System Jobs",
+      "cr110_treat_data_v2_masteruserresources_BulkDeleteFailures": "Bulk Delete Failures",
+      "cr110_Treat_Data_V2_MasterUserResources_c": "Treat_Data_V2_MasterUserResourcesDetails (cr110_Treat_Data_V2_MasterUserResources_c)",
+      "cr110_treat_data_v2_masteruserresources_DuplicateBaseRecord": "Duplicate Records (cr110_treat_data_v2_masteruserresources_DuplicateBaseRecord)",
+      "cr110_treat_data_v2_masteruserresources_DuplicateMatchingRecord": "Duplicate Records (cr110_treat_data_v2_masteruserresources_DuplicateMatchingRecord)",
+      "cr110_treat_data_v2_masteruserresources_MailboxTrackingFolders": "Mailbox Auto Tracking Folders",
+      "cr110_treat_data_v2_masteruserresources_PrincipalObjectAttributeAccesses": "Field Sharing",
+      "cr110_treat_data_v2_masteruserresources_ProcessSession": "Process Sessions",
+      "cr110_treat_data_v2_masteruserresources_SyncErrors": "Sync Errors",
+      "cr110_treat_data_v2_masteruserresourcesid": "Treat_Data_V2_MasterUserResources",
+      "cr110_userresourcesautoid": "userResourcesAutoID",
+      "cr110_vmtype": "VM Type",
+      "createdby": "Created By",
+      "createdon": "Created On",
+      "createdonbehalfby": "Created By (Delegate)",
+      "importsequencenumber": "Import Sequence Number",
+      "modifiedby": "Modified By",
+      "modifiedon": "Modified On",
+      "modifiedonbehalfby": "Modified By (Delegate)",
+      "overriddencreatedon": "Record Created On",
+      "owningbusinessunit": "Owning Business Unit",
+      "owningteam": "Owning Team",
+      "owninguser": "Owning User",
+      "statecode": "Status",
+      "statuscode": "Status Reason",
+      "timezoneruleversionnumber": "Time Zone Rule Version Number",
+      "utcconversiontimezonecode": "UTC Conversion Time Zone Code",
+      "versionnumber": "Version Number"
+    },
+    "PreferredName": "Treat_Data_V2_MasterUserResources",
+    "Type": "NativeCDSDataSourceInfo"
+  },
+  {
+    "DisplayName": "Treat_Data_V2_MasterUserResources (Views)",
+    "Name": "_cr110_treat_data_v2_masteruserresources_views",
+    "RelatedEntityName": "Treat_Data_V2_MasterUserResources",
+    "TrimmedViewName": true,
+    "Type": "ViewInfo",
+    "ViewInfoNameMapping": {
+      "1b6b816d-ce77-4994-82a8-9e3e6e2f9e3c": "Treat_Data_V2_MasterUserResources Advanced Find View",
+      "2e6dc483-0c27-4cfc-85cd-14b80998d242": "Treat_Data_V2_MasterUserResources Associated View",
+      "bfdffb67-b2c6-4071-8557-30c2191dd19f": "Inactive Treat_Data_V2_MasterUserResources",
+      "c807521a-e658-4109-800a-42f5d163d3d5": "Active Treat_Data_V2_MasterUserResources",
+      "d5445d74-0f3e-497f-9b5a-13758578ed7b": "Treat_Data_V2_MasterUserResources Lookup View"
+    }
+  },
+  {
+    "DisplayName": "Status (Treat_Data_V2_MasterUserResources)",
+    "Name": "cr110_treat_data_v2_masteruserresources_statecode",
+    "OptionSetInfoNameMapping": {
+      "0": "Active",
+      "1": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statecode",
+        "OptionSetReferenceEntityName": "Treat_Data_V2_MasterUserResources"
+      }
+    },
+    "OptionSetTypeKey": "StateType",
+    "RelatedColumnInvariantName": "statecode",
+    "RelatedEntityName": "Treat_Data_V2_MasterUserResources",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status Reason (Treat_Data_V2_MasterUserResources)",
+    "Name": "cr110_treat_data_v2_masteruserresources_statuscode",
+    "OptionSetInfoNameMapping": {
+      "1": "Active",
+      "2": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statuscode",
+        "OptionSetReferenceEntityName": "Treat_Data_V2_MasterUserResources"
+      }
+    },
+    "OptionSetTypeKey": "StatusType",
+    "RelatedColumnInvariantName": "statuscode",
+    "RelatedEntityName": "Treat_Data_V2_MasterUserResources",
+    "Type": "OptionSetInfo"
+  }
+]

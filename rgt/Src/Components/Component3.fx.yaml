@@ -1,0 +1,31 @@
+Component3 As CanvasComponent:
+    Fill: =RGBA(0, 0, 0, 0)
+    Height: =86
+    Width: =88
+    X: =0
+    Y: =0
+    ZIndex: =1
+
+    shpSaveAsDraft4_1 As circle:
+        Fill: |-
+            =ColorValue("#CCCCCC")
+        Height: =86
+        Width: =88
+        ZIndex: =1
+
+    btnSaveAsDraft4_1 As button:
+        BorderThickness: =0
+        Color: =RGBA(0, 0, 0, 1)
+        Fill: |-
+            =ColorValue("#CCCCCC")
+        FontWeight: =FontWeight.Bold
+        Height: =45
+        HoverColor: =RGBA(0, 134, 208, 1)
+        HoverFill: =Self.Fill
+        Size: =8
+        Text: ="Save as Draft"
+        Width: =61
+        X: =14
+        Y: =21
+        ZIndex: =2
+

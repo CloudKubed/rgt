@@ -1,0 +1,98 @@
+[
+  {
+    "CdsFCBContext": "{\"FileType\":true,\"ImageExternalStorage\":true}",
+    "EntitySetName": "cr110_treat_data_v2_workspaceses",
+    "IsHidden": false,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "LogicalName": "cr110_treat_data_v2_workspaces",
+    "MaxGetRowsCount": 500,
+    "Name": "Treat_Data_V2_Workspaces",
+    "NativeCDSDataSourceInfoNameMapping": {
+      "_ownerid_value": "Owner",
+      "cr110_parentid": "ParentID",
+      "cr110_treat_data_v2_workspaces_AsyncOperations": "System Jobs",
+      "cr110_treat_data_v2_workspaces_BulkDeleteFailures": "Bulk Delete Failures",
+      "cr110_treat_data_v2_workspaces_DuplicateBaseRecord": "Duplicate Records (cr110_treat_data_v2_workspaces_DuplicateBaseRecord)",
+      "cr110_treat_data_v2_workspaces_DuplicateMatchingRecord": "Duplicate Records (cr110_treat_data_v2_workspaces_DuplicateMatchingRecord)",
+      "cr110_treat_data_v2_workspaces_MailboxTrackingFolders": "Mailbox Auto Tracking Folders",
+      "cr110_treat_data_v2_workspaces_PrincipalObjectAttributeAccesses": "Field Sharing",
+      "cr110_treat_data_v2_workspaces_ProcessSession": "Process Sessions",
+      "cr110_treat_data_v2_workspaces_SyncErrors": "Sync Errors",
+      "cr110_treat_data_v2_workspacesid": "Treat_Data_V2_Workspaces",
+      "cr110_workspaceid": "WorkspaceID",
+      "createdby": "Created By",
+      "createdon": "Created On",
+      "createdonbehalfby": "Created By (Delegate)",
+      "importsequencenumber": "Import Sequence Number",
+      "modifiedby": "Modified By",
+      "modifiedon": "Modified On",
+      "modifiedonbehalfby": "Modified By (Delegate)",
+      "overriddencreatedon": "Record Created On",
+      "owningbusinessunit": "Owning Business Unit",
+      "owningteam": "Owning Team",
+      "owninguser": "Owning User",
+      "statecode": "Status",
+      "statuscode": "Status Reason",
+      "timezoneruleversionnumber": "Time Zone Rule Version Number",
+      "utcconversiontimezonecode": "UTC Conversion Time Zone Code",
+      "versionnumber": "Version Number"
+    },
+    "PreferredName": "Treat_Data_V2_Workspaces",
+    "Type": "NativeCDSDataSourceInfo"
+  },
+  {
+    "DisplayName": "Treat_Data_V2_Workspaces (Views)",
+    "Name": "_cr110_treat_data_v2_workspaces_views",
+    "RelatedEntityName": "Treat_Data_V2_Workspaces",
+    "TrimmedViewName": true,
+    "Type": "ViewInfo",
+    "ViewInfoNameMapping": {
+      "1841d465-eca8-45e1-bc8c-700e23981f58": "Treat_Data_V2_Workspaces Lookup View",
+      "31449972-8569-4028-b57a-2b918dee48e4": "Treat_Data_V2_Workspaces Associated View",
+      "5ac1b321-7ac7-4e5c-8f5e-eafae0ab559c": "Treat_Data_V2_Workspaces Advanced Find View",
+      "825c8632-2c7a-4e7c-a605-d6ab6a2c0b28": "Inactive Treat_Data_V2_Workspaces",
+      "c87823a9-3f1d-4b1f-8730-3a1eaf5d556b": "Active Treat_Data_V2_Workspaces"
+    }
+  },
+  {
+    "DisplayName": "Status (Treat_Data_V2_Workspaces)",
+    "Name": "cr110_treat_data_v2_workspaces_statecode",
+    "OptionSetInfoNameMapping": {
+      "0": "Active",
+      "1": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statecode",
+        "OptionSetReferenceEntityName": "Treat_Data_V2_Workspaces"
+      }
+    },
+    "OptionSetTypeKey": "StateType",
+    "RelatedColumnInvariantName": "statecode",
+    "RelatedEntityName": "Treat_Data_V2_Workspaces",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status Reason (Treat_Data_V2_Workspaces)",
+    "Name": "cr110_treat_data_v2_workspaces_statuscode",
+    "OptionSetInfoNameMapping": {
+      "1": "Active",
+      "2": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statuscode",
+        "OptionSetReferenceEntityName": "Treat_Data_V2_Workspaces"
+      }
+    },
+    "OptionSetTypeKey": "StatusType",
+    "RelatedColumnInvariantName": "statuscode",
+    "RelatedEntityName": "Treat_Data_V2_Workspaces",
+    "Type": "OptionSetInfo"
+  }
+]

@@ -1,0 +1,10 @@
+[
+  {
+    "ApiId": "/providers/microsoft.powerapps/apis/shared_logicflows",
+    "FlowNameId": "803b3b46-f3f2-4e2f-8b99-25cb1bc2cae6",
+    "Name": "RGAT_SendEmail_OfficeStaff",
+    "ServiceKind": "ConnectedWadl",
+    "Type": "ServiceInfo",
+    "WorkflowEntityId": "7b554db2-0bcf-ee11-9079-6045bdc1e5e4"
+  }
+]

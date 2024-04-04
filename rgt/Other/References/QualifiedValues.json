@@ -1,0 +1,144 @@
+{
+  "QualifiedValues": [
+    {
+      "Kind": "default.cds_cr110_treat_data_v2_forms",
+      "Namespace": "Treat_Data_V2S (Forms)",
+      "Values": {
+        "Information": "6508a02e-dda6-4aca-911c-c757e8f578c1"
+      }
+    },
+    {
+      "Kind": "default.cds_cr110_newtable_forms",
+      "Namespace": "Treat_Data_V2_Collaborators (Forms)",
+      "Values": {
+        "Information": "546a91fa-0555-4d84-9a6e-98e425ddcbb7"
+      }
+    },
+    {
+      "Kind": "default.cds_cr110_newtable1_forms",
+      "Namespace": "Treat_Data_V2_BudgetInformations (Forms)",
+      "Values": {
+        "Information": "bf2cd255-54f4-459d-aaba-c55c94113e08"
+      }
+    },
+    {
+      "Kind": "default.cds_cr110_newtable2_forms",
+      "Namespace": "Treat_Data_V2_MasterWorkspaces (Forms)",
+      "Values": {
+        "Information": "b70267d8-0569-46df-9fee-b3cefe4fafd4"
+      }
+    },
+    {
+      "Kind": "default.cds_cr110_newtable3_forms",
+      "Namespace": "Treat_Data_V2_MasterServices (Forms)",
+      "Values": {
+        "Information": "d123ac20-0275-42db-9cf7-88bd9d41ca34"
+      }
+    },
+    {
+      "Kind": "default.cds_systemuser_forms",
+      "Namespace": "Users (Forms)",
+      "Values": {
+        "Application User": "d26924ef-4d80-46f7-ab1d-e6ae80a54ce8",
+        "Information": "094fb08a-77bb-49e0-b7ea-8dbddfd01294",
+        "User": "c2cd9e55-d4b4-4b55-9951-16ead79643e5",
+        "User form – Business": "c2413504-7eb2-4c59-a087-95d819866114",
+        "User Hierarchy Tile Form": "c68d6c09-d7a7-4959-8d0f-44b8cff9b452"
+      }
+    },
+    {
+      "Kind": "default.cds_cr110_treat_data_v2_masteruserresources_forms",
+      "Namespace": "Treat_Data_V2_MasterUserResources (Forms)",
+      "Values": {
+        "Information": "7fd58a65-ceb0-43d8-9487-ff3fa7a79ac3"
+      }
+    },
+    {
+      "Kind": "default.cds_cr110_treat_data_v2_avilabletooling_forms",
+      "Namespace": "Treat_Data_V2_AvilableToolings (Forms)",
+      "Values": {
+        "Information": "c5aa6d73-3de4-4f8b-bdd1-9654e44c6102"
+      }
+    },
+    {
+      "Kind": "default.cds_cr110_treat_data_v2_masteruserresourcesdetail_forms",
+      "Namespace": "Treat_Data_V2_MasterUserResourcesDetails (Forms)",
+      "Values": {
+        "Information": "08c625c4-cab4-4d54-b6ce-a5492972d9f0"
+      }
+    },
+    {
+      "Kind": "default.cds_cr110_treat_data_v2_workspaces_forms",
+      "Namespace": "Treat_Data_V2_Workspaces (Forms)",
+      "Values": {
+        "Information": "f03e7baa-50d7-4cc8-8734-eecb4c25ef23"
+      }
+    },
+    {
+      "Kind": "default.cds_cr110_treat_data_v2_services_forms",
+      "Namespace": "Treat_Data_V2_Services (Forms)",
+      "Values": {
+        "Information": "6336f6d9-3d5c-4f5d-8f69-fc3b0edadbca"
+      }
+    },
+    {
+      "Kind": "default.cds_cr110_treat_data_v2_userresourcesdetail_forms",
+      "Namespace": "Treat_Data_V2_UserResourcesDetails (Forms)",
+      "Values": {
+        "Information": "7c9613e8-4ebf-420d-8063-6e5804f639aa"
+      }
+    },
+    {
+      "Kind": "default.cds_cr110_treat_data_v2_officestaff_forms",
+      "Namespace": "Treat_Data_V2_OfficeStaffs (Forms)",
+      "Values": {
+        "Information": "5a153208-cbe4-4600-8408-b6c27479f141"
+      }
+    },
+    {
+      "Kind": "default.cds_cre9c_treat_data_v2_appsettings_forms",
+      "Namespace": "Treat_Data_V2_AppSettings (Forms)",
+      "Values": {
+        "Information": "17c3d1bc-a3ee-4cf9-91af-b9cecfad1ac5"
+      }
+    },
+    {
+      "Kind": "default.cds_cr110_newtable2_forms",
+      "Namespace": "Treat_Data_V2_Workspaces (Forms)1",
+      "Values": {
+        "Information": "b70267d8-0569-46df-9fee-b3cefe4fafd4"
+      }
+    },
+    {
+      "Kind": "default.cds_cr110_newtable3_forms",
+      "Namespace": "Treat_Data_V2_Services (Forms)1",
+      "Values": {
+        "Information": "d123ac20-0275-42db-9cf7-88bd9d41ca34"
+      }
+    },
+    {
+      "Kind": "default.cds_datalakeworkspace_forms",
+      "Namespace": "Data Lake Workspaces (Forms)",
+      "Values": {}
+    },
+    {
+      "Kind": "default.cds_duplicaterecord_forms",
+      "Namespace": "Duplicate Records (Forms)",
+      "Values": {}
+    },
+    {
+      "Kind": "default.cds_cr110_treat_data_v2_workspaces_forms",
+      "Namespace": "Treat_Data_V2_Workspaces (Forms)11",
+      "Values": {
+        "Information": "f03e7baa-50d7-4cc8-8734-eecb4c25ef23"
+      }
+    },
+    {
+      "Kind": "default.cds_cr110_treat_data_v2_services_forms",
+      "Namespace": "Treat_Data_V2_Services (Forms)11",
+      "Values": {
+        "Information": "6336f6d9-3d5c-4f5d-8f69-fc3b0edadbca"
+      }
+    }
+  ]
+}

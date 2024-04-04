@@ -1,0 +1,151 @@
+AddCollaborators As screen:
+    Fill: =RGBA(241, 244, 249, 1)
+
+    Component1_7 As Component1:
+
+    lblTitle7 As label:
+        Align: =Align.Center
+        Color: =RGBA(255, 255, 255, 1)
+        FontWeight: =FontWeight.Bold
+        Height: =126
+        Size: =32
+        Text: ="Collaborators"
+        Width: =1366
+        ZIndex: =2
+
+    btnAddCollaborators As button:
+        BorderColor: =ColorFade(Self.Fill, -200%)
+        BorderThickness: =0
+        Height: =58
+        HoverFill: =Self.Fill
+        OnSelect: =Navigate(Collaborators);NewForm(frmCollaborators);
+        RadiusBottomLeft: =25
+        RadiusBottomRight: =25
+        RadiusTopLeft: =25
+        RadiusTopRight: =25
+        Size: =20
+        Text: ="Add Collaborators"
+        Width: =312
+        X: =527
+        Y: =173
+        ZIndex: =3
+
+    lbl4 As label:
+        Align: =Align.Center
+        Color: =RGBA(184, 0, 0, 1)
+        Height: =53
+        Size: =16
+        Text: ="Please Add Any Individual you will like to access the dataset. Click the Add Collaborators Button to provide their details."
+        Width: =1191
+        X: =88
+        Y: =129
+        ZIndex: =8
+
+    btnFinish As button:
+        BorderColor: =ColorFade(Self.Fill, -100%)
+        BorderThickness: =0
+        Height: =46
+        HoverFill: =Self.Fill
+        OnSelect: =Navigate(ReviewAndSubmit)
+        RadiusBottomLeft: =25
+        RadiusBottomRight: =25
+        RadiusTopLeft: =25
+        RadiusTopRight: =25
+        Text: ="FINISH"
+        Width: =217
+        X: =1088
+        Y: =697
+        ZIndex: =13
+
+    btnPrevious As button:
+        BorderColor: =ColorFade(Self.Fill, -200%)
+        BorderThickness: =0
+        Height: =46
+        HoverFill: =Self.Fill
+        OnSelect: =Navigate(TermsAndConditions)
+        RadiusBottomLeft: =25
+        RadiusBottomRight: =25
+        RadiusTopLeft: =25
+        RadiusTopRight: =25
+        Text: ="PREVIOUS"
+        Width: =217
+        X: =71
+        Y: =697
+        ZIndex: =14
+
+    tbl_collaborators As dataTable.datatable:
+        BorderStyle: =BorderStyle.Solid
+        BorderThickness: =2
+        DisplayMode: =DisplayMode.Edit
+        Fill: =RGBA(0, 0, 0, 0)
+        Height: =437
+        Items: =Filter(Treat_Data_V2_Collaborators,GUID(ParentID)=varRecord.Treat_Data_V2)
+        Visible: =true
+        Width: =1366
+        X: =0
+        Y: =243
+        ZIndex: =15
+
+        AC_FirstName_Column1 As dataTableColumn.textualColumn:
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="First Name"
+            FieldName: ="cr110_ac_firstname"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =1
+            Text: =ThisItem.AC_FirstName
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =1
+
+        AC_LastName_Column1 As dataTableColumn.textualColumn:
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="Last Name"
+            FieldName: ="cr110_ac_lastname"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =2
+            Text: =ThisItem.AC_LastName
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =2
+
+        AC_Email_Column1 As dataTableColumn.emailColumn:
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="Email"
+            FieldName: ="cr110_ac_email"
+            FieldVariantName: ="emailColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =3
+            Text: =ThisItem.AC_Email
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =3
+
+        AC_Role_Column1 As dataTableColumn.textualColumn:
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="Role"
+            FieldName: ="cr110_ac_role"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =4
+            Text: =ThisItem.AC_Role
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =4
+
+    "'Home Button_5' As icon.Home":
+        Icon: =Icon.Home
+        OnSelect: =Navigate(Welcome)
+        X: =1283
+        Y: =31
+        ZIndex: =16
+

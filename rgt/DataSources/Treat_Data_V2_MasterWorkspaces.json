@@ -1,0 +1,99 @@
+[
+  {
+    "CdsFCBContext": "{\"FileType\":true,\"ImageExternalStorage\":true}",
+    "EntitySetName": "cr110_newtable2s",
+    "IsHidden": false,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "LogicalName": "cr110_newtable2",
+    "MaxGetRowsCount": 500,
+    "Name": "Treat_Data_V2_MasterWorkspaces",
+    "NativeCDSDataSourceInfoNameMapping": {
+      "_ownerid_value": "Owner",
+      "cr110_cr110_newtable3_WorkspaceID_cr110_newtabl": "Treat_Data_V2_MasterServices",
+      "cr110_dataimportexportgovernance": "Data Import/Export Governance",
+      "cr110_newcolumn": "Workspaces",
+      "cr110_newtable2_AsyncOperations": "System Jobs",
+      "cr110_newtable2_BulkDeleteFailures": "Bulk Delete Failures",
+      "cr110_newtable2_DuplicateBaseRecord": "Duplicate Records (cr110_newtable2_DuplicateBaseRecord)",
+      "cr110_newtable2_DuplicateMatchingRecord": "Duplicate Records (cr110_newtable2_DuplicateMatchingRecord)",
+      "cr110_newtable2_MailboxTrackingFolders": "Mailbox Auto Tracking Folders",
+      "cr110_newtable2_PrincipalObjectAttributeAccesses": "Field Sharing",
+      "cr110_newtable2_ProcessSession": "Process Sessions",
+      "cr110_newtable2_SyncErrors": "Sync Errors",
+      "cr110_newtable2id": "Treat_Data_V2_Workspaces",
+      "createdby": "Created By",
+      "createdon": "Created On",
+      "createdonbehalfby": "Created By (Delegate)",
+      "importsequencenumber": "Import Sequence Number",
+      "modifiedby": "Modified By",
+      "modifiedon": "Modified On",
+      "modifiedonbehalfby": "Modified By (Delegate)",
+      "overriddencreatedon": "Record Created On",
+      "owningbusinessunit": "Owning Business Unit",
+      "owningteam": "Owning Team",
+      "owninguser": "Owning User",
+      "statecode": "Status",
+      "statuscode": "Status Reason",
+      "timezoneruleversionnumber": "Time Zone Rule Version Number",
+      "utcconversiontimezonecode": "UTC Conversion Time Zone Code",
+      "versionnumber": "Version Number"
+    },
+    "PreferredName": "Treat_Data_V2_MasterWorkspaces",
+    "Type": "NativeCDSDataSourceInfo"
+  },
+  {
+    "DisplayName": "Treat_Data_V2_MasterWorkspaces (Views)",
+    "Name": "_cr110_newtable2_views",
+    "RelatedEntityName": "Treat_Data_V2_MasterWorkspaces",
+    "TrimmedViewName": true,
+    "Type": "ViewInfo",
+    "ViewInfoNameMapping": {
+      "11233591-fd17-4a4a-a265-34be70eae481": "Treat_Data_V2_Workspaces Associated View",
+      "31f888e9-2033-4f07-928c-47b4af601543": "Treat_Data_V2_Workspaces Lookup View",
+      "676858c4-9fa0-4eda-a3e2-6b1aace5c999": "Active Treat_Data_V2_Workspaces",
+      "702cba94-389b-40ad-bd7a-3d1ab2252694": "Treat_Data_V2_Workspaces Advanced Find View",
+      "d4407100-6cce-4fd7-a0ee-83797361da74": "Inactive Treat_Data_V2_Workspaces"
+    }
+  },
+  {
+    "DisplayName": "Status (Treat_Data_V2_MasterWorkspaces)",
+    "Name": "cr110_newtable2_statecode",
+    "OptionSetInfoNameMapping": {
+      "0": "Active",
+      "1": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statecode",
+        "OptionSetReferenceEntityName": "Treat_Data_V2_MasterWorkspaces"
+      }
+    },
+    "OptionSetTypeKey": "StateType",
+    "RelatedColumnInvariantName": "statecode",
+    "RelatedEntityName": "Treat_Data_V2_MasterWorkspaces",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status Reason (Treat_Data_V2_MasterWorkspaces)",
+    "Name": "cr110_newtable2_statuscode",
+    "OptionSetInfoNameMapping": {
+      "1": "Active",
+      "2": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statuscode",
+        "OptionSetReferenceEntityName": "Treat_Data_V2_MasterWorkspaces"
+      }
+    },
+    "OptionSetTypeKey": "StatusType",
+    "RelatedColumnInvariantName": "statuscode",
+    "RelatedEntityName": "Treat_Data_V2_MasterWorkspaces",
+    "Type": "OptionSetInfo"
+  }
+]

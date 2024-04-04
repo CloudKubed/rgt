@@ -1,0 +1,40 @@
+ReviewAndSubmit As screen:
+    Fill: =RGBA(241, 244, 249, 1)
+
+    Component1_8 As Component1:
+
+    lblTitle8 As label:
+        Align: =Align.Center
+        Color: =RGBA(255, 255, 255, 1)
+        FontWeight: =FontWeight.Bold
+        Height: =119
+        Size: =32
+        Text: ="Review And Submit"
+        Width: =1366
+        Y: =7
+        ZIndex: =2
+
+    btnPrteviewMyAnswer As button:
+        BorderColor: =ColorFade(Self.Fill, -200%)
+        BorderThickness: =0
+        Height: =61
+        HoverFill: =Self.Fill
+        OnSelect: =Navigate(PreviewMyAnswers)
+        RadiusBottomLeft: =25
+        RadiusBottomRight: =25
+        RadiusTopLeft: =25
+        RadiusTopRight: =25
+        Size: =20
+        Text: ="Preview My Answers"
+        Width: =312
+        X: =527
+        Y: =400
+        ZIndex: =3
+
+    "'Home Button_7' As icon.Home":
+        Icon: =Icon.Home
+        OnSelect: =Navigate(Welcome)
+        X: =1283
+        Y: =31
+        ZIndex: =4
+

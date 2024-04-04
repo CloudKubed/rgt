@@ -1,0 +1,317 @@
+ProjectDataRegistrationsListApplications As screen:
+    Fill: =RGBA(241, 244, 249, 1)
+
+    Component1_12 As Component1:
+
+    Label7 As label:
+        Align: =Align.Center
+        Color: =RGBA(255, 255, 255, 1)
+        FontWeight: =FontWeight.Bold
+        Height: =126
+        OnSelect: =Navigate(Welcome)
+        Size: =32
+        Text: ="Research Office Approval"
+        Width: =674
+        X: =364
+        ZIndex: =3
+
+    Label7_1 As label:
+        FontWeight: =FontWeight.Bold
+        Height: =81
+        Size: =20
+        Text: =" Project Data Registrations List Applications"
+        Width: =756
+        X: =400
+        Y: =126
+        ZIndex: =5
+
+    DropdownStatus As dropdown:
+        Default: ="Pending"
+        Height: =42
+        Items: =["Pending","Approved", "Return", "Reject"]
+        Width: =225
+        X: =128
+        Y: =145
+        ZIndex: =7
+
+    Label20 As label:
+        Align: =Align.Center
+        FontWeight: =FontWeight.Bold
+        Size: =15
+        Text: |-
+            ="Status:"
+        Width: =128
+        Y: =147
+        ZIndex: =8
+
+    "Gallery6 As gallery.'BrowseLayout_Vertical_TwoTextOneImageVariant_ver5.0'":
+        BorderThickness: =1
+        DelayItemLoading: =true
+        Height: =491
+        Items: |
+            =If(DropdownStatus.Selected.Value="Pending",
+            SortByColumns(Filter(Treat_Data_V2S,'Application Status'="Publish" And IsBlank(ROA_AP_Status)),"cr110_applicationsubmitdate",SortOrder.Ascending)
+            , If(DropdownStatus.Selected.Value="Approved",
+            SortByColumns(Filter(Treat_Data_V2S,'Application Status'="Publish" And Text(ROA_AP_Status)="Approve"),"cr110_applicationsubmitdate",SortOrder.Ascending)
+            , If(DropdownStatus.Selected.Value="Return",
+            SortByColumns(Filter(Treat_Data_V2S,'Application Status'="Publish" And Text(ROA_AP_Status)="Return for more information"),"cr110_applicationsubmitdate",SortOrder.Ascending)
+            ,If(DropdownStatus.Selected.Value="Reject",
+            SortByColumns(Filter(Treat_Data_V2S,'Application Status'="Publish" And Text(ROA_AP_Status)="Reject"),"cr110_applicationsubmitdate",SortOrder.Ascending)
+            )))
+            )
+        Layout: =Layout.Vertical
+        LoadingSpinner: =LoadingSpinner.Data
+        TemplatePadding: =0
+        TemplateSize: =104
+        Width: =1310
+        X: =27
+        Y: =225
+        ZIndex: =9
+
+        Image9 As image:
+            Height: =72
+            OnSelect: =Select(Parent)
+            RadiusBottomLeft: =8
+            RadiusBottomRight: =8
+            RadiusTopLeft: =8
+            RadiusTopRight: =8
+            Visible: =false
+            Width: =72
+            X: =16
+            Y: =(Parent.TemplateHeight / 2) - (Self.Height / 2)
+            ZIndex: =1
+
+        Title4 As label:
+            FontWeight: =If(ThisItem.IsSelected, FontWeight.Semibold, FontWeight.Normal)
+            Height: =25
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Size: =12
+            Text: =ThisItem.ApplicationReferenceNumber
+            VerticalAlign: =VerticalAlign.Top
+            Width: =177
+            X: =249
+            Y: =6
+            ZIndex: =2
+
+        Subtitle5 As label:
+            FontWeight: =If(ThisItem.IsSelected, FontWeight.Semibold, FontWeight.Normal)
+            Height: =20
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Text: =ThisItem.ApplicantName
+            VerticalAlign: =VerticalAlign.Top
+            Width: =301
+            X: =249
+            Y: =36
+            ZIndex: =3
+
+        NextArrow1 As icon.ChevronRight:
+            AccessibleLabel: =Self.Tooltip
+            Color: =RGBA(166, 166, 166, 1)
+            Height: =50
+            Icon: =Icon.ChevronRight
+            OnSelect: =Select(Parent)
+            PaddingBottom: =16
+            PaddingLeft: =16
+            PaddingRight: =16
+            PaddingTop: =16
+            Tooltip: ="View item details"
+            Visible: =false
+            Width: =50
+            X: =Parent.TemplateWidth - Self.Width - 12
+            Y: =(Parent.TemplateHeight / 2) - (Self.Height / 2)
+            ZIndex: =4
+
+        Separator11 As rectangle:
+            Height: =8
+            OnSelect: =Select(Parent)
+            Width: =Parent.TemplateWidth
+            Y: =Parent.TemplateHeight - Self.Height
+            ZIndex: =5
+
+        Rectangle7 As rectangle:
+            Height: =Parent.TemplateHeight - Separator11.Height
+            OnSelect: =Select(Parent)
+            Visible: =ThisItem.IsSelected
+            Width: =4
+            ZIndex: =6
+
+        TextCanvas1 As Text:
+            DisplayMode: =DisplayMode.Edit
+            Font: =""
+            FontColor: =
+            FontItalic: =false
+            FontStrikethrough: =false
+            FontUnderline: =false
+            Height: =25
+            Text: ="Application Research Number"
+            Width: =280
+            X: =27
+            Y: =6
+            ZIndex: =7
+
+        TextCanvas1_1 As Text:
+            DisplayMode: =DisplayMode.Edit
+            Font: =""
+            FontColor: =
+            FontItalic: =false
+            FontStrikethrough: =false
+            FontUnderline: =false
+            Height: =32
+            Text: ="Applicant Name"
+            Width: =198
+            X: =27
+            Y: =31
+            ZIndex: =8
+
+        TextCanvas1_2 As Text:
+            DisplayMode: =DisplayMode.Edit
+            Font: =""
+            FontColor: =
+            FontItalic: =false
+            FontStrikethrough: =false
+            FontUnderline: =false
+            Height: =25
+            Text: ="Applicant Email Address"
+            Width: =174
+            X: =27
+            Y: =63
+            ZIndex: =9
+
+        Title4_1 As label:
+            FontWeight: =If(ThisItem.IsSelected, FontWeight.Semibold, FontWeight.Normal)
+            Height: =25
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Size: =12
+            Text: =ThisItem.ApplicantEmailAddress
+            VerticalAlign: =VerticalAlign.Top
+            Width: =287
+            X: =249
+            Y: =63
+            ZIndex: =10
+
+        TextCanvas1_3 As Text:
+            DisplayMode: =DisplayMode.Edit
+            Font: =""
+            FontColor: =
+            FontItalic: =false
+            FontStrikethrough: =false
+            FontUnderline: =false
+            Height: =25
+            Text: ="Project Title"
+            Width: =174
+            X: =682
+            Y: =6
+            ZIndex: =11
+
+        Subtitle5_1 As label:
+            FontWeight: =If(ThisItem.IsSelected, FontWeight.Semibold, FontWeight.Normal)
+            Height: =21
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Text: =ThisItem.PDD_ProjectTitle
+            VerticalAlign: =VerticalAlign.Top
+            Width: =228
+            Wrap: =false
+            X: =912
+            Y: =11
+            ZIndex: =12
+
+        TextCanvas1_4 As Text:
+            DisplayMode: =DisplayMode.Edit
+            Font: =""
+            FontColor: =
+            FontItalic: =false
+            FontStrikethrough: =false
+            FontUnderline: =false
+            Height: =32
+            Text: ="Dataset Name"
+            Width: =198
+            X: =682
+            Y: =32
+            ZIndex: =13
+
+        Subtitle5_2 As label:
+            FontWeight: =If(ThisItem.IsSelected, FontWeight.Semibold, FontWeight.Normal)
+            Height: =21
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Text: =ThisItem.PDD_DatasetName
+            VerticalAlign: =VerticalAlign.Top
+            Width: =228
+            Wrap: =false
+            X: =912
+            Y: =42
+            ZIndex: =14
+
+        TextCanvas1_5 As Text:
+            DisplayMode: =DisplayMode.Edit
+            Font: =""
+            FontColor: =
+            FontItalic: =false
+            FontStrikethrough: =false
+            FontUnderline: =false
+            Height: =32
+            Text: ="Submit Date"
+            Width: =198
+            X: =682
+            Y: =64
+            ZIndex: =15
+
+        TextCanvas2 As Text:
+            DisplayMode: =DisplayMode.Edit
+            Font: =""
+            FontColor: =
+            FontItalic: =false
+            FontStrikethrough: =false
+            FontUnderline: =false
+            Height: =32
+            Text: =Text(ThisItem.'Application Submit Date',DateTimeFormat.ShortDate)
+            Width: =242
+            X: =912
+            Y: =64
+            ZIndex: =16
+
+        ButtonCanvas2 As Button:
+            BasePaletteColor: =
+            DisplayMode: =DisplayMode.Edit
+            Font: =""
+            FontColor: =
+            FontItalic: =false
+            FontSize: =0
+            FontStrikethrough: =false
+            FontUnderline: =false
+            FontWeight: =""
+            Height: =58
+            OnSelect: |-
+                =Navigate(ApplicationReferenceNumber,BorderStyle.None,{selectedRecordID:ThisItem.Treat_Data_V2})
+            Text: =If(IsBlank(ThisItem.ROA_AP_Status),"Review","View")
+            Width: =130
+            X: =1154
+            Y: =18
+            ZIndex: =18
+
+    "'Home Button_10' As icon.Home":
+        Icon: =Icon.Home
+        OnSelect: =Navigate(Welcome)
+        X: =1283
+        Y: =31
+        ZIndex: =10
+

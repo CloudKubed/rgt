@@ -1,0 +1,1839 @@
+Governance As screen:
+    Fill: =RGBA(241, 244, 249, 1)
+    Height: =
+    OnVisible: =false
+
+    lbl2 As label:
+        Align: =Align.Center
+        Color: =RGBA(184, 0, 0, 1)
+        Height: =55
+        Size: =15
+        Text: ="Enter the data and ensure you scroll to the bottom to make sure you have answered all questions"
+        Width: =1191
+        X: =88
+        Y: =129
+        ZIndex: =8
+
+    icoProjectAndDataDetails As icon.BackArrow:
+        Height: =117
+        Icon: =Icon.BackArrow
+        OnSelect: =Navigate(ProjectAndDataDetails)
+        Width: =112
+        X: =64
+        Y: =621
+        ZIndex: =9
+
+    icoMetadataScreen As icon.NextArrow:
+        Height: =117
+        Icon: =Icon.NextArrow
+        OnSelect: |+
+            =Set(saveAsDraft,false);
+            SubmitForm(frmResearchEthics);
+            
+        Width: =112
+        X: =1167
+        Y: =621
+        ZIndex: =10
+
+    Component1_4 As Component1:
+        ZIndex: =11
+
+    lblTitle4 As label:
+        Align: =Align.Center
+        Color: =RGBA(255, 255, 255, 1)
+        FontWeight: =FontWeight.Bold
+        Height: =126
+        Size: =32
+        Text: ="2.0 Governance"
+        Width: =1366
+        ZIndex: =12
+
+    ResearchEthics As groupContainer.manualLayoutContainer:
+        EnableChildFocus: =false
+        Height: =583
+        Width: =925
+        X: =224
+        Y: =184
+        ZIndex: =20
+
+        frmResearchEthics As form:
+            BorderColor: =RGBA(0, 0, 0, 1)
+            BorderThickness: =2
+            DataSource: =Treat_Data_V2S
+            Fill: =RGBA(255, 255, 255, 1)
+            Height: =571
+            Item: =varRecord
+            NumberOfColumns: =1
+            OnFailure: =Notify("Some of the mandatory fields have not been filled out.",NotificationType.Error,2000);
+            OnSuccess: |-
+                =If(saveAsDraft,
+                
+                Set(varRecord,frmResearchEthics.LastSubmit);
+                EditForm(frmResearchEthics);
+                Notify("Successfully saved as draft...",NotificationType.Success,1000);
+                ,
+                Set(varRecord,frmResearchEthics.LastSubmit);
+                Navigate(Metadata);
+                //;Set(VarshowResearchEthics, false);Set(VarshowLegal,false);Set(VarshowOthers,false)
+                )
+            Width: =Parent.Width
+            ZIndex: =1
+
+            DataCard4 As typedDataCard.blankCard:
+                BorderColor: =RGBA(0, 0, 0, 1)
+                BorderStyle: =BorderStyle.Solid
+                BorderThickness: =2
+                DisplayMode: =DisplayMode.Edit
+                Fill: =RGBA(237, 237, 237, 1)
+                Height: =80
+                Width: =907
+                X: =30
+                Y: =0
+                ZIndex: =1
+
+                Label1 As label:
+                    Align: =Align.Center
+                    FontWeight: =FontWeight.Bold
+                    Height: =80
+                    Size: =15
+                    Text: ="Research Ethics"
+                    Width: =861
+                    ZIndex: =1
+
+            DataCard1 As typedDataCard.blankCard:
+                BorderStyle: =BorderStyle.Solid
+                DisplayMode: =DisplayMode.Edit
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =50
+                Width: =923
+                X: =0
+                Y: =1
+                ZIndex: =1
+
+                Label5 As label:
+                    FontWeight: =FontWeight.Semibold
+                    Height: =50
+                    Size: =15
+                    Text: ="Ethical Approval"
+                    Width: =861
+                    X: =30
+                    ZIndex: =1
+
+                Icon1_6 As icon.Information:
+                    Height: =25
+                    Icon: =Icon.Information
+                    Tooltip: ="If you have received ethics approval for the project and/or data, select ‘received’, upload any relevant files and, if you need to, explain the approval received in the ‘Notes’ box. If ethical approval is not needed, select ‘not required’ and explain why it is not needed"
+                    Width: =25
+                    X: =200
+                    Y: =12
+                    ZIndex: =2
+
+            G_RE_EA_IsReceived_DataCard3 As typedDataCard.comboBoxOptionSetSingleEditCard:
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="cr110_g_re_ea_isreceived"
+                Default: =ThisItem.G_RE_EA_IsReceived
+                DisplayMode: =Parent.DisplayMode
+                DisplayName: =DataSourceInfo([@Treat_Data_V2S],DataSourceInfo.DisplayName,"cr110_g_re_ea_isreceived")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =96
+                Required: =false
+                Update: =Radio4.Selected.Value
+                Width: =923
+                X: =0
+                Y: =2
+                ZIndex: =1
+
+                ErrorMessage45 As label:
+                    AutoHeight: =true
+                    Height: =10
+                    Live: =Live.Assertive
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Text: =Parent.Error
+                    Visible: =Parent.DisplayMode=DisplayMode.Edit
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =Radio4.Y + Radio4.Height
+                    ZIndex: =3
+
+                StarVisible45 As label:
+                    Align: =Align.Center
+                    Height: =
+                    Text: ="*"
+                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =30
+                    Wrap: =false
+                    Y: =
+                    ZIndex: =4
+
+                Radio4 As radio:
+                    BorderStyle: =BorderStyle.None
+                    Default: =ThisItem.G_RE_EA_IsReceived
+                    Height: =80
+                    Items: =Choices('Ethical Approval')
+                    Layout: =Layout.Horizontal
+                    Width: =880
+                    X: =30
+                    ZIndex: =5
+
+            G_RE_EA_Upload_DataCard1 As typedDataCard.fileEditCard:
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="cr110_pdr_receivedupload"
+                Default: |-
+                    =If(!IsBlank(ThisItem.G_RE_EA_Upload.FileName), Table({DisplayName: ThisItem.G_RE_EA_Upload.FileName, Value: ThisItem.G_RE_EA_Upload.Value}), Blank())
+                DisplayMode: =Parent.DisplayMode
+                DisplayName: =DataSourceInfo([@Treat_Data_V2S],DataSourceInfo.DisplayName,"cr110_pdr_receivedupload")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =50
+                Required: =false
+                Update: =DataCardValue36.Attachments
+                Visible: =Text(Radio4.Selected.Value)="Received"
+                Width: =923
+                X: =0
+                Y: =3
+                ZIndex: =1
+
+                DataCardKey40 As label:
+                    AutoHeight: =true
+                    Height: =34
+                    Text: =" Click to select files"
+                    Width: =Parent.Width - 60
+                    Wrap: =false
+                    X: =30
+                    Y: =10
+                    ZIndex: =1
+
+                DataCardValue36 As attachments:
+                    AddAttachmentText: ="Upload file"
+                    BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                    DisplayMode: =Parent.DisplayMode
+                    Height: =170
+                    IsInDataCard: =true
+                    Items: =Parent.Default
+                    MaxAttachments: =100
+                    MaxAttachmentsText: =""
+                    NoAttachmentsText: ="There is no file."
+                    PaddingBottom: =5
+                    PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                    PaddingRight: =5
+                    PaddingTop: =5
+                    Tooltip: =Parent.DisplayName
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardKey40.Y + DataCardKey40.Height + 5
+                    ZIndex: =2
+
+                ErrorMessage39 As label:
+                    AutoHeight: =true
+                    Height: =10
+                    Live: =Live.Assertive
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Text: =Parent.Error
+                    Visible: =Parent.DisplayMode=DisplayMode.Edit
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardValue36.Y + DataCardValue36.Height
+                    ZIndex: =3
+
+                StarVisible39 As label:
+                    Align: =Align.Center
+                    Height: =DataCardKey40.Height
+                    Text: ="*"
+                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =30
+                    Wrap: =false
+                    Y: =DataCardKey40.Y
+                    ZIndex: =4
+
+                Icon1_20 As icon.Information:
+                    Height: =25
+                    Icon: =Icon.Information
+                    Width: =25
+                    X: =193
+                    Y: =15
+                    ZIndex: =5
+
+            G_RE_EA_Notes_DataCard1 As typedDataCard.textualMultiLineEditCard:
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="cr110_pdr_isreceivednotes"
+                Default: =ThisItem.G_RE_EA_Notes
+                DisplayMode: =Parent.DisplayMode
+                DisplayName: =DataSourceInfo([@Treat_Data_V2S],DataSourceInfo.DisplayName,"cr110_pdr_isreceivednotes")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =50
+                Required: =Text(Radio4.Selected.Value)<>"Received"
+                Update: =DataCardValue35.Text
+                Width: =923
+                X: =0
+                Y: =4
+                ZIndex: =1
+
+                DataCardKey39 As label:
+                    AutoHeight: =true
+                    Height: =34
+                    Text: ="Notes"
+                    Width: =Parent.Width - 60
+                    Wrap: =false
+                    X: =30
+                    Y: =10
+                    ZIndex: =1
+
+                DataCardValue35 As text:
+                    BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                    Default: =Parent.Default
+                    DelayOutput: =true
+                    DisplayMode: =Parent.DisplayMode
+                    Height: =80
+                    HintText: ="type something here"
+                    Mode: =TextMode.MultiLine
+                    PaddingLeft: =5
+                    RadiusBottomLeft: =0
+                    RadiusBottomRight: =0
+                    RadiusTopLeft: =0
+                    RadiusTopRight: =0
+                    Tooltip: =Parent.DisplayName
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardKey39.Y + DataCardKey39.Height + 5
+                    ZIndex: =2
+
+                ErrorMessage38 As label:
+                    AutoHeight: =true
+                    Height: =10
+                    Live: =Live.Assertive
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Text: =Parent.Error
+                    Visible: =Parent.DisplayMode=DisplayMode.Edit
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardValue35.Y + DataCardValue35.Height
+                    ZIndex: =3
+
+                StarVisible38 As label:
+                    Align: =Align.Center
+                    Height: =DataCardKey39.Height
+                    Text: ="*"
+                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =30
+                    Wrap: =false
+                    Y: =DataCardKey39.Y
+                    ZIndex: =4
+
+                Icon1_7 As icon.Information:
+                    Height: =25
+                    Icon: =Icon.Information
+                    Width: =25
+                    X: =90
+                    Y: =15
+                    ZIndex: =5
+
+            DataCard2 As typedDataCard.blankCard:
+                BorderStyle: =BorderStyle.Solid
+                DisplayMode: =DisplayMode.Edit
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =50
+                Width: =923
+                X: =0
+                Y: =5
+                ZIndex: =1
+
+                Label6 As label:
+                    FontWeight: =FontWeight.Semibold
+                    Size: =15
+                    Text: ="Data Collection Protocol "
+                    Width: =865
+                    X: =30
+                    ZIndex: =1
+
+                Icon1_8 As icon.Information:
+                    Height: =25
+                    Icon: =Icon.Information
+                    Tooltip: ="If you have a data collection protocol, select ‘received’, upload any relevant files and, if you need to, explain the protocol in the ‘Notes’ box. If there is not data collection protocol involved, select ‘not required’ and explain why it is not needed"
+                    Width: =25
+                    X: =275
+                    Y: =7
+                    ZIndex: =2
+
+            G_RE_DCP_IsReceived_DataCard2 As typedDataCard.comboBoxOptionSetSingleEditCard:
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="cr110_g_re_dcp_isreceived"
+                Default: =ThisItem.G_RE_DCP_IsReceived
+                DisplayMode: =Parent.DisplayMode
+                DisplayName: =DataSourceInfo([@Treat_Data_V2S],DataSourceInfo.DisplayName,"cr110_g_re_dcp_isreceived")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =50
+                Required: =true
+                Update: =Radio5.Selected.Value
+                Width: =923
+                X: =0
+                Y: =6
+                ZIndex: =1
+
+                ErrorMessage47 As label:
+                    AutoHeight: =true
+                    Height: =10
+                    Live: =Live.Assertive
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Text: =Parent.Error
+                    Visible: =Parent.DisplayMode=DisplayMode.Edit
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =Radio5.Y + Radio5.Height
+                    ZIndex: =3
+
+                StarVisible47 As label:
+                    Align: =Align.Center
+                    Height: =
+                    Text: ="*"
+                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =30
+                    Wrap: =false
+                    Y: =
+                    ZIndex: =4
+
+                Radio5 As radio:
+                    BorderStyle: =BorderStyle.None
+                    Default: =ThisItem.G_RE_DCP_IsReceived
+                    Height: =64
+                    Items: =Choices('Data Collection Protocol')
+                    Layout: =Layout.Horizontal
+                    Width: =880
+                    X: =30
+                    ZIndex: =5
+
+            G_RE_DCP_Upload_DataCard1 As typedDataCard.fileEditCard:
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="cr110_g_re_dcp_upload"
+                Default: |-
+                    =If(!IsBlank(ThisItem.G_RE_DCP_Upload.FileName), Table({DisplayName: ThisItem.G_RE_DCP_Upload.FileName, Value: ThisItem.G_RE_DCP_Upload.Value}), Blank())
+                DisplayMode: =Parent.DisplayMode
+                DisplayName: =DataSourceInfo([@Treat_Data_V2S],DataSourceInfo.DisplayName,"cr110_g_re_dcp_upload")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =50
+                Required: =false
+                Update: =DataCardValue21.Attachments
+                Visible: =Text(Radio5.Selected.Value)="Received"
+                Width: =923
+                X: =0
+                Y: =7
+                ZIndex: =1
+
+                DataCardKey11 As label:
+                    AutoHeight: =true
+                    Height: =34
+                    Text: =" Click to select files"
+                    Width: =Parent.Width - 60
+                    Wrap: =false
+                    X: =30
+                    Y: =10
+                    ZIndex: =1
+
+                DataCardValue21 As attachments:
+                    AddAttachmentText: ="Upload file"
+                    BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                    DisplayMode: =Parent.DisplayMode
+                    Height: =170
+                    IsInDataCard: =true
+                    Items: =Parent.Default
+                    MaxAttachments: =100
+                    MaxAttachmentsText: =""
+                    NoAttachmentsText: ="There is no file."
+                    PaddingBottom: =5
+                    PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                    PaddingRight: =5
+                    PaddingTop: =5
+                    Tooltip: =Parent.DisplayName
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardKey11.Y + DataCardKey11.Height + 5
+                    ZIndex: =2
+
+                ErrorMessage9 As label:
+                    AutoHeight: =true
+                    Height: =10
+                    Live: =Live.Assertive
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Text: =Parent.Error
+                    Visible: =Parent.DisplayMode=DisplayMode.Edit
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardValue21.Y + DataCardValue21.Height
+                    ZIndex: =3
+
+                StarVisible9 As label:
+                    Align: =Align.Center
+                    Height: =DataCardKey11.Height
+                    Text: ="*"
+                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =30
+                    Wrap: =false
+                    Y: =DataCardKey11.Y
+                    ZIndex: =4
+
+                Icon1_21 As icon.Information:
+                    Height: =25
+                    Icon: =Icon.Information
+                    Width: =25
+                    X: =193
+                    Y: =15
+                    ZIndex: =5
+
+            G_RE_DCP_Notes_DataCard1 As typedDataCard.textualMultiLineEditCard:
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="cr110_g_re_dcp_notes"
+                Default: =ThisItem.G_RE_DCP_Notes
+                DisplayMode: =Parent.DisplayMode
+                DisplayName: =DataSourceInfo([@Treat_Data_V2S],DataSourceInfo.DisplayName,"cr110_g_re_dcp_notes")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =50
+                Required: =Text(Radio5.Selected.Value)<>"Received"
+                Update: =DataCardValue8.Text
+                Width: =923
+                X: =0
+                Y: =8
+                ZIndex: =1
+
+                DataCardKey9 As label:
+                    AutoHeight: =true
+                    Height: =34
+                    Text: ="Notes"
+                    Width: =Parent.Width - 60
+                    Wrap: =false
+                    X: =30
+                    Y: =10
+                    ZIndex: =1
+
+                DataCardValue8 As text:
+                    BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                    Default: =Parent.Default
+                    DelayOutput: =true
+                    DisplayMode: =Parent.DisplayMode
+                    Height: =80
+                    Mode: =TextMode.MultiLine
+                    PaddingLeft: =5
+                    RadiusBottomLeft: =0
+                    RadiusBottomRight: =0
+                    RadiusTopLeft: =0
+                    RadiusTopRight: =0
+                    Tooltip: =Parent.DisplayName
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardKey9.Y + DataCardKey9.Height + 5
+                    ZIndex: =2
+
+                ErrorMessage8 As label:
+                    AutoHeight: =true
+                    Height: =10
+                    Live: =Live.Assertive
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Text: =Parent.Error
+                    Visible: =Parent.DisplayMode=DisplayMode.Edit
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardValue8.Y + DataCardValue8.Height
+                    ZIndex: =3
+
+                StarVisible8 As label:
+                    Align: =Align.Center
+                    Height: =DataCardKey9.Height
+                    Text: ="*"
+                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =30
+                    Wrap: =false
+                    Y: =DataCardKey9.Y
+                    ZIndex: =4
+
+                Icon1_9 As icon.Information:
+                    Height: =25
+                    Icon: =Icon.Information
+                    Width: =25
+                    X: =90
+                    Y: =14
+                    ZIndex: =5
+
+            DataCard3 As typedDataCard.blankCard:
+                BorderStyle: =BorderStyle.Solid
+                DisplayMode: =DisplayMode.Edit
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =50
+                Width: =923
+                X: =0
+                Y: =9
+                ZIndex: =1
+
+                Label8 As label:
+                    FontWeight: =FontWeight.Semibold
+                    Height: =36
+                    Size: =15
+                    Text: ="Study Participant Information"
+                    Width: =867
+                    X: =30
+                    ZIndex: =1
+
+                Icon1_10 As icon.Information:
+                    Height: =25
+                    Icon: =Icon.Information
+                    Tooltip: ="If there is any study participant information for the data, select ‘received’, upload any relevant files and, if you need to, explain the information you have in the ‘Notes’ box. If there is no study participant information, select ‘not required’ and explain why it is not needed"
+                    Width: =25
+                    X: =330
+                    Y: =7
+                    ZIndex: =2
+
+            G_RE_SPI_IsReceived_DataCard2 As typedDataCard.comboBoxOptionSetSingleEditCard:
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="cr110_g_re_spi_isreceived"
+                Default: =ThisItem.G_RE_SPI_IsReceived
+                DisplayMode: =Parent.DisplayMode
+                DisplayName: =DataSourceInfo([@Treat_Data_V2S],DataSourceInfo.DisplayName,"cr110_g_re_spi_isreceived")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =50
+                Required: =true
+                Update: =Radio6.Selected.Value
+                Width: =923
+                X: =0
+                Y: =10
+                ZIndex: =1
+
+                ErrorMessage46 As label:
+                    AutoHeight: =true
+                    Height: =10
+                    Live: =Live.Assertive
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Text: =Parent.Error
+                    Visible: =Parent.DisplayMode=DisplayMode.Edit
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =Radio6.Y + Radio6.Height
+                    ZIndex: =3
+
+                StarVisible46 As label:
+                    Align: =Align.Center
+                    Height: =
+                    Text: ="*"
+                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =30
+                    Wrap: =false
+                    Y: =
+                    ZIndex: =4
+
+                Radio6 As radio:
+                    BorderStyle: =BorderStyle.None
+                    Default: =ThisItem.G_RE_SPI_IsReceived
+                    Height: =64
+                    Items: =Choices('Study Participant Information')
+                    Layout: =Layout.Horizontal
+                    Width: =880
+                    X: =30
+                    ZIndex: =5
+
+            G_RE_SPI_Upload_DataCard1 As typedDataCard.fileEditCard:
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="cr110_g_re_spi_upload"
+                Default: |-
+                    =If(!IsBlank(ThisItem.G_RE_SPI_Upload.FileName), Table({DisplayName: ThisItem.G_RE_SPI_Upload.FileName, Value: ThisItem.G_RE_SPI_Upload.Value}), Blank())
+                DisplayMode: =Parent.DisplayMode
+                DisplayName: =DataSourceInfo([@Treat_Data_V2S],DataSourceInfo.DisplayName,"cr110_g_re_spi_upload")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =50
+                Required: =false
+                Update: =DataCardValue39.Attachments
+                Visible: =Text(Radio6.Selected.Value)="Received"
+                Width: =923
+                X: =0
+                Y: =11
+                ZIndex: =1
+
+                DataCardKey43 As label:
+                    AutoHeight: =true
+                    Height: =34
+                    Text: =" Click to select files"
+                    Width: =Parent.Width - 60
+                    Wrap: =false
+                    X: =30
+                    Y: =10
+                    ZIndex: =1
+
+                DataCardValue39 As attachments:
+                    AddAttachmentText: ="Upload file"
+                    BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                    DisplayMode: =Parent.DisplayMode
+                    Height: =170
+                    IsInDataCard: =true
+                    Items: =Parent.Default
+                    MaxAttachments: =100
+                    MaxAttachmentsText: =""
+                    NoAttachmentsText: ="There is no file."
+                    PaddingBottom: =5
+                    PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                    PaddingRight: =5
+                    PaddingTop: =5
+                    Tooltip: =Parent.DisplayName
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardKey43.Y + DataCardKey43.Height + 5
+                    ZIndex: =2
+
+                ErrorMessage42 As label:
+                    AutoHeight: =true
+                    Height: =10
+                    Live: =Live.Assertive
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Text: =Parent.Error
+                    Visible: =Parent.DisplayMode=DisplayMode.Edit
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardValue39.Y + DataCardValue39.Height
+                    ZIndex: =3
+
+                StarVisible42 As label:
+                    Align: =Align.Center
+                    Height: =DataCardKey43.Height
+                    Text: ="*"
+                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =30
+                    Wrap: =false
+                    Y: =DataCardKey43.Y
+                    ZIndex: =4
+
+                Icon1_22 As icon.Information:
+                    Height: =25
+                    Icon: =Icon.Information
+                    Width: =25
+                    X: =193
+                    Y: =15
+                    ZIndex: =5
+
+            G_RE_SPI_Notes_DataCard1 As typedDataCard.textualMultiLineEditCard:
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="cr110_g_re_spi_notes"
+                Default: =ThisItem.G_RE_SPI_Notes
+                DisplayMode: =Parent.DisplayMode
+                DisplayName: =DataSourceInfo([@Treat_Data_V2S],DataSourceInfo.DisplayName,"cr110_g_re_spi_notes")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =50
+                Required: =Text(Radio6.Selected.Value)<>"Received"
+                Update: =DataCardValue38.Text
+                Width: =923
+                X: =0
+                Y: =12
+                ZIndex: =1
+
+                DataCardKey42 As label:
+                    AutoHeight: =true
+                    Height: =34
+                    Text: ="Notes"
+                    Width: =Parent.Width - 60
+                    Wrap: =false
+                    X: =30
+                    Y: =10
+                    ZIndex: =1
+
+                DataCardValue38 As text:
+                    BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                    Default: =Parent.Default
+                    DelayOutput: =true
+                    DisplayMode: =Parent.DisplayMode
+                    Height: =80
+                    Mode: =TextMode.MultiLine
+                    PaddingLeft: =5
+                    RadiusBottomLeft: =0
+                    RadiusBottomRight: =0
+                    RadiusTopLeft: =0
+                    RadiusTopRight: =0
+                    Tooltip: =Parent.DisplayName
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardKey42.Y + DataCardKey42.Height + 5
+                    ZIndex: =2
+
+                ErrorMessage41 As label:
+                    AutoHeight: =true
+                    Height: =10
+                    Live: =Live.Assertive
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Text: =Parent.Error
+                    Visible: =Parent.DisplayMode=DisplayMode.Edit
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardValue38.Y + DataCardValue38.Height
+                    ZIndex: =3
+
+                StarVisible41 As label:
+                    Align: =Align.Center
+                    Height: =DataCardKey42.Height
+                    Text: ="*"
+                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =30
+                    Wrap: =false
+                    Y: =DataCardKey42.Y
+                    ZIndex: =4
+
+                Icon1_11 As icon.Information:
+                    Height: =25
+                    Icon: =Icon.Information
+                    Width: =25
+                    X: =90
+                    Y: =15
+                    ZIndex: =5
+
+            DataCard5 As typedDataCard.blankCard:
+                BorderColor: =RGBA(0, 0, 0, 1)
+                BorderStyle: =BorderStyle.Solid
+                BorderThickness: =2
+                DisplayMode: =DisplayMode.Edit
+                Fill: =RGBA(237, 237, 237, 1)
+                Height: =80
+                Width: =905
+                X: =0
+                Y: =13
+                ZIndex: =1
+
+                Label2 As label:
+                    Align: =Align.Center
+                    FontWeight: =FontWeight.Bold
+                    Height: =80
+                    Size: =15
+                    Text: ="Legal"
+                    Width: =Parent.Width
+                    ZIndex: =1
+
+            DataCard6 As typedDataCard.blankCard:
+                BorderStyle: =BorderStyle.Solid
+                DisplayMode: =DisplayMode.Edit
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =60
+                Width: =925
+                X: =0
+                Y: =14
+                ZIndex: =1
+
+                Label3 As label:
+                    FontWeight: =FontWeight.Semibold
+                    Height: =50
+                    Size: =15
+                    Text: ="Legal Agreement"
+                    Width: =847
+                    X: =40
+                    Y: =9
+                    ZIndex: =1
+
+                Icon1_19 As icon.Information:
+                    Height: =25
+                    Icon: =Icon.Information
+                    Tooltip: ="If you have any legal agreements for the project and/or data, select ‘received’, upload any relevant files and, if you need to, explain the agreements received/signed in the ‘Notes’ box. If legal agreement is not needed, select ‘not required’ and explain why it is not needed"
+                    Width: =25
+                    X: =215
+                    Y: =21
+                    ZIndex: =2
+
+            G_L_LA_IsReceived_DataCard1 As typedDataCard.comboBoxOptionSetSingleEditCard:
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="cr110_g_l_l_isreceived"
+                Default: =ThisItem.G_L_LA_IsReceived
+                DisplayMode: =Parent.DisplayMode
+                DisplayName: =DataSourceInfo([@Treat_Data_V2S],DataSourceInfo.DisplayName,"cr110_g_l_l_isreceived")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =68
+                Required: =true
+                Update: =Radio1.Selected.Value
+                Width: =924
+                X: =0
+                Y: =15
+                ZIndex: =1
+
+                ErrorMessage7 As label:
+                    AutoHeight: =true
+                    Height: =10
+                    Live: =Live.Assertive
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Text: =Parent.Error
+                    Visible: =Parent.DisplayMode=DisplayMode.Edit
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =Radio1.Y + Radio1.Height
+                    ZIndex: =3
+
+                StarVisible7 As label:
+                    Align: =Align.Center
+                    Height: =
+                    Text: ="*"
+                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =30
+                    Wrap: =false
+                    Y: =Radio1.Y
+                    ZIndex: =4
+
+                Radio1 As radio:
+                    BorderStyle: =BorderStyle.None
+                    Default: =ThisItem.G_L_LA_IsReceived
+                    Height: =66
+                    Items: =Choices('Legal Agreement')
+                    Layout: =Layout.Horizontal
+                    Width: =854
+                    X: =40
+                    Y: =7
+                    ZIndex: =5
+
+            G_L_LA_Upload_DataCard1 As typedDataCard.fileEditCard:
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="cr110_g_l_l_upload"
+                Default: |-
+                    =If(!IsBlank(ThisItem.G_L_LA_Upload.FileName), Table({DisplayName: ThisItem.G_L_LA_Upload.FileName, Value: ThisItem.G_L_LA_Upload.Value}), Blank())
+                DisplayMode: =Parent.DisplayMode
+                DisplayName: =DataSourceInfo([@Treat_Data_V2S],DataSourceInfo.DisplayName,"cr110_g_l_l_upload")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =50
+                Required: =false
+                Update: =DataCardValue7.Attachments
+                Visible: =Text(Radio1.Selected.Value)="Received"
+                Width: =925
+                X: =0
+                Y: =16
+                ZIndex: =1
+
+                DataCardKey10 As label:
+                    AutoHeight: =true
+                    Height: =34
+                    Text: ="Cick to select files"
+                    Width: =Parent.Width - 60
+                    Wrap: =false
+                    X: =30
+                    Y: =10
+                    ZIndex: =1
+
+                DataCardValue7 As attachments:
+                    AddAttachmentText: ="Upload file"
+                    BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                    DisplayMode: =Parent.DisplayMode
+                    Height: =170
+                    IsInDataCard: =true
+                    Items: =Parent.Default
+                    MaxAttachments: =100
+                    MaxAttachmentsText: =""
+                    NoAttachmentsText: ="There is no file."
+                    PaddingBottom: =5
+                    PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                    PaddingRight: =5
+                    PaddingTop: =5
+                    Tooltip: =Parent.DisplayName
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardKey10.Y + DataCardKey10.Height + 5
+                    ZIndex: =2
+
+                ErrorMessage18 As label:
+                    AutoHeight: =true
+                    Height: =10
+                    Live: =Live.Assertive
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Text: =Parent.Error
+                    Visible: =Parent.DisplayMode=DisplayMode.Edit
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardValue7.Y + DataCardValue7.Height
+                    ZIndex: =3
+
+                StarVisible18 As label:
+                    Align: =Align.Center
+                    Height: =DataCardKey10.Height
+                    Text: ="*"
+                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =30
+                    Wrap: =false
+                    Y: =DataCardKey10.Y
+                    ZIndex: =4
+
+                Icon1_23 As icon.Information:
+                    Height: =25
+                    Icon: =Icon.Information
+                    Width: =25
+                    X: =183
+                    Y: =15
+                    ZIndex: =5
+
+            G_L_LA_Notes_DataCard1 As typedDataCard.textualMultiLineEditCard:
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="cr110_g_l_la_notes"
+                Default: =ThisItem.G_L_LA_Notes
+                DisplayMode: =Parent.DisplayMode
+                DisplayName: =DataSourceInfo([@Treat_Data_V2S],DataSourceInfo.DisplayName,"cr110_g_l_la_notes")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =50
+                Required: =Text(Radio1.Selected.Value)<>"Received"
+                Update: =DataCardValue16.Text
+                Width: =925
+                X: =0
+                Y: =17
+                ZIndex: =1
+
+                DataCardKey19 As label:
+                    AutoHeight: =true
+                    Height: =34
+                    Text: ="Notes"
+                    Width: =Parent.Width - 60
+                    Wrap: =false
+                    X: =30
+                    Y: =10
+                    ZIndex: =1
+
+                DataCardValue16 As text:
+                    BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                    Default: =Parent.Default
+                    DelayOutput: =true
+                    DisplayMode: =Parent.DisplayMode
+                    Height: =80
+                    Mode: =TextMode.MultiLine
+                    PaddingLeft: =5
+                    RadiusBottomLeft: =0
+                    RadiusBottomRight: =0
+                    RadiusTopLeft: =0
+                    RadiusTopRight: =0
+                    Tooltip: =Parent.DisplayName
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardKey19.Y + DataCardKey19.Height + 5
+                    ZIndex: =2
+
+                ErrorMessage25 As label:
+                    AutoHeight: =true
+                    Height: =10
+                    Live: =Live.Assertive
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Text: =Parent.Error
+                    Visible: =Parent.DisplayMode=DisplayMode.Edit
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardValue16.Y + DataCardValue16.Height
+                    ZIndex: =3
+
+                StarVisible25 As label:
+                    Align: =Align.Center
+                    Height: =DataCardKey19.Height
+                    Text: ="*"
+                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =30
+                    Wrap: =false
+                    Y: =DataCardKey19.Y
+                    ZIndex: =4
+
+                Icon1_12 As icon.Information:
+                    Height: =25
+                    Icon: =Icon.Information
+                    Width: =25
+                    X: =90
+                    Y: =15
+                    ZIndex: =5
+
+            DataCard7 As typedDataCard.blankCard:
+                BorderStyle: =BorderStyle.Solid
+                DisplayMode: =DisplayMode.Edit
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =60
+                Width: =925
+                X: =0
+                Y: =18
+                ZIndex: =1
+
+                Label4 As label:
+                    FontWeight: =FontWeight.Semibold
+                    Height: =60
+                    Size: =15
+                    Text: ="Data Protection Impact Assessment (DPIA)"
+                    Width: =865
+                    X: =33
+                    ZIndex: =1
+
+                Icon1_13 As icon.Information:
+                    Height: =25
+                    Icon: =Icon.Information
+                    Tooltip: ="If data protection impact assessment was carried out for the project and/or data, select ‘received’, upload any relevant files and, if you need to, explain the assessment in the ‘Notes’ box. If the assessment is not needed, select ‘not required’ and explain why it is not needed"
+                    Width: =25
+                    X: =455
+                    Y: =18
+                    ZIndex: =2
+
+            G_L_DPIA_IsReceived_DataCard1 As typedDataCard.comboBoxOptionSetSingleEditCard:
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="cr110_g_l_dpia_isreceived"
+                Default: =ThisItem.G_L_DPIA_IsReceived
+                DisplayMode: =Parent.DisplayMode
+                DisplayName: =DataSourceInfo([@Treat_Data_V2S],DataSourceInfo.DisplayName,"cr110_g_l_dpia_isreceived")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =64
+                Required: =true
+                Update: =Radio2.Selected.Value
+                Width: =924
+                X: =0
+                Y: =19
+                ZIndex: =1
+
+                ErrorMessage40 As label:
+                    AutoHeight: =true
+                    Height: =10
+                    Live: =Live.Assertive
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Text: =Parent.Error
+                    Visible: =Parent.DisplayMode=DisplayMode.Edit
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =Radio2.Y + Radio2.Height
+                    ZIndex: =3
+
+                StarVisible40 As label:
+                    Align: =Align.Center
+                    Height: =
+                    Text: ="*"
+                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =30
+                    Wrap: =false
+                    Y: =
+                    ZIndex: =4
+
+                Radio2 As radio:
+                    BorderStyle: =BorderStyle.None
+                    Default: =ThisItem.G_L_DPIA_IsReceived
+                    Height: =68
+                    Items: =Choices(DPIA)
+                    Layout: =Layout.Horizontal
+                    Width: =854
+                    X: =40
+                    ZIndex: =5
+
+            G_L_DPIA_Upload_DataCard1 As typedDataCard.fileEditCard:
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="cr110_g_l_dpia_upload"
+                Default: |-
+                    =If(!IsBlank(ThisItem.G_L_DPIA_Upload.FileName), Table({DisplayName: ThisItem.G_L_DPIA_Upload.FileName, Value: ThisItem.G_L_DPIA_Upload.Value}), Blank())
+                DisplayMode: =Parent.DisplayMode
+                DisplayName: =DataSourceInfo([@Treat_Data_V2S],DataSourceInfo.DisplayName,"cr110_g_l_dpia_upload")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =50
+                Required: =false
+                Update: =DataCardValue40.Attachments
+                Visible: =Text(Radio2.Selected.Value)="Received"
+                Width: =925
+                X: =0
+                Y: =20
+                ZIndex: =1
+
+                DataCardKey44 As label:
+                    AutoHeight: =true
+                    Height: =34
+                    Text: ="Click to select files"
+                    Width: =Parent.Width - 60
+                    Wrap: =false
+                    X: =30
+                    Y: =10
+                    ZIndex: =1
+
+                DataCardValue40 As attachments:
+                    AddAttachmentText: ="Upload file"
+                    BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                    DisplayMode: =Parent.DisplayMode
+                    Height: =170
+                    IsInDataCard: =true
+                    Items: =Parent.Default
+                    MaxAttachments: =100
+                    MaxAttachmentsText: =""
+                    NoAttachmentsText: ="There is no file."
+                    PaddingBottom: =5
+                    PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                    PaddingRight: =5
+                    PaddingTop: =5
+                    Tooltip: =Parent.DisplayName
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardKey44.Y + DataCardKey44.Height + 5
+                    ZIndex: =2
+
+                ErrorMessage43 As label:
+                    AutoHeight: =true
+                    Height: =10
+                    Live: =Live.Assertive
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Text: =Parent.Error
+                    Visible: =Parent.DisplayMode=DisplayMode.Edit
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardValue40.Y + DataCardValue40.Height
+                    ZIndex: =3
+
+                StarVisible43 As label:
+                    Align: =Align.Center
+                    Height: =DataCardKey44.Height
+                    Text: ="*"
+                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =30
+                    Wrap: =false
+                    Y: =DataCardKey44.Y
+                    ZIndex: =4
+
+                Icon1_24 As icon.Information:
+                    Height: =25
+                    Icon: =Icon.Information
+                    Width: =25
+                    X: =185
+                    Y: =17
+                    ZIndex: =5
+
+            G_L_DPIA_Notes_DataCard1 As typedDataCard.textualMultiLineEditCard:
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="cr110_g_l_dpia_notes"
+                Default: =ThisItem.G_L_DPIA_Notes
+                DisplayMode: =Parent.DisplayMode
+                DisplayName: =DataSourceInfo([@Treat_Data_V2S],DataSourceInfo.DisplayName,"cr110_g_l_dpia_notes")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =50
+                Required: =Text(Radio2.Selected.Value)<>"Received"
+                Update: =DataCardValue41.Text
+                Width: =925
+                X: =0
+                Y: =21
+                ZIndex: =1
+
+                DataCardKey45 As label:
+                    AutoHeight: =true
+                    Height: =34
+                    Text: ="Notes"
+                    Width: =Parent.Width - 60
+                    Wrap: =false
+                    X: =30
+                    Y: =10
+                    ZIndex: =1
+
+                DataCardValue41 As text:
+                    BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                    Default: =Parent.Default
+                    DelayOutput: =true
+                    DisplayMode: =Parent.DisplayMode
+                    Height: =80
+                    Mode: =TextMode.MultiLine
+                    PaddingLeft: =5
+                    RadiusBottomLeft: =0
+                    RadiusBottomRight: =0
+                    RadiusTopLeft: =0
+                    RadiusTopRight: =0
+                    Tooltip: =Parent.DisplayName
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardKey45.Y + DataCardKey45.Height + 5
+                    ZIndex: =2
+
+                ErrorMessage44 As label:
+                    AutoHeight: =true
+                    Height: =10
+                    Live: =Live.Assertive
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Text: =Parent.Error
+                    Visible: =Parent.DisplayMode=DisplayMode.Edit
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardValue41.Y + DataCardValue41.Height
+                    ZIndex: =3
+
+                StarVisible44 As label:
+                    Align: =Align.Center
+                    Height: =DataCardKey45.Height
+                    Text: ="*"
+                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =30
+                    Wrap: =false
+                    Y: =DataCardKey45.Y
+                    ZIndex: =4
+
+                Icon1_14 As icon.Information:
+                    Height: =25
+                    Icon: =Icon.Information
+                    Width: =25
+                    X: =90
+                    Y: =15
+                    ZIndex: =5
+
+            DataCard8 As typedDataCard.blankCard:
+                BorderStyle: =BorderStyle.Solid
+                DisplayMode: =DisplayMode.Edit
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =60
+                Width: =925
+                X: =0
+                Y: =22
+                ZIndex: =1
+
+                Label9 As label:
+                    FontWeight: =FontWeight.Semibold
+                    Height: =60
+                    Size: =15
+                    Text: ="Data Asset Registration"
+                    Width: =868
+                    X: =30
+                    ZIndex: =1
+
+                Icon1_15 As icon.Information:
+                    Height: =25
+                    Icon: =Icon.Information
+                    Tooltip: ="If data asset registration was carried out for the project and/or data, select ‘received’, upload any relevant files and, if you need to, explain the registration in the ‘Notes’ box. If the registration is not needed, select ‘not required’ and explain why it is not needed"
+                    Width: =25
+                    X: =265
+                    Y: =18
+                    ZIndex: =2
+
+            G_L_DAR_IsReceived_DataCard1 As typedDataCard.comboBoxOptionSetSingleEditCard:
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="cr110_g_l_dar_isreceived"
+                Default: =ThisItem.G_L_DAR_IsReceived
+                DisplayMode: =Parent.DisplayMode
+                DisplayName: =DataSourceInfo([@Treat_Data_V2S],DataSourceInfo.DisplayName,"cr110_g_l_dar_isreceived")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =66
+                Required: =true
+                Update: =Radio3.Selected.Value
+                Width: =924
+                X: =0
+                Y: =23
+                ZIndex: =1
+
+                ErrorMessage48 As label:
+                    AutoHeight: =true
+                    Height: =10
+                    Live: =Live.Assertive
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Text: =Parent.Error
+                    Visible: =Parent.DisplayMode=DisplayMode.Edit
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =Radio3.Y + Radio3.Height
+                    ZIndex: =3
+
+                StarVisible48 As label:
+                    Align: =Align.Center
+                    Height: =
+                    Text: ="*"
+                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =30
+                    Wrap: =false
+                    Y: =
+                    ZIndex: =4
+
+                Radio3 As radio:
+                    BorderStyle: =BorderStyle.None
+                    Default: =ThisItem.G_L_DAR_IsReceived
+                    Height: =60
+                    Items: =Choices('Data Asset Registration')
+                    Layout: =Layout.Horizontal
+                    Width: =850
+                    X: =44
+                    ZIndex: =5
+
+            G_L_DAR_Upload_DataCard1 As typedDataCard.fileEditCard:
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="cr110_g_l_dar_upload"
+                Default: |-
+                    =If(!IsBlank(ThisItem.G_L_DAR_Upload.FileName), Table({DisplayName: ThisItem.G_L_DAR_Upload.FileName, Value: ThisItem.G_L_DAR_Upload.Value}), Blank())
+                DisplayMode: =Parent.DisplayMode
+                DisplayName: =DataSourceInfo([@Treat_Data_V2S],DataSourceInfo.DisplayName,"cr110_g_l_dar_upload")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =50
+                Required: =false
+                Update: =DataCardValue44.Attachments
+                Visible: =Text(Radio3.Selected.Value)="Received"
+                Width: =925
+                X: =0
+                Y: =24
+                ZIndex: =1
+
+                DataCardKey51 As label:
+                    AutoHeight: =true
+                    Height: =34
+                    Text: ="Click to select files"
+                    Width: =Parent.Width - 60
+                    Wrap: =false
+                    X: =30
+                    Y: =10
+                    ZIndex: =1
+
+                DataCardValue44 As attachments:
+                    AddAttachmentText: ="Upload file"
+                    BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                    DisplayMode: =Parent.DisplayMode
+                    Height: =170
+                    IsInDataCard: =true
+                    Items: =Parent.Default
+                    MaxAttachments: =100
+                    MaxAttachmentsText: =""
+                    NoAttachmentsText: ="There is no file."
+                    PaddingBottom: =5
+                    PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                    PaddingRight: =5
+                    PaddingTop: =5
+                    Tooltip: =Parent.DisplayName
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardKey51.Y + DataCardKey51.Height + 5
+                    ZIndex: =2
+
+                ErrorMessage49 As label:
+                    AutoHeight: =true
+                    Height: =10
+                    Live: =Live.Assertive
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Text: =Parent.Error
+                    Visible: =Parent.DisplayMode=DisplayMode.Edit
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardValue44.Y + DataCardValue44.Height
+                    ZIndex: =3
+
+                StarVisible49 As label:
+                    Align: =Align.Center
+                    Height: =DataCardKey51.Height
+                    Text: ="*"
+                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =30
+                    Wrap: =false
+                    Y: =DataCardKey51.Y
+                    ZIndex: =4
+
+                Icon1_25 As icon.Information:
+                    Height: =25
+                    Icon: =Icon.Information
+                    Width: =25
+                    X: =187
+                    Y: =15
+                    ZIndex: =5
+
+            G_L_DAR_Notes_DataCard1 As typedDataCard.textualMultiLineEditCard:
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="cr110_g_l_dar_notes"
+                Default: =ThisItem.G_L_DAR_Notes
+                DisplayMode: =Parent.DisplayMode
+                DisplayName: =DataSourceInfo([@Treat_Data_V2S],DataSourceInfo.DisplayName,"cr110_g_l_dar_notes")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =50
+                Required: =Text(Radio3.Selected.Value)<>"Received"
+                Update: =DataCardValue48.Text
+                Width: =925
+                X: =0
+                Y: =25
+                ZIndex: =1
+
+                DataCardKey55 As label:
+                    AutoHeight: =true
+                    Height: =34
+                    Text: ="Notes"
+                    Width: =Parent.Width - 60
+                    Wrap: =false
+                    X: =30
+                    Y: =10
+                    ZIndex: =1
+
+                DataCardValue48 As text:
+                    BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                    Default: =Parent.Default
+                    DelayOutput: =true
+                    DisplayMode: =Parent.DisplayMode
+                    Height: =80
+                    Mode: =TextMode.MultiLine
+                    PaddingLeft: =5
+                    RadiusBottomLeft: =0
+                    RadiusBottomRight: =0
+                    RadiusTopLeft: =0
+                    RadiusTopRight: =0
+                    Tooltip: =Parent.DisplayName
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardKey55.Y + DataCardKey55.Height + 5
+                    ZIndex: =2
+
+                ErrorMessage50 As label:
+                    AutoHeight: =true
+                    Height: =10
+                    Live: =Live.Assertive
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Text: =Parent.Error
+                    Visible: =Parent.DisplayMode=DisplayMode.Edit
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardValue48.Y + DataCardValue48.Height
+                    ZIndex: =3
+
+                StarVisible50 As label:
+                    Align: =Align.Center
+                    Height: =DataCardKey55.Height
+                    Text: ="*"
+                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =30
+                    Wrap: =false
+                    Y: =DataCardKey55.Y
+                    ZIndex: =4
+
+                Icon1_16 As icon.Information:
+                    Height: =25
+                    Icon: =Icon.Information
+                    Width: =25
+                    X: =90
+                    Y: =15
+                    ZIndex: =5
+
+            DataCard10 As typedDataCard.blankCard:
+                BorderColor: =RGBA(0, 0, 0, 1)
+                BorderStyle: =BorderStyle.Solid
+                BorderThickness: =2
+                DisplayMode: =DisplayMode.Edit
+                Fill: =RGBA(237, 237, 237, 1)
+                Height: =80
+                Width: =905
+                X: =0
+                Y: =26
+                ZIndex: =1
+
+                Label10 As label:
+                    Align: =Align.Center
+                    FontWeight: =FontWeight.Bold
+                    Height: =80
+                    Size: =15
+                    Text: ="Others"
+                    Width: =Parent.Width
+                    ZIndex: =1
+
+            DataCard11 As typedDataCard.blankCard:
+                BorderStyle: =BorderStyle.Solid
+                DisplayMode: =DisplayMode.Edit
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =60
+                Width: =925
+                X: =0
+                Y: =27
+                ZIndex: =1
+
+                Label11 As label:
+                    FontWeight: =FontWeight.Semibold
+                    Height: =60
+                    Size: =15
+                    Text: ="Any Other Data Governance Requirements"
+                    Width: =866
+                    X: =30
+                    ZIndex: =1
+
+                Icon1_17 As icon.Information:
+                    Height: =25
+                    Icon: =Icon.Information
+                    Tooltip: |-
+                        ="If you have any other governance requirements you have satisfied for the project and/or data, select ‘received’, upload any relevant files and, if you need to, explain governance requirements in the ‘Notes’ box. If no other governance requirements are needed, select ‘not required’ and explain why they are not needed. You can do this by simply stating ‘no other data governance requirements are
+                        needed"
+                    Width: =25
+                    X: =450
+                    Y: =17
+                    ZIndex: =2
+
+            G_O_Anyother_IsReceived_DataCard1 As typedDataCard.comboBoxOptionSetSingleEditCard:
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="cr110_g_o_anyother_isreceived"
+                Default: =ThisItem.G_O_Anyother_IsReceived
+                DisplayMode: =Parent.DisplayMode
+                DisplayName: =DataSourceInfo([@Treat_Data_V2S],DataSourceInfo.DisplayName,"cr110_g_o_anyother_isreceived")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =66
+                Required: =true
+                Update: =Radio7.Selected.Value
+                Width: =924
+                X: =0
+                Y: =28
+                ZIndex: =1
+
+                ErrorMessage51 As label:
+                    AutoHeight: =true
+                    Height: =10
+                    Live: =Live.Assertive
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Text: =Parent.Error
+                    Visible: =Parent.DisplayMode=DisplayMode.Edit
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =Radio7.Y + Radio7.Height
+                    ZIndex: =3
+
+                StarVisible51 As label:
+                    Align: =Align.Center
+                    Height: =
+                    Text: ="*"
+                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =30
+                    Wrap: =false
+                    Y: =
+                    ZIndex: =4
+
+                Radio7 As radio:
+                    BorderStyle: =BorderStyle.None
+                    Default: =ThisItem.G_O_Anyother_IsReceived
+                    Height: =76
+                    Items: =Choices('Any Other Data Governance Requirements')
+                    Layout: =Layout.Horizontal
+                    Width: =854
+                    X: =30
+                    ZIndex: =5
+
+            G_O_Anyother_Upload_DataCard1 As typedDataCard.fileEditCard:
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="cr110_g_o_anyother_upload"
+                Default: |-
+                    =If(!IsBlank(ThisItem.G_O_Anyother_Upload.FileName), Table({DisplayName: ThisItem.G_O_Anyother_Upload.FileName, Value: ThisItem.G_O_Anyother_Upload.Value}), Blank())
+                DisplayMode: =Parent.DisplayMode
+                DisplayName: =DataSourceInfo([@Treat_Data_V2S],DataSourceInfo.DisplayName,"cr110_g_o_anyother_upload")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =50
+                Required: =false
+                Update: =DataCardValue34.Attachments
+                Visible: =Text(Radio7.Selected.Value)="Received"
+                Width: =925
+                X: =0
+                Y: =29
+                ZIndex: =1
+
+                DataCardKey26 As label:
+                    AutoHeight: =true
+                    Height: =34
+                    Text: ="Click to select files"
+                    Width: =Parent.Width - 60
+                    Wrap: =false
+                    X: =30
+                    Y: =10
+                    ZIndex: =1
+
+                DataCardValue34 As attachments:
+                    AddAttachmentText: ="Upload file"
+                    BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                    DisplayMode: =Parent.DisplayMode
+                    Height: =170
+                    IsInDataCard: =true
+                    Items: =Parent.Default
+                    MaxAttachments: =100
+                    MaxAttachmentsText: =""
+                    NoAttachmentsText: ="There is no file."
+                    PaddingBottom: =5
+                    PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                    PaddingRight: =5
+                    PaddingTop: =5
+                    Tooltip: =Parent.DisplayName
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardKey26.Y + DataCardKey26.Height + 5
+                    ZIndex: =2
+
+                ErrorMessage53 As label:
+                    AutoHeight: =true
+                    Height: =10
+                    Live: =Live.Assertive
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Text: =Parent.Error
+                    Visible: =Parent.DisplayMode=DisplayMode.Edit
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardValue34.Y + DataCardValue34.Height
+                    ZIndex: =3
+
+                StarVisible53 As label:
+                    Align: =Align.Center
+                    Height: =DataCardKey26.Height
+                    Text: ="*"
+                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =30
+                    Wrap: =false
+                    Y: =DataCardKey26.Y
+                    ZIndex: =4
+
+                Icon1_26 As icon.Information:
+                    Height: =25
+                    Icon: =Icon.Information
+                    Width: =25
+                    X: =183
+                    Y: =15
+                    ZIndex: =5
+
+            G_O_Anyother_Notes_DataCard1 As typedDataCard.textualMultiLineEditCard:
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="cr110_g_o_anyother_notes"
+                Default: =ThisItem.G_O_Anyother_Notes
+                DisplayMode: =Parent.DisplayMode
+                DisplayName: =DataSourceInfo([@Treat_Data_V2S],DataSourceInfo.DisplayName,"cr110_g_o_anyother_notes")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =50
+                Required: =Text(Radio7.Selected.Value)<>"Received"
+                Update: =DataCardValue43.Text
+                Width: =925
+                X: =0
+                Y: =30
+                ZIndex: =1
+
+                DataCardKey50 As label:
+                    AutoHeight: =true
+                    Height: =34
+                    Text: ="Notes"
+                    Width: =Parent.Width - 60
+                    Wrap: =false
+                    X: =30
+                    Y: =10
+                    ZIndex: =1
+
+                DataCardValue43 As text:
+                    BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                    Default: =Parent.Default
+                    DelayOutput: =true
+                    DisplayMode: =Parent.DisplayMode
+                    Height: =80
+                    Mode: =TextMode.MultiLine
+                    PaddingLeft: =5
+                    RadiusBottomLeft: =0
+                    RadiusBottomRight: =0
+                    RadiusTopLeft: =0
+                    RadiusTopRight: =0
+                    Tooltip: =Parent.DisplayName
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardKey50.Y + DataCardKey50.Height + 5
+                    ZIndex: =2
+
+                ErrorMessage54 As label:
+                    AutoHeight: =true
+                    Height: =10
+                    Live: =Live.Assertive
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Text: =Parent.Error
+                    Visible: =Parent.DisplayMode=DisplayMode.Edit
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardValue43.Y + DataCardValue43.Height
+                    ZIndex: =3
+
+                StarVisible54 As label:
+                    Align: =Align.Center
+                    Height: =DataCardKey50.Height
+                    Text: ="*"
+                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =30
+                    Wrap: =false
+                    Y: =DataCardKey50.Y
+                    ZIndex: =4
+
+                Icon1_18 As icon.Information:
+                    Height: =25
+                    Icon: =Icon.Information
+                    Width: =25
+                    X: =90
+                    Y: =15
+                    ZIndex: =5
+
+    Circle1_21 As circle:
+        Fill: |-
+            =ColorValue("#CCCCCC")
+        Height: =86
+        Width: =88
+        X: =1172
+        Y: =20
+        ZIndex: =24
+
+    Button1_21 As button:
+        BorderThickness: =0
+        Color: |-
+            =ColorValue("#003366")
+        DisabledColor: |-
+            =ColorValue("#CCCCCC")
+        Fill: |-
+            =ColorValue("#CCCCCC")
+        FontWeight: =FontWeight.Bold
+        Height: =35
+        HoverColor: |-
+            =
+            ColorValue("#1596DD")
+        HoverFill: |-
+            =ColorValue("#CCCCCC")
+        OnSelect: |+
+            =//Set(varFormData2,
+            //Patch(Treat_Data_V2S,selectedRecord,  frmProjectAndDataDetails.Updates)
+            //);
+            
+            Set(saveAsDraft,true);
+            SubmitForm(frmResearchEthics);
+            
+            
+        PressedBorderColor: |-
+            =ColorValue("#CCCCCC")
+        PressedColor: |-
+            =ColorValue("#CCCCCC")
+        PressedFill: |-
+            =ColorValue("#CCCCCC")
+        Size: =8
+        Text: ="Save as Draft"
+        Width: =53
+        X: =1189
+        Y: =45
+        ZIndex: =25
+
+    "'Home Button_2' As icon.Home":
+        Icon: =Icon.Home
+        OnSelect: =Navigate(Welcome)
+        X: =1283
+        Y: =31
+        ZIndex: =26
+

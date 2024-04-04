@@ -1,0 +1,102 @@
+[
+  {
+    "CdsFCBContext": "{\"FileType\":true,\"ImageExternalStorage\":true}",
+    "EntitySetName": "cr110_newtables",
+    "IsHidden": false,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "LogicalName": "cr110_newtable",
+    "MaxGetRowsCount": 500,
+    "Name": "Treat_Data_V2_Collaborators",
+    "NativeCDSDataSourceInfoNameMapping": {
+      "_ownerid_value": "Owner",
+      "cr110_ac_email": "AC_Email",
+      "cr110_ac_firstname": "AC_FirstName",
+      "cr110_ac_lastname": "AC_LastName",
+      "cr110_ac_role": "AC_Role",
+      "cr110_newtable_AsyncOperations": "System Jobs",
+      "cr110_newtable_BulkDeleteFailures": "Bulk Delete Failures",
+      "cr110_newtable_DuplicateBaseRecord": "Duplicate Records (cr110_newtable_DuplicateBaseRecord)",
+      "cr110_newtable_DuplicateMatchingRecord": "Duplicate Records (cr110_newtable_DuplicateMatchingRecord)",
+      "cr110_newtable_MailboxTrackingFolders": "Mailbox Auto Tracking Folders",
+      "cr110_newtable_PrincipalObjectAttributeAccesses": "Field Sharing",
+      "cr110_newtable_ProcessSession": "Process Sessions",
+      "cr110_newtable_SyncErrors": "Sync Errors",
+      "cr110_newtableid": "Treat_Data_V2_Collaborators",
+      "cr110_parentid": "ParentID",
+      "cr110_Treat_Data_V2": "Treat_Data_V2",
+      "createdby": "Created By",
+      "createdon": "Created On",
+      "createdonbehalfby": "Created By (Delegate)",
+      "importsequencenumber": "Import Sequence Number",
+      "modifiedby": "Modified By",
+      "modifiedon": "Modified On",
+      "modifiedonbehalfby": "Modified By (Delegate)",
+      "overriddencreatedon": "Record Created On",
+      "owningbusinessunit": "Owning Business Unit",
+      "owningteam": "Owning Team",
+      "owninguser": "Owning User",
+      "statecode": "Status",
+      "statuscode": "Status Reason",
+      "timezoneruleversionnumber": "Time Zone Rule Version Number",
+      "utcconversiontimezonecode": "UTC Conversion Time Zone Code",
+      "versionnumber": "Version Number"
+    },
+    "PreferredName": "Treat_Data_V2_Collaborators",
+    "Type": "NativeCDSDataSourceInfo"
+  },
+  {
+    "DisplayName": "Treat_Data_V2_Collaborators (Views)",
+    "Name": "_cr110_newtable_views",
+    "RelatedEntityName": "Treat_Data_V2_Collaborators",
+    "TrimmedViewName": true,
+    "Type": "ViewInfo",
+    "ViewInfoNameMapping": {
+      "077658e7-3159-4eba-acbc-039d14fbe139": "Active Treat_Data_V2_Collaborators",
+      "483a0816-917c-4f50-a766-9e00ddd43e56": "Treat_Data_V2_Collaborators Associated View",
+      "89461dcd-a36d-49b0-ab22-e15a06cd92ef": "Treat_Data_V2_Collaborators Lookup View",
+      "bd76d2aa-8392-4c41-8e06-d59ba6267ed6": "Inactive Treat_Data_V2_Collaborators",
+      "d15a92d4-9494-47f5-8824-4ce88cb0d594": "Treat_Data_V2_Collaborators Advanced Find View"
+    }
+  },
+  {
+    "DisplayName": "Status (Treat_Data_V2_Collaborators)",
+    "Name": "cr110_newtable_statecode",
+    "OptionSetInfoNameMapping": {
+      "0": "Active",
+      "1": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statecode",
+        "OptionSetReferenceEntityName": "Treat_Data_V2_Collaborators"
+      }
+    },
+    "OptionSetTypeKey": "StateType",
+    "RelatedColumnInvariantName": "statecode",
+    "RelatedEntityName": "Treat_Data_V2_Collaborators",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status Reason (Treat_Data_V2_Collaborators)",
+    "Name": "cr110_newtable_statuscode",
+    "OptionSetInfoNameMapping": {
+      "1": "Active",
+      "2": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statuscode",
+        "OptionSetReferenceEntityName": "Treat_Data_V2_Collaborators"
+      }
+    },
+    "OptionSetTypeKey": "StatusType",
+    "RelatedColumnInvariantName": "statuscode",
+    "RelatedEntityName": "Treat_Data_V2_Collaborators",
+    "Type": "OptionSetInfo"
+  }
+]

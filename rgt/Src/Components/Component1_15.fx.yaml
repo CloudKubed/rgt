@@ -1,0 +1,22 @@
+Component1_15 As CanvasComponent:
+    Fill: =RGBA(0, 0, 0, 0)
+    Height: =126
+    Width: =1366
+    X: =0
+    Y: =0
+    ZIndex: =1
+
+    Rectangle1_5 As rectangle:
+        Fill: =RGBA(0, 134, 208, 1)
+        Height: =126
+        Width: =1366
+        ZIndex: =1
+
+    Image1_1 As image:
+        Height: =84
+        Image: =CK_Main_logo_Reversed
+        Width: =269
+        X: =71
+        Y: =21
+        ZIndex: =2
+

@@ -1,0 +1,145 @@
+BudgetInformation As screen:
+    Fill: =RGBA(241, 244, 249, 1)
+
+    Component1_16 As Component1:
+
+    lblTitle8_2 As label:
+        Align: =Align.Center
+        Color: =RGBA(255, 255, 255, 1)
+        FontWeight: =FontWeight.Bold
+        Height: =126
+        Size: =32
+        Text: ="Budget Information Submission"
+        Width: =694
+        X: =354
+        ZIndex: =4
+
+    btnNewProjectData_1 As button:
+        BorderColor: =ColorFade(Self.Fill, -200%)
+        BorderThickness: =0
+        Height: =61
+        HoverFill: =Self.Fill
+        OnSelect: |-
+            =Navigate(ManageBudgetDetail,BorderStyle.None,{ParentId:varRecord.Treat_Data_V2,  BudgetSelectedRecord:Defaults(Treat_Data_V2_BudgetInformations)});
+        RadiusBottomLeft: =25
+        RadiusBottomRight: =25
+        RadiusTopLeft: =25
+        RadiusTopRight: =25
+        Size: =20
+        Text: ="Add Budget Details"
+        Visible: =If(CountRows(Filter(Treat_Data_V2_BudgetInformations,GUID(ParentID)=varRecord.Treat_Data_V2))=0,true,false)
+        Width: =312
+        X: =1035
+        Y: =144
+        ZIndex: =5
+
+    DataTable2 As dataTable.datatable:
+        BorderStyle: =BorderStyle.Solid
+        DisplayMode: =DisplayMode.Edit
+        Fill: =RGBA(0, 0, 0, 0)
+        Height: =546
+        Items: =Filter(Treat_Data_V2_BudgetInformations,GUID(ParentID)=varRecord.Treat_Data_V2)
+        Visible: =true
+        Width: =1366
+        X: =0
+        Y: =222
+        ZIndex: =9
+
+        BIS_BI_BudgetCode_Column2 As dataTableColumn.textualColumn:
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="Budget Code"
+            FieldName: ="cr110_bis_bi_budgetcode"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =1
+            Text: =ThisItem.BIS_BI_BudgetCode
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =5
+
+        BIS_BI_Amount_Column1 As dataTableColumn.numberColumn:
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="Budget Amount"
+            FieldName: ="cr110_bis_bi_amount"
+            FieldVariantName: ="numberColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =2
+            Text: =ThisItem.BIS_BI_Amount
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =6
+
+        BIS_BI_BudgetApproverName_Column1 As dataTableColumn.textualColumn:
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="Budget Approver Name"
+            FieldName: ="cr110_bis_bi_budgetapprovername"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =3
+            Text: =ThisItem.BIS_BI_BudgetApproverName
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =7
+
+        BIS_BI_BudgetApproverEmail_Column1 As dataTableColumn.emailColumn:
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="Budget Approver Email"
+            FieldName: ="cr110_bis_bi_budgetapproveremail"
+            FieldVariantName: ="emailColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =4
+            Text: =ThisItem.BIS_BI_BudgetApproverEmail
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =8
+
+        BIS_BI_ApprovalStatus_Column1 As dataTableColumn.textualColumn:
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="Budget Approval Status"
+            FieldName: ="cr110_bis_bi_approvalstatus"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =5
+            Text: |
+                =If(IsBlank(ThisItem.BIS_BI_ApprovalStatus),"Pending",ThisItem.BIS_BI_ApprovalStatus)
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =9
+
+    Label7_2 As label:
+        Align: =Align.Center
+        FontWeight: =FontWeight.Bold
+        Height: =96
+        Size: =20
+        Text: ="Budget Information"
+        Width: =522
+        X: =440
+        Y: =126
+        ZIndex: =10
+
+    icoMetadata_1 As icon.BackArrow:
+        Height: =117
+        Icon: =Icon.BackArrow
+        OnSelect: =Navigate(DataRegistration)
+        Width: =112
+        X: =80
+        Y: =621
+        ZIndex: =12
+
+    "'Home Button_11' As icon.Home":
+        Icon: =Icon.Home
+        OnSelect: =Navigate(Welcome)
+        X: =1283
+        Y: =31
+        ZIndex: =13
+

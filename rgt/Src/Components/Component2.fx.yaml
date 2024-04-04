@@ -1,0 +1,24 @@
+Component2 As CanvasComponent:
+    Fill: =RGBA(0, 0, 0, 0)
+    Height: =86
+    Width: =88
+    X: =0
+    Y: =0
+    ZIndex: =1
+
+    shpWelcomeScreen_1 As circle:
+        Fill: |-
+            =ColorValue("#CCCCCC")
+        Height: =86
+        Width: =88
+        ZIndex: =1
+
+    icoWelcomeScreen_1 As icon.Home:
+        Height: =53
+        Icon: =Icon.Home
+        OnSelect: =Navigate(Welcome)
+        Width: =55
+        X: =16
+        Y: =13
+        ZIndex: =2
+

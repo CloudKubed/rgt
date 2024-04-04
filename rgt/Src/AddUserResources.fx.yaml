@@ -1,0 +1,469 @@
+AddUserResources As screen:
+    Fill: =RGBA(241, 244, 249, 1)
+    OnVisible: =
+
+    Component1_25 As Component1:
+
+    Label7_10 As label:
+        Align: =Align.Center
+        Color: =RGBA(255, 255, 255, 1)
+        FontWeight: =FontWeight.Bold
+        Height: =126
+        Size: =32
+        Text: ="Add Workspaces And Services"
+        Width: =674
+        X: =379
+        ZIndex: =4
+
+    Label7_11 As label:
+        Align: =Align.Center
+        FontWeight: =FontWeight.Bold
+        Height: =79
+        Size: =20
+        Text: ="Add User Resources (Virtual machines)"
+        Visible: =varshowtext
+        Width: =597
+        X: =384
+        Y: =139
+        ZIndex: =9
+
+    btnNextpage_4 As button:
+        BorderColor: =ColorFade(Self.Fill, -200%)
+        BorderThickness: =0
+        DisplayMode: |-
+            =If(!IsEmpty(CollUserResourceDetails),
+            DisplayMode.Edit
+            ,
+            DisplayMode.Disabled
+            )
+        Height: =59
+        HoverFill: =Self.Fill
+        OnSelect: |-
+            =Navigate(ReviewAndSubmitWorkspaceScreen,BorderStyle.None,{varRecord:Gallery1.Selected});
+            ClearCollect(varTempResources,Gallery5_2.Selected)
+        RadiusBottomLeft: =25
+        RadiusBottomRight: =25
+        RadiusTopLeft: =25
+        RadiusTopRight: =25
+        Size: =20
+        Text: ="Next"
+        Width: =200
+        X: =1089
+        Y: =636
+        ZIndex: =11
+
+    Container1_2 As groupContainer.manualLayoutContainer:
+        BorderThickness: =1
+        Height: =391
+        Width: =1205
+        X: =84
+        Y: =218
+        ZIndex: =13
+
+        Label26_10 As label:
+            FontWeight: =FontWeight.Bold
+            Size: =12
+            Text: ="Service Type"
+            Width: =151
+            X: =54
+            Y: =38
+            ZIndex: =3
+
+        "Gallery5_2 As gallery.'BrowseLayout_Vertical_TwoTextOneImageVariant_ver5.0'":
+            BorderThickness: =1
+            DelayItemLoading: =true
+            Height: =301
+            Items: =Treat_Data_V2_MasterUserResources
+            Layout: =Layout.Vertical
+            LoadingSpinner: =LoadingSpinner.Data
+            TemplatePadding: =0
+            TemplateSize: =131
+            Width: =1204
+            Y: =90
+            ZIndex: =19
+
+            Image7_2 As image:
+                Height: =72
+                OnSelect: =Select(Parent)
+                RadiusBottomLeft: =8
+                RadiusBottomRight: =8
+                RadiusTopLeft: =8
+                RadiusTopRight: =8
+                Visible: =false
+                Width: =72
+                X: =16
+                Y: =(Parent.TemplateHeight / 2) - (Self.Height / 2)
+                ZIndex: =1
+
+            Title2_2 As label:
+                FontWeight: =If(ThisItem.IsSelected, FontWeight.Semibold, FontWeight.Normal)
+                Height: =62
+                OnSelect: =Select(Parent)
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Size: =12
+                Text: =ThisItem.Resource_ID
+                VerticalAlign: =VerticalAlign.Top
+                Width: =30
+                X: =16
+                Y: =7
+                ZIndex: =2
+
+            NextArrow2_2 As icon.ChevronRight:
+                AccessibleLabel: =Self.Tooltip
+                Color: =RGBA(166, 166, 166, 1)
+                Height: =50
+                Icon: =Icon.ChevronRight
+                OnSelect: =Select(Parent)
+                PaddingBottom: =16
+                PaddingLeft: =16
+                PaddingRight: =16
+                PaddingTop: =16
+                Tooltip: ="View item details"
+                Visible: =false
+                Width: =50
+                X: =Parent.TemplateWidth - Self.Width - 12
+                Y: =(Parent.TemplateHeight / 2) - (Self.Height / 2)
+                ZIndex: =4
+
+            Separator9_2 As rectangle:
+                Height: =8
+                OnSelect: =Select(Parent)
+                Width: =Parent.TemplateWidth
+                Y: =Parent.TemplateHeight - Self.Height
+                ZIndex: =5
+
+            Rectangle6_2 As rectangle:
+                Height: =88
+                OnSelect: =Select(Parent)
+                Visible: =ThisItem.IsSelected
+                Width: =4
+                ZIndex: =6
+
+            Subtitle3_4 As label:
+                FontWeight: =If(ThisItem.IsSelected, FontWeight.Semibold, FontWeight.Normal)
+                Height: =73
+                OnSelect: =Select(Parent)
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Text: =ThisItem.'Software availability'
+                VerticalAlign: =VerticalAlign.Top
+                Width: =176
+                X: =496
+                Y: =7
+                ZIndex: =10
+
+            Title2_3 As label:
+                FontWeight: =If(ThisItem.IsSelected, FontWeight.Semibold, FontWeight.Normal)
+                Height: =62
+                OnSelect: =Select(Parent)
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Size: =12
+                Text: =ThisItem.'Service Type'
+                VerticalAlign: =VerticalAlign.Top
+                Width: =127
+                X: =62
+                Y: =8
+                ZIndex: =12
+
+            Title2_4 As label:
+                FontWeight: =If(ThisItem.IsSelected, FontWeight.Semibold, FontWeight.Normal)
+                Height: =62
+                OnSelect: =Select(Parent)
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Size: =12
+                Text: =ThisItem.'VM Type'
+                VerticalAlign: =VerticalAlign.Top
+                Width: =120
+                X: =221
+                Y: =7
+                ZIndex: =13
+
+            Title2_5 As label:
+                FontWeight: =If(ThisItem.IsSelected, FontWeight.Semibold, FontWeight.Normal)
+                Height: =62
+                OnSelect: =Select(Parent)
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Size: =12
+                Text: =ThisItem.'OS Type'
+                VerticalAlign: =VerticalAlign.Top
+                Width: =120
+                X: =352
+                Y: =7
+                ZIndex: =14
+
+            "Gallery8 As gallery.'BrowseLayout_Vertical_TwoTextOneImageVariant_ver5.0'":
+                BorderThickness: =1
+                DelayItemLoading: =true
+                Height: =116
+                Items: =ThisItem.'Treat_Data_V2_MasterUserResourcesDetails (cr110_cr110_treat_data_v2_masteruserresourcesde)'
+                Layout: =Layout.Vertical
+                LoadingSpinner: =LoadingSpinner.Data
+                TemplatePadding: =0
+                TemplateSize: =35
+                Width: =520
+                X: =672
+                Y: =7
+                ZIndex: =18
+
+                Image10 As image:
+                    Height: =72
+                    OnSelect: =Select(Parent)
+                    RadiusBottomLeft: =8
+                    RadiusBottomRight: =8
+                    RadiusTopLeft: =8
+                    RadiusTopRight: =8
+                    Visible: =false
+                    Width: =72
+                    X: =16
+                    Y: =(Parent.TemplateHeight / 2) - (Self.Height / 2)
+                    ZIndex: =1
+
+                Title5 As label:
+                    FontWeight: =If(ThisItem.IsSelected, FontWeight.Semibold, FontWeight.Normal)
+                    Height: =25
+                    OnSelect: =Select(Parent)
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Size: =12
+                    Text: =ThisItem.'Available Compute & Memory Specification'
+                    VerticalAlign: =VerticalAlign.Top
+                    Width: =253
+                    X: =42
+                    Y: =3
+                    ZIndex: =2
+
+                Subtitle6 As label:
+                    FontWeight: =If(ThisItem.IsSelected, FontWeight.Semibold, FontWeight.Normal)
+                    Height: =27
+                    OnSelect: =Select(Parent)
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Text: =ThisItem.'Standard VM disk size'
+                    VerticalAlign: =VerticalAlign.Top
+                    Width: =115
+                    X: =306
+                    Y: =3
+                    ZIndex: =3
+
+                NextArrow4 As icon.ChevronRight:
+                    AccessibleLabel: =Self.Tooltip
+                    Color: =RGBA(166, 166, 166, 1)
+                    Height: =50
+                    Icon: =Icon.ChevronRight
+                    OnSelect: =Select(Parent)
+                    PaddingBottom: =16
+                    PaddingLeft: =16
+                    PaddingRight: =16
+                    PaddingTop: =16
+                    Tooltip: ="View item details"
+                    Visible: =false
+                    Width: =50
+                    X: =Parent.TemplateWidth - Self.Width - 12
+                    Y: =(Parent.TemplateHeight / 2) - (Self.Height / 2)
+                    ZIndex: =4
+
+                Rectangle11 As rectangle:
+                    Height: =Parent.TemplateHeight - Separator12.Height
+                    OnSelect: =Select(Parent)
+                    Visible: =ThisItem.IsSelected
+                    Width: =4
+                    ZIndex: =6
+
+                Subtitle6_1 As label:
+                    Align: =Align.Right
+                    FontWeight: =If(ThisItem.IsSelected, FontWeight.Semibold, FontWeight.Normal)
+                    Height: =25
+                    OnSelect: =Select(Parent)
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Text: ="£ " & ThisItem.Cost
+                    VerticalAlign: =VerticalAlign.Top
+                    Width: =115
+                    X: =393
+                    Y: =3
+                    ZIndex: =7
+
+                Checkbox3 As checkbox:
+                    Default: =If(CountRows(Filter(CollUserResourceDetails,cr110_treat_data_v2_masteruserresourcesdetailid=ThisItem.Treat_Data_V2_MasterUserResourcesDetail))>0,true,false)
+                    Height: =30
+                    OnCheck: =ClearCollect(CollUserResourceDetails,ThisItem)
+                    OnSelect: =Select(Parent)
+                    OnUncheck: =Remove(CollUserResourceDetails,ThisItem)
+                    Text: =""
+                    Width: =40
+                    X: =2
+                    ZIndex: =8
+
+                Title5_1 As label:
+                    FontWeight: =If(ThisItem.IsSelected, FontWeight.Semibold, FontWeight.Normal)
+                    Height: =26
+                    OnSelect: =Select(Parent)
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Size: =12
+                    Text: =ThisItem.ParentID.Resource_ID
+                    VerticalAlign: =VerticalAlign.Top
+                    Visible: =false
+                    Width: =101
+                    X: =194
+                    Y: =4
+                    ZIndex: =9
+
+        Label26_11 As label:
+            FontWeight: =FontWeight.Bold
+            Size: =12
+            Text: ="VM Type"
+            Width: =108
+            X: =218
+            Y: =38
+            ZIndex: =20
+
+        Label26_9 As label:
+            FontWeight: =FontWeight.Bold
+            Size: =12
+            Text: ="ID"
+            Width: =42
+            X: =12
+            Y: =38
+            ZIndex: =21
+
+        Label26_12 As label:
+            FontWeight: =FontWeight.Bold
+            Size: =12
+            Text: ="OS Type"
+            Width: =104
+            X: =339
+            Y: =38
+            ZIndex: =22
+
+        Label26_14 As label:
+            FontWeight: =FontWeight.Bold
+            Size: =12
+            Text: ="Software availability"
+            Width: =175
+            X: =485
+            Y: =38
+            ZIndex: =23
+
+        Label26_15 As label:
+            FontWeight: =FontWeight.Bold
+            Size: =12
+            Text: ="Available Compute & Memory Specifications"
+            Width: =227
+            X: =693
+            Y: =38
+            ZIndex: =24
+
+        Label26_16 As label:
+            FontWeight: =FontWeight.Bold
+            Size: =12
+            Text: ="Standard VM disk size"
+            Width: =143
+            X: =966
+            Y: =36
+            ZIndex: =25
+
+        Label26_17 As label:
+            FontWeight: =FontWeight.Bold
+            Height: =38
+            Size: =14
+            Text: ="User Resources (Virtual machines)"
+            Width: =375
+            X: =12
+            ZIndex: =26
+
+        Icon3 As icon.HorizontalLine:
+            Fill: =RGBA(0, 16, 96, 1)
+            FocusedBorderThickness: =0
+            Height: =1
+            Icon: =Icon.HorizontalLine
+            Width: =1203
+            Y: =35
+            ZIndex: =27
+
+        Label26_18 As label:
+            Align: =Align.Right
+            FontWeight: =FontWeight.Bold
+            Size: =12
+            Text: ="Total Cost"
+            Width: =143
+            X: =1060
+            Y: =38
+            ZIndex: =28
+
+        Icon1_44 As icon.Information:
+            Height: =25
+            Icon: =Icon.Information
+            Tooltip: |-
+                ="Select the User Resources (Virtual machines)
+                of choice."
+            Width: =25
+            X: =362
+            Y: =6
+            ZIndex: =29
+
+    btnNextpage_5 As button:
+        BorderColor: =ColorFade(Self.Fill, -200%)
+        BorderThickness: =0
+        DisplayMode: |
+            =//If(chkBase Or chkCustomsed Or chkUnrestricted,
+            DisplayMode.Edit
+            //,
+            //DisplayMode.Disabled
+            //)
+        Height: =59
+        HoverFill: =Self.Fill
+        OnSelect: =Navigate(AddServices)
+        RadiusBottomLeft: =25
+        RadiusBottomRight: =25
+        RadiusTopLeft: =25
+        RadiusTopRight: =25
+        Size: =20
+        Text: ="Back"
+        Width: =200
+        X: =84
+        Y: =636
+        ZIndex: =14
+
+    Icon4 As icon.Message:
+        Icon: =Icon.Information
+        OnSelect: =Navigate(AvailableTool)
+        Tooltip: |-
+            ="Data Science VM's - available tooling
+            "
+        X: =1225
+        Y: =139
+        ZIndex: =15
+
+    Label19 As label:
+        Color: =RGBA(106, 122, 127, 1)
+        FontWeight: =FontWeight.Bold
+        Size: =8
+        Text: ="Please click this icon to view a guide that can help with selecting a user resource"
+        Width: =218
+        X: =996
+        Y: =151
+        ZIndex: =16
+

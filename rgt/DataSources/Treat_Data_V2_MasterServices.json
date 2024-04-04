@@ -1,0 +1,100 @@
+[
+  {
+    "CdsFCBContext": "{\"FileType\":true,\"ImageExternalStorage\":true}",
+    "EntitySetName": "cr110_newtable3s",
+    "IsHidden": false,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "LogicalName": "cr110_newtable3",
+    "MaxGetRowsCount": 500,
+    "Name": "Treat_Data_V2_MasterServices",
+    "NativeCDSDataSourceInfoNameMapping": {
+      "_ownerid_value": "Owner",
+      "cr110_category": "Category",
+      "cr110_description": "Description",
+      "cr110_newtable3_AsyncOperations": "System Jobs",
+      "cr110_newtable3_BulkDeleteFailures": "Bulk Delete Failures",
+      "cr110_newtable3_DuplicateBaseRecord": "Duplicate Records (cr110_newtable3_DuplicateBaseRecord)",
+      "cr110_newtable3_DuplicateMatchingRecord": "Duplicate Records (cr110_newtable3_DuplicateMatchingRecord)",
+      "cr110_newtable3_MailboxTrackingFolders": "Mailbox Auto Tracking Folders",
+      "cr110_newtable3_PrincipalObjectAttributeAccesses": "Field Sharing",
+      "cr110_newtable3_ProcessSession": "Process Sessions",
+      "cr110_newtable3_SyncErrors": "Sync Errors",
+      "cr110_newtable3id": "Treat_Data_V2_Services",
+      "cr110_services": "Services",
+      "cr110_WorkspaceID": "WorkspaceID",
+      "createdby": "Created By",
+      "createdon": "Created On",
+      "createdonbehalfby": "Created By (Delegate)",
+      "importsequencenumber": "Import Sequence Number",
+      "modifiedby": "Modified By",
+      "modifiedon": "Modified On",
+      "modifiedonbehalfby": "Modified By (Delegate)",
+      "overriddencreatedon": "Record Created On",
+      "owningbusinessunit": "Owning Business Unit",
+      "owningteam": "Owning Team",
+      "owninguser": "Owning User",
+      "statecode": "Status",
+      "statuscode": "Status Reason",
+      "timezoneruleversionnumber": "Time Zone Rule Version Number",
+      "utcconversiontimezonecode": "UTC Conversion Time Zone Code",
+      "versionnumber": "Version Number"
+    },
+    "PreferredName": "Treat_Data_V2_MasterServices",
+    "Type": "NativeCDSDataSourceInfo"
+  },
+  {
+    "DisplayName": "Treat_Data_V2_MasterServices (Views)",
+    "Name": "_cr110_newtable3_views",
+    "RelatedEntityName": "Treat_Data_V2_MasterServices",
+    "TrimmedViewName": true,
+    "Type": "ViewInfo",
+    "ViewInfoNameMapping": {
+      "20f5765b-1664-4dae-a23d-fc76ca857f1f": "Active Treat_Data_V2_Services",
+      "33e0d519-799f-44ed-8740-1a479b167314": "Treat_Data_V2_Services Lookup View",
+      "6c11d8c8-d88c-41db-90ce-0fb020661cd6": "Treat_Data_V2_Services Advanced Find View",
+      "b1a2880b-c008-4ddb-bf84-52d27bfd3606": "Treat_Data_V2_Services Associated View",
+      "ec815851-293c-4741-b0f4-77d2908fe53e": "Inactive Treat_Data_V2_Services"
+    }
+  },
+  {
+    "DisplayName": "Status (Treat_Data_V2_MasterServices)",
+    "Name": "cr110_newtable3_statecode",
+    "OptionSetInfoNameMapping": {
+      "0": "Active",
+      "1": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statecode",
+        "OptionSetReferenceEntityName": "Treat_Data_V2_MasterServices"
+      }
+    },
+    "OptionSetTypeKey": "StateType",
+    "RelatedColumnInvariantName": "statecode",
+    "RelatedEntityName": "Treat_Data_V2_MasterServices",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status Reason (Treat_Data_V2_MasterServices)",
+    "Name": "cr110_newtable3_statuscode",
+    "OptionSetInfoNameMapping": {
+      "1": "Active",
+      "2": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statuscode",
+        "OptionSetReferenceEntityName": "Treat_Data_V2_MasterServices"
+      }
+    },
+    "OptionSetTypeKey": "StatusType",
+    "RelatedColumnInvariantName": "statuscode",
+    "RelatedEntityName": "Treat_Data_V2_MasterServices",
+    "Type": "OptionSetInfo"
+  }
+]

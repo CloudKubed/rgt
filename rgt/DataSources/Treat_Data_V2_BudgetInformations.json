@@ -1,0 +1,104 @@
+[
+  {
+    "CdsFCBContext": "{\"FileType\":true,\"ImageExternalStorage\":true}",
+    "EntitySetName": "cr110_newtable1s",
+    "IsHidden": false,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "LogicalName": "cr110_newtable1",
+    "MaxGetRowsCount": 500,
+    "Name": "Treat_Data_V2_BudgetInformations",
+    "NativeCDSDataSourceInfoNameMapping": {
+      "_ownerid_value": "Owner",
+      "cr110_approvercomments": "ApproverComments",
+      "cr110_bis_bi_amount": "BIS_BI_Amount",
+      "cr110_bis_bi_approvalstatus": "BIS_BI_ApprovalStatus",
+      "cr110_bis_bi_budgetapproveremail": "BIS_BI_BudgetApproverEmail",
+      "cr110_bis_bi_budgetapprovername": "BIS_BI_BudgetApproverName",
+      "cr110_bis_bi_budgetcode": "BIS_BI_BudgetCode",
+      "cr110_bis_bi_datebudgetapprovalrequestsubmitted": "BIS_BI_DateBudgetApprovalRequestSubmitted",
+      "cr110_newtable1_AsyncOperations": "System Jobs",
+      "cr110_newtable1_BulkDeleteFailures": "Bulk Delete Failures",
+      "cr110_newtable1_DuplicateBaseRecord": "Duplicate Records (cr110_newtable1_DuplicateBaseRecord)",
+      "cr110_newtable1_DuplicateMatchingRecord": "Duplicate Records (cr110_newtable1_DuplicateMatchingRecord)",
+      "cr110_newtable1_MailboxTrackingFolders": "Mailbox Auto Tracking Folders",
+      "cr110_newtable1_PrincipalObjectAttributeAccesses": "Field Sharing",
+      "cr110_newtable1_ProcessSession": "Process Sessions",
+      "cr110_newtable1_SyncErrors": "Sync Errors",
+      "cr110_newtable1id": "Treat_Data_V2_BudgetInformation",
+      "cr110_parentid": "ParentID",
+      "createdby": "Created By",
+      "createdon": "Created On",
+      "createdonbehalfby": "Created By (Delegate)",
+      "importsequencenumber": "Import Sequence Number",
+      "modifiedby": "Modified By",
+      "modifiedon": "Modified On",
+      "modifiedonbehalfby": "Modified By (Delegate)",
+      "overriddencreatedon": "Record Created On",
+      "owningbusinessunit": "Owning Business Unit",
+      "owningteam": "Owning Team",
+      "owninguser": "Owning User",
+      "statecode": "Status",
+      "statuscode": "Status Reason",
+      "timezoneruleversionnumber": "Time Zone Rule Version Number",
+      "utcconversiontimezonecode": "UTC Conversion Time Zone Code",
+      "versionnumber": "Version Number"
+    },
+    "PreferredName": "Treat_Data_V2_BudgetInformations",
+    "Type": "NativeCDSDataSourceInfo"
+  },
+  {
+    "DisplayName": "Treat_Data_V2_BudgetInformations (Views)",
+    "Name": "_cr110_newtable1_views",
+    "RelatedEntityName": "Treat_Data_V2_BudgetInformations",
+    "TrimmedViewName": true,
+    "Type": "ViewInfo",
+    "ViewInfoNameMapping": {
+      "18c86cef-df6f-4e15-a670-18475e7a8f48": "Treat_Data_V2_BudgetInformation Advanced Find View",
+      "6121598b-6e8d-4613-ac1d-c8ff2a47186f": "Active Treat_Data_V2_BudgetInformations",
+      "716c303f-535e-4cf6-9b6d-914fdb777cb6": "Treat_Data_V2_BudgetInformation Lookup View",
+      "8d489394-dbd4-45a4-a23d-75b0e5cf0f0a": "Treat_Data_V2_BudgetInformation Associated View",
+      "bd0f36b4-220c-4f24-ac75-b4811209460d": "Inactive Treat_Data_V2_BudgetInformations"
+    }
+  },
+  {
+    "DisplayName": "Status (Treat_Data_V2_BudgetInformations)",
+    "Name": "cr110_newtable1_statecode",
+    "OptionSetInfoNameMapping": {
+      "0": "Active",
+      "1": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statecode",
+        "OptionSetReferenceEntityName": "Treat_Data_V2_BudgetInformations"
+      }
+    },
+    "OptionSetTypeKey": "StateType",
+    "RelatedColumnInvariantName": "statecode",
+    "RelatedEntityName": "Treat_Data_V2_BudgetInformations",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status Reason (Treat_Data_V2_BudgetInformations)",
+    "Name": "cr110_newtable1_statuscode",
+    "OptionSetInfoNameMapping": {
+      "1": "Active",
+      "2": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statuscode",
+        "OptionSetReferenceEntityName": "Treat_Data_V2_BudgetInformations"
+      }
+    },
+    "OptionSetTypeKey": "StatusType",
+    "RelatedColumnInvariantName": "statuscode",
+    "RelatedEntityName": "Treat_Data_V2_BudgetInformations",
+    "Type": "OptionSetInfo"
+  }
+]

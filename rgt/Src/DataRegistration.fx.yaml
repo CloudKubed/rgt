@@ -1,0 +1,446 @@
+DataRegistration As screen:
+    BackgroundImage: =
+    Fill: =RGBA(241, 244, 249, 1)
+
+    Component1_2 As Component1:
+        ZIndex: =4
+
+    lblTitle2 As label:
+        Align: =Align.Center
+        Color: =RGBA(255, 255, 255, 1)
+        FontWeight: =FontWeight.Bold
+        Height: =126
+        OnSelect: =
+        Size: =32
+        Text: ="Project Data Registration"
+        Width: =1366
+        ZIndex: =5
+
+    btnNewProjectData As button:
+        BorderColor: =ColorFade(Self.Fill, -200%)
+        BorderThickness: =0
+        Height: =61
+        HoverFill: =Self.Fill
+        OnSelect: |-
+            =NewForm(frmProjectAndDataDetails);
+            Navigate(ProjectAndDataDetails)
+            //,BorderStyle.None, {selectedRecord:Defaults(Treat_Data_V2S)})
+        RadiusBottomLeft: =25
+        RadiusBottomRight: =25
+        RadiusTopLeft: =25
+        RadiusTopRight: =25
+        Size: =20
+        Text: ="New Project Data"
+        Width: =312
+        X: =1035
+        Y: =135
+        ZIndex: =6
+
+    "Gallery1 As gallery.'BrowseLayout_Vertical_TwoTextOneImageVariant_ver5.0'":
+        BorderThickness: =1
+        DelayItemLoading: =true
+        Fill: =RGBA(102, 182, 227, 1)
+        Height: =475
+        Items: =Filter(Treat_Data_V2S, 'Treat_Data_V2S (Views)'.LoggedInUser)
+        Layout: =Layout.Vertical
+        LoadingSpinner: =LoadingSpinner.Data
+        TemplatePadding: =0
+        TemplateSize: =180
+        Width: =1317
+        X: =30
+        Y: =201
+        ZIndex: =8
+
+        HtmlText1 As htmlViewer:
+            Fill: =RGBA(102, 182, 227, 1)
+            Height: =172
+            HtmlText: |-
+                ="<div style=""margin: 12px 10px 8px 10px; width: "&(Self.Width-44)&"px; height: "&(Self.Height-31)&"px; background-color: white; box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2); border-radius:5px""></div>"
+            OnSelect: =Select(Parent)
+            Width: =1317
+            ZIndex: =1
+
+        Image3 As image:
+            Height: =72
+            OnSelect: =Select(Parent)
+            RadiusBottomLeft: =8
+            RadiusBottomRight: =8
+            RadiusTopLeft: =8
+            RadiusTopRight: =8
+            Visible: =false
+            Width: =72
+            X: =16
+            Y: =(Parent.TemplateHeight / 2) - (Self.Height / 2)
+            ZIndex: =2
+
+        Separator5 As rectangle:
+            Height: =8
+            OnSelect: =Select(Parent)
+            Width: =Parent.TemplateWidth
+            Y: =Parent.TemplateHeight - Self.Height
+            ZIndex: =3
+
+        Rectangle2 As rectangle:
+            Height: =Parent.TemplateHeight - Separator5.Height
+            OnSelect: =Select(Parent)
+            Visible: =ThisItem.IsSelected
+            Width: =4
+            ZIndex: =4
+
+        Label15 As label:
+            Color: |-
+                =ColorValue("#000000")
+            FontWeight: =FontWeight.Semibold
+            Height: =29
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Size: =16
+            Text: |+
+                ="Project Title"
+                
+            VerticalAlign: =VerticalAlign.Top
+            X: =35
+            Y: =24
+            ZIndex: =5
+
+        Label15_1 As label:
+            Color: |-
+                =ColorValue("#000000")
+            FontWeight: =FontWeight.Semibold
+            Height: =29
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Size: =16
+            Text: ="Dataset Name"
+            VerticalAlign: =VerticalAlign.Top
+            Width: =258
+            X: =294
+            Y: =24
+            ZIndex: =6
+
+        Label15_2 As label:
+            Color: |-
+                =ColorValue("#000000")
+            FontWeight: =FontWeight.Semibold
+            Height: =29
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Size: =16
+            Text: ="Project Start Date"
+            VerticalAlign: =VerticalAlign.Top
+            Width: =198
+            X: =572
+            Y: =24
+            ZIndex: =7
+
+        Label15_3 As label:
+            Color: |-
+                =ColorValue("#000000")
+            FontWeight: =FontWeight.Semibold
+            Height: =29
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Size: =16
+            Text: ="Project End Date"
+            VerticalAlign: =VerticalAlign.Top
+            Width: =255
+            X: =781
+            Y: =24
+            ZIndex: =8
+
+        Label15_5 As label:
+            Color: |-
+                =ColorValue("#000000")
+            FontWeight: =FontWeight.Semibold
+            Height: =45
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Size: =12
+            Text: ="Budget code approval status" 
+            VerticalAlign: =VerticalAlign.Top
+            Width: =240
+            X: =293
+            Y: =99
+            ZIndex: =15
+
+        "'Project Title Text Input' As label":
+            Color: |-
+                =ColorValue("#747474")
+            FontWeight: =FontWeight.Semibold
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Text: =ThisItem.PDD_ProjectTitle
+            VerticalAlign: =VerticalAlign.Top
+            Width: =239
+            X: =35
+            Y: =53
+            ZIndex: =17
+
+        "'Dataset Name Text Input' As label":
+            Color: |-
+                =ColorValue("#484644")
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Text: =ThisItem.PDD_DatasetName
+            VerticalAlign: =VerticalAlign.Top
+            Width: =239
+            X: =294
+            Y: =53
+            ZIndex: =18
+
+        Rectangle4 As rectangle:
+            Fill: =If(ThisItem.PDD_ApprovalStatus="Approved",Color.Green,If(ThisItem.PDD_ApprovalStatus="Rejected",Color.Red,Color.LightGray))
+            Height: =14
+            OnSelect: =Select(Parent)
+            Width: =22
+            X: =1261
+            Y: =25
+            ZIndex: =19
+
+        Rectangle4_1 As rectangle:
+            Fill: =If(ThisItem.BudgetCode_ApprovalStatus="Approved",Color.Green,If(ThisItem.BudgetCode_ApprovalStatus="Rejected",Color.Red,Color.LightGray))
+            Height: =14
+            OnSelect: =Select(Parent)
+            Width: =22
+            X: =1261
+            Y: =44
+            ZIndex: =22
+
+        ConBudgetCode As groupContainer.manualLayoutContainer:
+            Height: =67
+            Width: =200
+            X: =861
+            Y: =82
+            ZIndex: =23
+
+            Button2 As button:
+                BorderColor: =RGBA(40,167,69,1)
+                Color: =Color.White
+                DisplayMode: =If(Text(ThisItem.ROA_AP_Status)="Approve",DisplayMode.Edit,DisplayMode.Disabled)
+                Fill: =RGBA(40,167,69,1)
+                Height: =72
+                HoverFill: =ColorFade(RGBA(40,167,69,1), -20%)
+                OnSelect: |-
+                    =Navigate(BudgetInformation,BorderStyle.None,{varRecord:Gallery1.Selected})
+                PaddingBottom: =0
+                PaddingLeft: =50
+                PaddingRight: =0
+                PaddingTop: =0
+                Size: =12
+                Text: ="Add Budget Code "
+                Width: =ConBudgetCode.Width-Self.BorderThickness
+                X: =Self.BorderThickness/2
+                ZIndex: =1
+
+            Image4 As image:
+                Height: =42
+                Image: =
+                Width: =56
+                X: =12
+                Y: =15
+                ZIndex: =2
+
+            Icon2 As icon.Currency:
+                Height: =42
+                Icon: =Icon.Currency
+                Width: =53
+                X: =1
+                Y: =15
+                ZIndex: =3
+
+        ConWorkspace As groupContainer.manualLayoutContainer:
+            Height: =67
+            Width: =200
+            X: =1083
+            Y: =82
+            ZIndex: =24
+
+            Button2_2 As button:
+                BorderColor: =RGBA(246, 88, 16, 1)
+                Color: =Color.White
+                DisplayMode: =If(CountRows(Filter(Treat_Data_V2_BudgetInformations, GUID(ParentID)=ThisItem.Treat_Data_V2 And BIS_BI_ApprovalStatus="Approved"))>0,DisplayMode.Edit,DisplayMode.Disabled)
+                Fill: =RGBA(246, 88, 16, 1)
+                Height: =72
+                HoverFill: =ColorFade(RGBA(246, 88, 16, 1), -20%)
+                OnSelect: |-
+                    =ClearCollect(CollWorkspace,Blank()); ClearCollect(CollServices,Blank()); ClearCollect(CollUserResource,Blank());ClearCollect(CollUserResourceDetails,Blank());
+                    
+                    //Collect(CollWorkspace, Treat_Data_V2_MasterWorkspaces);
+                    
+                    Navigate(AddWorkspaces,BorderStyle.None,{varRecord:Gallery1.Selected});
+                PaddingBottom: =0
+                PaddingLeft: =50
+                PaddingRight: =0
+                PaddingTop: =0
+                Size: =12
+                Text: ="Add Workspaces "
+                Width: =ConWorkspace.Width-Self.BorderThickness
+                ZIndex: =1
+
+            Image4_1 As image:
+                Height: =42
+                Image: |+
+                    ="data:image/svg+xml;utf8, "&EncodeUrl("<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path fill='#000000' d='M22 10V13H19V10H22M2 13H5V10H2V13M17 5C17 3.9 16.1 3 15 3H9C7.9 3 7 3.9 7 5V13H17V5M7 15H6V17H11V18L7 22H9.8L12 19.8L14.2 22H17L13 18V17H18V15H7Z'/></svg>")
+                    
+                    
+                    
+                Width: =56
+                Y: =15
+                ZIndex: =2
+
+        Label17_4 As label:
+            Color: |-
+                =ColorValue("#484644")
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Text: =Text(ThisItem.PDD_ProjectStartDate,"mm/dd/yyyy")
+            VerticalAlign: =VerticalAlign.Top
+            Width: =195
+            X: =572
+            Y: =53
+            ZIndex: =25
+
+        Label17_5 As label:
+            Color: |-
+                =ColorValue("#484644")
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Text: =Text(ThisItem.PDD_ProjectEndDate,"mm/dd/yyyy")
+            VerticalAlign: =VerticalAlign.Top
+            Width: =143
+            X: =781
+            Y: =53
+            ZIndex: =26
+
+        Label15_6 As label:
+            Color: |-
+                =ColorValue("#000000")
+            FontWeight: =FontWeight.Semibold
+            Height: =44
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Size: =11
+            Text: ="Research office approval status"
+            VerticalAlign: =VerticalAlign.Top
+            Width: =241
+            X: =34
+            Y: =99
+            ZIndex: =27
+
+        Label17_6 As label:
+            Color: =If(Text(ThisItem.ROA_AP_Status)="Approve",Color.Green,If(Text(ThisItem.ROA_AP_Status)="Reject" Or Text(ThisItem.ROA_AP_Status)="Return for more information",Color.Red,Color.LightGray))
+            FontWeight: =FontWeight.Semibold
+            Height: =29
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Size: =12
+            Text: =If(IsBlankOrError(ThisItem.ROA_AP_Status),"Pending",ThisItem.ROA_AP_Status)
+            Width: =239
+            X: =34
+            Y: =120
+            ZIndex: =28
+
+        Label17_7 As label:
+            Color: |
+                =If(ThisItem.'Application Status'="Publish",Color.Green,Color.LightGray)
+            FontWeight: =FontWeight.Semibold
+            Height: =29
+            Size: =16
+            Text: =If(IsBlank(ThisItem.'Application Status'),"Draft Version",ThisItem.'Application Status')
+            Width: =239
+            X: =988
+            Y: =24
+            ZIndex: =29
+
+        IconEdit As icon.Edit:
+            DisplayMode: =If(IsBlank(ThisItem.'Application Status'),DisplayMode.Edit,DisplayMode.Disabled)
+            Height: =30
+            Icon: =Icon.Edit
+            OnSelect: |-
+                =Set(varRecord,Gallery1.Selected);
+                EditForm(frmProjectAndDataDetails);
+                Navigate(ProjectAndDataDetails)
+            Tooltip: ="Edit"
+            Width: =37
+            X: =1208
+            Y: =24
+            ZIndex: =30
+
+        Gallery4 As gallery.galleryHorizontal:
+            BorderStyle: =BorderStyle.Dashed
+            BorderThickness: =1
+            DelayItemLoading: =true
+            Height: =67
+            Items: =Filter(Treat_Data_V2_BudgetInformations, GUID(ParentID)=ThisItem.Treat_Data_V2)
+            LoadingSpinner: =LoadingSpinner.Data
+            TemplateSize: =163
+            Width: =268
+            X: =571
+            Y: =82
+            ZIndex: =31
+
+            Label17_3 As label:
+                Color: =If(ThisItem.BIS_BI_ApprovalStatus="Approved",Color.Green,If(ThisItem.BIS_BI_ApprovalStatus="Rejected",Color.Red,Color.LightGray))
+                FontWeight: =FontWeight.Semibold
+                Height: =27
+                PaddingLeft: =0
+                Size: =11
+                Text: =If(IsBlank(ThisItem.BIS_BI_ApprovalStatus),"Pending",ThisItem.BIS_BI_ApprovalStatus)
+                Width: =151
+                X: =5
+                Y: =30
+                ZIndex: =2
+
+            Label25 As label:
+                Fill: =RGBA(204, 231, 246, 1)
+                FontWeight: =FontWeight.Semibold
+                Height: =25
+                OnSelect: =Select(Parent)
+                Size: =10
+                Text: =ThisItem.BIS_BI_BudgetCode
+                X: =5
+                ZIndex: =3
+
+        Arrow1 As arrow:
+            Height: =30
+            OnSelect: =Select(Parent)
+            Width: =30
+            X: =533
+            Y: =100
+            ZIndex: =32
+
+    "'Home Button' As icon.Home":
+        Icon: =Icon.Home
+        OnSelect: =Navigate(Welcome)
+        X: =1283
+        Y: =31
+        ZIndex: =9
+

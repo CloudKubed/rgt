@@ -1,0 +1,350 @@
+[
+  {
+    "CdsFCBContext": "{\"FileType\":true,\"ImageExternalStorage\":true}",
+    "EntitySetName": "cr110_treat_data_v2s",
+    "IsHidden": false,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "LogicalName": "cr110_treat_data_v2",
+    "MaxGetRowsCount": 500,
+    "Name": "Treat_Data_V2S",
+    "NativeCDSDataSourceInfoNameMapping": {
+      "_ownerid_value": "Owner",
+      "cr110_applicantemailaddress": "ApplicantEmailAddress",
+      "cr110_applicantname": "ApplicantName",
+      "cr110_applicationstatus": "Application Status",
+      "cr110_applicationsubmitdate": "Application Submit Date",
+      "cr110_budgetcode_approvalstatus": "BudgetCode_ApprovalStatus",
+      "cr110_g_l_dar_isreceived": "G_L_DAR_IsReceived",
+      "cr110_g_l_dar_notes": "G_L_DAR_Notes",
+      "cr110_g_l_dar_upload": "G_L_DAR_Upload",
+      "cr110_g_l_dpia_isreceived": "G_L_DPIA_IsReceived",
+      "cr110_g_l_dpia_notes": "G_L_DPIA_Notes",
+      "cr110_g_l_dpia_upload": "G_L_DPIA_Upload",
+      "cr110_g_l_l_isreceived": "G_L_LA_IsReceived",
+      "cr110_g_l_l_upload": "G_L_LA_Upload",
+      "cr110_g_l_la_notes": "G_L_LA_Notes",
+      "cr110_g_o_anyother_isreceived": "G_O_Anyother_IsReceived",
+      "cr110_g_o_anyother_notes": "G_O_Anyother_Notes",
+      "cr110_g_o_anyother_upload": "G_O_Anyother_Upload",
+      "cr110_g_re_dcp_isreceived": "G_RE_DCP_IsReceived",
+      "cr110_g_re_dcp_notes": "G_RE_DCP_Notes",
+      "cr110_g_re_dcp_upload": "G_RE_DCP_Upload",
+      "cr110_g_re_ea_isreceived": "G_RE_EA_IsReceived",
+      "cr110_g_re_spi_isreceived": "G_RE_SPI_IsReceived",
+      "cr110_g_re_spi_notes": "G_RE_SPI_Notes",
+      "cr110_g_re_spi_upload": "G_RE_SPI_Upload",
+      "cr110_id": "ApplicationReferenceNumber",
+      "cr110_md_datalicenseinformationtext": "MD_DataLicenseInformationText",
+      "cr110_md_retentionperiodenddate": "MD_RetentionPeriodEndDate",
+      "cr110_pdd_approvalstatus": "PDD_ApprovalStatus",
+      "cr110_pdr_dataconfidentialitylevel": "PDD_DataConfidentialityLevel",
+      "cr110_pdr_datadimensions": "MD_DataDimensions",
+      "cr110_pdr_datalicenseinformation": "MD_DataLicenseInformation",
+      "cr110_pdr_datasetname": "PDD_DatasetName",
+      "cr110_pdr_isreceivednotes": "G_RE_EA_Notes",
+      "cr110_pdr_keywords": "MD_KeyWords",
+      "cr110_pdr_projectenddate": "PDD_ProjectEndDate",
+      "cr110_pdr_projectsummary": "PDD_ProjectSummary",
+      "cr110_pdr_projecttitle": "PDD_ProjectTitle",
+      "cr110_pdr_readmefiles": "MD_ReadmeFiles",
+      "cr110_pdr_receivedupload": "G_RE_EA_Upload",
+      "cr110_pdr_retensionperiod": "MD_RetentionPeriod",
+      "cr110_pdr_startdate": "PDD_ProjectStartDate",
+      "cr110_roa_ap_rejectnotes": "ROA_AP_RejectNotes",
+      "cr110_roa_ap_rejectupload": "ROA_AP_RejectUpload",
+      "cr110_roa_ap_returnnotes": "ROA_AP_ReturnNotes",
+      "cr110_roa_ap_returnupload": "ROA_AP_ReturnUpload",
+      "cr110_roa_ap_status": "ROA_AP_Status",
+      "cr110_treat_data_v2_AsyncOperations": "System Jobs",
+      "cr110_treat_data_v2_BulkDeleteFailures": "Bulk Delete Failures",
+      "cr110_Treat_Data_V2_cr110_Treat_Data_V2_c": "Treat_Data_V2_Collaborators",
+      "cr110_treat_data_v2_DuplicateBaseRecord": "Duplicate Records (cr110_treat_data_v2_DuplicateBaseRecord)",
+      "cr110_treat_data_v2_DuplicateMatchingRecord": "Duplicate Records (cr110_treat_data_v2_DuplicateMatchingRecord)",
+      "cr110_treat_data_v2_FileAttachments": "FileAttachments",
+      "cr110_treat_data_v2_MailboxTrackingFolders": "Mailbox Auto Tracking Folders",
+      "cr110_treat_data_v2_PrincipalObjectAttributeAccesses": "Field Sharing",
+      "cr110_treat_data_v2_ProcessSession": "Process Sessions",
+      "cr110_treat_data_v2_SyncErrors": "Sync Errors",
+      "cr110_treat_data_v2id": "Treat_Data_V2",
+      "createdby": "Created By",
+      "createdon": "Created On",
+      "createdonbehalfby": "Created By (Delegate)",
+      "importsequencenumber": "Import Sequence Number",
+      "modifiedby": "Modified By",
+      "modifiedon": "Modified On",
+      "modifiedonbehalfby": "Modified By (Delegate)",
+      "new_test": "test",
+      "overriddencreatedon": "Record Created On",
+      "owningbusinessunit": "Owning Business Unit",
+      "owningteam": "Owning Team",
+      "owninguser": "Owning User",
+      "statecode": "Status",
+      "statuscode": "Status Reason",
+      "timezoneruleversionnumber": "Time Zone Rule Version Number",
+      "utcconversiontimezonecode": "UTC Conversion Time Zone Code",
+      "versionnumber": "Version Number"
+    },
+    "PreferredName": "Treat_Data_V2S",
+    "Type": "NativeCDSDataSourceInfo"
+  },
+  {
+    "DisplayName": "Treat_Data_V2S (Views)",
+    "Name": "_cr110_treat_data_v2_views",
+    "RelatedEntityName": "Treat_Data_V2S",
+    "TrimmedViewName": true,
+    "Type": "ViewInfo",
+    "ViewInfoNameMapping": {
+      "064102e0-7292-4495-9b62-c46971b9c841": "Treat_Data_V2 Lookup View",
+      "48c95693-6473-4439-b8f2-190f6b489ba6": "Treat_Data_V2 Advanced Find View",
+      "729eb010-4db5-4554-b501-a89e73ca98ee": "Inactive Treat_Data_V2S",
+      "ac405a19-db65-48b7-8d71-6f53d05fdca1": "Active Treat_Data_V2S",
+      "cdcccefb-7745-ee11-be6f-6045bdaa8a35": "LoggedInUser",
+      "d8b31945-e239-4019-8f8e-823372d1bbfc": "Treat_Data_V2 Associated View"
+    }
+  },
+  {
+    "DisplayName": "Any Other Data Governance Requirements",
+    "Name": "cr110_anyotherdatagovernancerequirements",
+    "OptionSetInfoNameMapping": {
+      "996500000": "Received",
+      "996500001": "Not Required"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": true,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "cr110_g_o_anyother_isreceived",
+        "OptionSetReferenceEntityName": "Treat_Data_V2S"
+      }
+    },
+    "OptionSetTypeKey": "PicklistType",
+    "RelatedColumnInvariantName": "cr110_g_o_anyother_isreceived",
+    "RelatedEntityName": "Treat_Data_V2S",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Data Asset Registration",
+    "Name": "cr110_dataassetregistration",
+    "OptionSetInfoNameMapping": {
+      "996500000": "Received",
+      "996500001": "Not Required"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": true,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "cr110_g_l_dar_isreceived",
+        "OptionSetReferenceEntityName": "Treat_Data_V2S"
+      }
+    },
+    "OptionSetTypeKey": "PicklistType",
+    "RelatedColumnInvariantName": "cr110_g_l_dar_isreceived",
+    "RelatedEntityName": "Treat_Data_V2S",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Data Collection Protocol",
+    "Name": "cr110_datacollectionprotocol",
+    "OptionSetInfoNameMapping": {
+      "996500000": "Received",
+      "996500001": "Not Required"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": true,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "cr110_g_re_dcp_isreceived",
+        "OptionSetReferenceEntityName": "Treat_Data_V2S"
+      }
+    },
+    "OptionSetTypeKey": "PicklistType",
+    "RelatedColumnInvariantName": "cr110_g_re_dcp_isreceived",
+    "RelatedEntityName": "Treat_Data_V2S",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Data Confidentiality Level",
+    "Name": "cr110_dataconfidentialitylevel",
+    "OptionSetInfoNameMapping": {
+      "996500000": "Restricted Data",
+      "996500001": "Restricted Data (Certified Environment Needed)",
+      "996500002": "Public",
+      "996500003": "Confidential",
+      "996500004": "Unrestricted"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": true,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "cr110_pdr_dataconfidentialitylevel",
+        "OptionSetReferenceEntityName": "Treat_Data_V2S"
+      }
+    },
+    "OptionSetTypeKey": "PicklistType",
+    "RelatedColumnInvariantName": "cr110_pdr_dataconfidentialitylevel",
+    "RelatedEntityName": "Treat_Data_V2S",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "DPIA",
+    "Name": "cr110_dpia",
+    "OptionSetInfoNameMapping": {
+      "996500000": "Received",
+      "996500001": "Not Required"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": true,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "cr110_g_l_dpia_isreceived",
+        "OptionSetReferenceEntityName": "Treat_Data_V2S"
+      }
+    },
+    "OptionSetTypeKey": "PicklistType",
+    "RelatedColumnInvariantName": "cr110_g_l_dpia_isreceived",
+    "RelatedEntityName": "Treat_Data_V2S",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Ethical Approval",
+    "Name": "cr110_ethicalapproval",
+    "OptionSetInfoNameMapping": {
+      "996500000": "Received",
+      "996500001": "Not Required"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": true,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "cr110_g_re_ea_isreceived",
+        "OptionSetReferenceEntityName": "Treat_Data_V2S"
+      }
+    },
+    "OptionSetTypeKey": "PicklistType",
+    "RelatedColumnInvariantName": "cr110_g_re_ea_isreceived",
+    "RelatedEntityName": "Treat_Data_V2S",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Legal Agreement",
+    "Name": "cr110_legalagreement",
+    "OptionSetInfoNameMapping": {
+      "996500000": "Received",
+      "996500001": "Not Required"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": true,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "cr110_g_l_l_isreceived",
+        "OptionSetReferenceEntityName": "Treat_Data_V2S"
+      }
+    },
+    "OptionSetTypeKey": "PicklistType",
+    "RelatedColumnInvariantName": "cr110_g_l_l_isreceived",
+    "RelatedEntityName": "Treat_Data_V2S",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status",
+    "Name": "cr110_status",
+    "OptionSetInfoNameMapping": {
+      "996500000": "Approve",
+      "996500001": "Return for more information",
+      "996500002": "Reject"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": true,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "cr110_roa_ap_status",
+        "OptionSetReferenceEntityName": "Treat_Data_V2S"
+      }
+    },
+    "OptionSetTypeKey": "PicklistType",
+    "RelatedColumnInvariantName": "cr110_roa_ap_status",
+    "RelatedEntityName": "Treat_Data_V2S",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Study Participant Information",
+    "Name": "cr110_studyparticipantinformation",
+    "OptionSetInfoNameMapping": {
+      "996500000": "Received",
+      "996500001": "Not Required"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": true,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "cr110_g_re_spi_isreceived",
+        "OptionSetReferenceEntityName": "Treat_Data_V2S"
+      }
+    },
+    "OptionSetTypeKey": "PicklistType",
+    "RelatedColumnInvariantName": "cr110_g_re_spi_isreceived",
+    "RelatedEntityName": "Treat_Data_V2S",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status (Treat_Data_V2S)",
+    "Name": "cr110_treat_data_v2_statecode",
+    "OptionSetInfoNameMapping": {
+      "0": "Active",
+      "1": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statecode",
+        "OptionSetReferenceEntityName": "Treat_Data_V2S"
+      }
+    },
+    "OptionSetTypeKey": "StateType",
+    "RelatedColumnInvariantName": "statecode",
+    "RelatedEntityName": "Treat_Data_V2S",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status Reason (Treat_Data_V2S)",
+    "Name": "cr110_treat_data_v2_statuscode",
+    "OptionSetInfoNameMapping": {
+      "1": "Active",
+      "2": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statuscode",
+        "OptionSetReferenceEntityName": "Treat_Data_V2S"
+      }
+    },
+    "OptionSetTypeKey": "StatusType",
+    "RelatedColumnInvariantName": "statuscode",
+    "RelatedEntityName": "Treat_Data_V2S",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "test (Treat_Data_V2S)",
+    "Name": "new_test_cr110_treat_data_v2",
+    "OptionSetInfoNameMapping": {
+      "0": "No",
+      "1": "Yes"
+    },
+    "OptionSetIsBooleanValued": true,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "new_test",
+        "OptionSetReferenceEntityName": "Treat_Data_V2S"
+      }
+    },
+    "OptionSetTypeKey": "BooleanType",
+    "RelatedColumnInvariantName": "new_test",
+    "RelatedEntityName": "Treat_Data_V2S",
+    "Type": "OptionSetInfo"
+  }
+]

@@ -1,0 +1,233 @@
+ManagedServices As screen:
+    Fill: =RGBA(241, 244, 249, 1)
+
+    Component1_22 As Component1:
+
+    Label14_2 As label:
+        Align: =Align.Center
+        Color: =RGBA(255, 255, 255, 1)
+        FontWeight: =FontWeight.Bold
+        Height: =126
+        OnSelect: =Navigate(Welcome)
+        Size: =32
+        Text: ="Managed Service"
+        Width: =1366
+        ZIndex: =4
+
+    Label7_6 As label:
+        Align: =Align.Center
+        FontWeight: =FontWeight.Bold
+        Height: =96
+        Size: =20
+        Text: ="Budget, Requested Workspaces and Services"
+        Visible: =varshowtext
+        Width: =1190
+        X: =88
+        Y: =126
+        ZIndex: =5
+
+    "Gallery2_1 As gallery.'BrowseLayout_Vertical_TwoTextOneImageVariant_ver5.0'":
+        BorderThickness: =1
+        DelayItemLoading: =true
+        Height: =510
+        Items: =Filter(Treat_Data_V2_BudgetInformations,BIS_BI_ApprovalStatus="Approved")
+        Layout: =Layout.Vertical
+        LoadingSpinner: =LoadingSpinner.Data
+        OnSelect: =
+        TemplatePadding: =0
+        TemplateSize: =104
+        Width: =1249
+        X: =74
+        Y: =206
+        ZIndex: =6
+
+        Image5_1 As image:
+            Height: =72
+            OnSelect: =Select(Parent)
+            RadiusBottomLeft: =8
+            RadiusBottomRight: =8
+            RadiusTopLeft: =8
+            RadiusTopRight: =8
+            Visible: =false
+            Width: =72
+            X: =16
+            Y: =(Parent.TemplateHeight / 2) - (Self.Height / 2)
+            ZIndex: =1
+
+        Title1_5 As label:
+            FontWeight: =If(ThisItem.IsSelected, FontWeight.Semibold, FontWeight.Normal)
+            Height: =25
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Text: ="Reference Number"
+            VerticalAlign: =VerticalAlign.Top
+            Width: =239
+            X: =16
+            Y: =16
+            ZIndex: =2
+
+        Subtitle1_1 As label:
+            FontWeight: =If(ThisItem.IsSelected, FontWeight.Semibold, FontWeight.Normal)
+            Height: =Self.Size * 1.8
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Text: =ThisItem.'Created On'
+            VerticalAlign: =VerticalAlign.Top
+            Visible: =false
+            Width: =Title1_5.Width
+            X: =Title1_5.X
+            Y: =Title1_5.Y + Title1_5.Height
+            ZIndex: =3
+
+        Separator8_1 As rectangle:
+            Height: =8
+            OnSelect: =Select(Parent)
+            Width: =Parent.TemplateWidth
+            Y: =Parent.TemplateHeight - Self.Height
+            ZIndex: =5
+
+        Rectangle3_1 As rectangle:
+            Height: =Parent.TemplateHeight - Separator8_1.Height
+            OnSelect: =Select(Parent)
+            Visible: =ThisItem.IsSelected
+            Width: =4
+            ZIndex: =6
+
+        Label21_3 As label:
+            OnSelect: =Select(Parent)
+            Text: =LookUp(Treat_Data_V2S,Treat_Data_V2=GUID(ThisItem.ParentID), ApplicantEmailAddress)
+            Width: =257
+            X: =710
+            Y: =48
+            ZIndex: =7
+
+        Label21_4 As label:
+            Height: =36
+            OnSelect: =Select(Parent)
+            Text: =LookUp(Treat_Data_V2S,Treat_Data_V2=GUID(ThisItem.ParentID),ApplicationReferenceNumber)
+            Width: =98
+            X: =38
+            Y: =50
+            ZIndex: =8
+
+        Title1_6 As label:
+            FontWeight: =If(ThisItem.IsSelected, FontWeight.Semibold, FontWeight.Normal)
+            Height: =32
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Text: ="Applicant Name"
+            VerticalAlign: =VerticalAlign.Top
+            Width: =239
+            X: =231
+            Y: =14
+            ZIndex: =9
+
+        Label21_5 As label:
+            Height: =36
+            OnSelect: =Select(Parent)
+            Text: =LookUp(Treat_Data_V2S,Treat_Data_V2=GUID(ThisItem.ParentID), ApplicantName)
+            Width: =252
+            X: =231
+            Y: =48
+            ZIndex: =10
+
+        Title1_4 As label:
+            FontWeight: =If(ThisItem.IsSelected, FontWeight.Semibold, FontWeight.Normal)
+            Height: =23
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Text: ="Applicant Email Address"
+            VerticalAlign: =VerticalAlign.Top
+            Width: =239
+            X: =710
+            Y: =12
+            ZIndex: =11
+
+        Label24_1 As label:
+            Height: =36
+            OnSelect: =Select(Parent)
+            Text: =ThisItem.BIS_BI_BudgetCode
+            Wrap: =false
+            X: =483
+            Y: =48
+            ZIndex: =12
+
+        Title1_7 As label:
+            FontWeight: =If(ThisItem.IsSelected, FontWeight.Semibold, FontWeight.Normal)
+            Height: =25
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Text: ="Budget Code"
+            VerticalAlign: =VerticalAlign.Top
+            Width: =210
+            X: =483
+            Y: =16
+            ZIndex: =13
+
+        BadgeCanvas1_1 As Badge:
+            AccessibleLabel: =""
+            BasePaletteColor: =
+            Content: =ThisItem.BIS_BI_ApprovalStatus
+            DisplayMode: =DisplayMode.Edit
+            Font: =""
+            FontColor: =
+            FontItalic: =false
+            FontStrikethrough: =false
+            FontUnderline: =false
+            FontWeight: =""
+            Height: =29
+            ThemeColor: =If(ThisItem.BIS_BI_ApprovalStatus="Approved", "Success",If(ThisItem.BIS_BI_ApprovalStatus="Rejected","Warning","Brand"))
+            Width: =136
+            X: =935
+            Y: =9
+            ZIndex: =15
+
+        Button3 As button:
+            Fill: =RGBA(224, 86, 6, 1)
+            Font: =Font.Arial
+            FontWeight: =FontWeight.Normal
+            Height: =26
+            HoverFill: =ColorFade(RGBA(224, 86, 6, 1), -20%)
+            OnSelect: |-
+                =Navigate(ManageServiceDetail,BorderStyle.None,{BudgetApprovalParentID:ThisItem.ParentID, BudgetApprovalID:Gallery2_1.Selected.Treat_Data_V2_BudgetInformation})
+            Size: =12
+            Text: ="Budget Detail"
+            X: =1079
+            Y: =10
+            ZIndex: =16
+
+        Button3_1 As button:
+            Fill: =RGBA(21, 68, 18, 1)
+            Font: =Font.Arial
+            FontWeight: =FontWeight.Normal
+            HoverFill: =ColorFade(RGBA(21, 68, 18, 1), -20%)
+            OnSelect: |-
+                =Navigate(ManageServiceWorkspaceDetail,BorderStyle.None,{RegistrationParentID:ThisItem.ParentID})
+            Size: =12
+            Text: ="Workspace & Services"
+            X: =1079
+            Y: =52
+            ZIndex: =17
+
+    "'Home Button_13' As icon.Home":
+        Icon: =Icon.Home
+        OnSelect: =Navigate(Welcome)
+        X: =1283
+        Y: =31
+        ZIndex: =7
+

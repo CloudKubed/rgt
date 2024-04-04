@@ -1,0 +1,407 @@
+ApprovalPage As screen:
+    Fill: =RGBA(241, 244, 249, 1)
+
+    Component1_14 As Component1:
+
+    lblTitle8_1 As label:
+        Align: =Align.Center
+        Color: =RGBA(255, 255, 255, 1)
+        FontWeight: =FontWeight.Bold
+        Height: =119
+        OnSelect: =Navigate(ProjectDataRegistrationsListApplications)
+        Size: =32
+        Text: =" Approval Page"
+        Width: =1366
+        ZIndex: =3
+
+    btnFinish_3 As button:
+        BorderColor: =ColorFade(Self.Fill, -100%)
+        BorderThickness: =0
+        Height: =46
+        HoverFill: =Self.Fill
+        OnSelect: =SubmitForm(Form2);
+        RadiusBottomLeft: =25
+        RadiusBottomRight: =25
+        RadiusTopLeft: =25
+        RadiusTopRight: =25
+        Text: ="Submit"
+        Width: =217
+        X: =902
+        Y: =696
+        ZIndex: =6
+
+    btnPrevious_3 As button:
+        BorderColor: =ColorFade(Self.Fill, -200%)
+        BorderThickness: =0
+        Height: =46
+        HoverFill: =Self.Fill
+        OnSelect: =Navigate(ApplicationReferenceNumber)
+        RadiusBottomLeft: =25
+        RadiusBottomRight: =25
+        RadiusTopLeft: =25
+        RadiusTopRight: =25
+        Text: ="Back"
+        Width: =217
+        X: =258
+        Y: =696
+        ZIndex: =7
+
+    Form2 As form:
+        BorderColor: =RGBA(0, 0, 0, 1)
+        BorderThickness: =2
+        DataSource: =Treat_Data_V2S
+        Fill: =RGBA(255, 255, 255, 1)
+        Height: =540
+        Item: =LookUp(Treat_Data_V2S,Treat_Data_V2=GUID(selectedRecordID))
+        NumberOfColumns: =1
+        OnSuccess: |-
+            =RGAT_OfficeDecisionNotification.Run({text:selectedRecordID});
+            Navigate(ProjectDataRegistrationsListApplications);
+        Width: =925
+        X: =220
+        Y: =140
+        ZIndex: =8
+
+        ROA_AP_Status_DataCard1 As typedDataCard.comboBoxOptionSetSingleEditCard:
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="cr110_roa_ap_status"
+            Default: =ThisItem.ROA_AP_Status
+            DisplayMode: =Parent.DisplayMode
+            DisplayName: =DataSourceInfo([@Treat_Data_V2S],DataSourceInfo.DisplayName,"cr110_roa_ap_status")
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =50
+            Required: =true
+            Update: =Radio8.Selected.Value
+            Width: =923
+            X: =0
+            Y: =0
+            ZIndex: =1
+
+            DataCardKey63 As label:
+                AutoHeight: =true
+                Height: =34
+                Text: ="Select A Valid Option"
+                Width: =Parent.Width - 60
+                Wrap: =false
+                X: =30
+                Y: =10
+                ZIndex: =1
+
+            ErrorMessage69 As label:
+                AutoHeight: =true
+                Height: =10
+                Live: =Live.Assertive
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Text: =Parent.Error
+                Visible: =Parent.DisplayMode=DisplayMode.Edit
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =Radio8.Y + Radio8.Height
+                ZIndex: =3
+
+            StarVisible69 As label:
+                Align: =Align.Center
+                Height: =DataCardKey63.Height
+                Text: ="*"
+                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                Width: =30
+                Wrap: =false
+                Y: =DataCardKey63.Y
+                ZIndex: =4
+
+            Radio8 As radio:
+                BorderStyle: =BorderStyle.None
+                Default: =ThisItem.ROA_AP_Status
+                Height: =78
+                Items: =Choices(Status)
+                Layout: =Layout.Horizontal
+                Width: =853
+                X: =40
+                Y: =62
+                ZIndex: =5
+
+        ROA_AP_RejectUpload_DataCard1 As typedDataCard.fileEditCard:
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="cr110_roa_ap_rejectupload"
+            Default: |-
+                =If(!IsBlank(ThisItem.ROA_AP_RejectUpload.FileName), Table({DisplayName: ThisItem.ROA_AP_RejectUpload.FileName, Value: ThisItem.ROA_AP_RejectUpload.Value}), Blank())
+            DisplayMode: =Parent.DisplayMode
+            DisplayName: =DataSourceInfo([@Treat_Data_V2S],DataSourceInfo.DisplayName,"cr110_roa_ap_rejectupload")
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =50
+            Required: =false
+            Update: =DataCardValue61.Attachments
+            Visible: =Text(Radio8.Selected.Value)="Reject"
+            Width: =923
+            X: =0
+            Y: =1
+            ZIndex: =1
+
+            DataCardKey65 As label:
+                AutoHeight: =true
+                Height: =34
+                Text: ="Upload"
+                Width: =Parent.Width - 60
+                Wrap: =false
+                X: =30
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue61 As attachments:
+                AddAttachmentText: ="Upload file"
+                BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                DisplayMode: =Parent.DisplayMode
+                Height: =170
+                IsInDataCard: =true
+                Items: =Parent.Default
+                MaxAttachments: =100
+                MaxAttachmentsText: =""
+                NoAttachmentsText: ="There is no file."
+                PaddingBottom: =5
+                PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                PaddingRight: =5
+                PaddingTop: =5
+                Tooltip: =Parent.DisplayName
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardKey65.Y + DataCardKey65.Height + 5
+                ZIndex: =2
+
+            ErrorMessage71 As label:
+                AutoHeight: =true
+                Height: =10
+                Live: =Live.Assertive
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Text: =Parent.Error
+                Visible: =Parent.DisplayMode=DisplayMode.Edit
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardValue61.Y + DataCardValue61.Height
+                ZIndex: =3
+
+            StarVisible71 As label:
+                Align: =Align.Center
+                Height: =DataCardKey65.Height
+                Text: ="*"
+                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                Width: =30
+                Wrap: =false
+                Y: =DataCardKey65.Y
+                ZIndex: =4
+
+        ROA_AP_RejectNotes_DataCard1 As typedDataCard.textualMultiLineEditCard:
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="cr110_roa_ap_rejectnotes"
+            Default: =ThisItem.ROA_AP_RejectNotes
+            DisplayMode: =Parent.DisplayMode
+            DisplayName: =DataSourceInfo([@Treat_Data_V2S],DataSourceInfo.DisplayName,"cr110_roa_ap_rejectnotes")
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =50
+            Required: =If(Radio8.SelectedText.Value="Reject",true,false)
+            Update: =DataCardValue60.Text
+            Visible: =Text(Radio8.Selected.Value)="Reject"
+            Width: =923
+            X: =0
+            Y: =2
+            ZIndex: =1
+
+            DataCardKey64 As label:
+                AutoHeight: =true
+                Height: =34
+                Text: ="Reject Notes"
+                Width: =Parent.Width - 60
+                Wrap: =false
+                X: =30
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue60 As text:
+                BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                Default: =Parent.Default
+                DelayOutput: =true
+                DisplayMode: =Parent.DisplayMode
+                Height: =80
+                Mode: =TextMode.MultiLine
+                PaddingLeft: =5
+                RadiusBottomLeft: =0
+                RadiusBottomRight: =0
+                RadiusTopLeft: =0
+                RadiusTopRight: =0
+                Tooltip: =Parent.DisplayName
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardKey64.Y + DataCardKey64.Height + 5
+                ZIndex: =2
+
+            ErrorMessage70 As label:
+                AutoHeight: =true
+                Height: =10
+                Live: =Live.Assertive
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Text: =Parent.Error
+                Visible: =Parent.DisplayMode=DisplayMode.Edit
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardValue60.Y + DataCardValue60.Height
+                ZIndex: =3
+
+            StarVisible70 As label:
+                Align: =Align.Center
+                Height: =DataCardKey64.Height
+                Text: ="*"
+                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                Width: =30
+                Wrap: =false
+                Y: =DataCardKey64.Y
+                ZIndex: =4
+
+        ROA_AP_ReturnUpload_DataCard1 As typedDataCard.fileEditCard:
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="cr110_roa_ap_returnupload"
+            Default: |-
+                =If(!IsBlank(ThisItem.ROA_AP_ReturnUpload.FileName), Table({DisplayName: ThisItem.ROA_AP_ReturnUpload.FileName, Value: ThisItem.ROA_AP_ReturnUpload.Value}), Blank())
+            DisplayMode: =Parent.DisplayMode
+            DisplayName: =DataSourceInfo([@Treat_Data_V2S],DataSourceInfo.DisplayName,"cr110_roa_ap_returnupload")
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =50
+            Required: =false
+            Update: =DataCardValue64.Attachments
+            Visible: =Text(Radio8.Selected.Value)="Return for more information"
+            Width: =923
+            X: =0
+            Y: =3
+            ZIndex: =1
+
+            DataCardKey68 As label:
+                AutoHeight: =true
+                Height: =34
+                Text: ="Upload"
+                Width: =Parent.Width - 60
+                Wrap: =false
+                X: =30
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue64 As attachments:
+                AddAttachmentText: ="Upload file"
+                BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                DisplayMode: =Parent.DisplayMode
+                Height: =170
+                IsInDataCard: =true
+                Items: =Parent.Default
+                MaxAttachments: =100
+                MaxAttachmentsText: =""
+                NoAttachmentsText: ="There is no file."
+                PaddingBottom: =5
+                PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                PaddingRight: =5
+                PaddingTop: =5
+                Tooltip: =Parent.DisplayName
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardKey68.Y + DataCardKey68.Height + 5
+                ZIndex: =2
+
+            ErrorMessage74 As label:
+                AutoHeight: =true
+                Height: =10
+                Live: =Live.Assertive
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Text: =Parent.Error
+                Visible: =Parent.DisplayMode=DisplayMode.Edit
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardValue64.Y + DataCardValue64.Height
+                ZIndex: =3
+
+            StarVisible74 As label:
+                Align: =Align.Center
+                Height: =DataCardKey68.Height
+                Text: ="*"
+                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                Width: =30
+                Wrap: =false
+                Y: =DataCardKey68.Y
+                ZIndex: =4
+
+        ROA_AP_ReturnNotes_DataCard1 As typedDataCard.textualMultiLineEditCard:
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="cr110_roa_ap_returnnotes"
+            Default: =ThisItem.ROA_AP_ReturnNotes
+            DisplayMode: =Parent.DisplayMode
+            DisplayName: =DataSourceInfo([@Treat_Data_V2S],DataSourceInfo.DisplayName,"cr110_roa_ap_returnnotes")
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =50
+            Required: =If(Radio8.SelectedText.Value="Return for more information",true,false)
+            Update: =DataCardValue63.Text
+            Visible: =Text(Radio8.Selected.Value)="Return for more information"
+            Width: =923
+            X: =0
+            Y: =4
+            ZIndex: =1
+
+            DataCardKey67 As label:
+                AutoHeight: =true
+                Height: =34
+                Text: ="Return Notes"
+                Width: =Parent.Width - 60
+                Wrap: =false
+                X: =30
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue63 As text:
+                BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                Default: =Parent.Default
+                DelayOutput: =true
+                DisplayMode: =Parent.DisplayMode
+                Height: =80
+                Mode: =TextMode.MultiLine
+                PaddingLeft: =5
+                RadiusBottomLeft: =0
+                RadiusBottomRight: =0
+                RadiusTopLeft: =0
+                RadiusTopRight: =0
+                Tooltip: =Parent.DisplayName
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardKey67.Y + DataCardKey67.Height + 5
+                ZIndex: =2
+
+            ErrorMessage72 As label:
+                AutoHeight: =true
+                Height: =10
+                Live: =Live.Assertive
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Text: =Parent.Error
+                Visible: =Parent.DisplayMode=DisplayMode.Edit
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardValue63.Y + DataCardValue63.Height
+                ZIndex: =3
+
+            StarVisible72 As label:
+                Align: =Align.Center
+                Height: =DataCardKey67.Height
+                Text: ="*"
+                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                Width: =30
+                Wrap: =false
+                Y: =DataCardKey67.Y
+                ZIndex: =4
+

@@ -1,0 +1,12 @@
+App As appinfo:
+    BackEnabled: =false
+    OnStart: =Set(VarshowResearchEthics, false); Set(varshowbudgettable, true); Set(varshowaddbudget, true); Set(varshowtext, true)
+    Theme: =OrangeTheme
+
+    Host As hostControl.DefaultHostControlVariant:
+        OnCancel: =false
+        OnEdit: =false
+        OnNew: =false
+        OnSave: =false
+        OnView: =false
+

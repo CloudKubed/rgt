@@ -1,0 +1,812 @@
+ProjectAndDataDetails As screen:
+    Fill: =RGBA(241, 244, 249, 1)
+
+    frmProjectAndDataDetails As form:
+        BorderColor: =RGBA(0, 0, 0, 1)
+        BorderThickness: =2
+        DataSource: =Treat_Data_V2S
+        Fill: =RGBA(255, 255, 255, 1)
+        Height: =562
+        Item: =varRecord
+        NumberOfColumns: =1
+        OnFailure: =Notify("Some of the mandatory fields have not been filled out.",NotificationType.Error,2000);
+        OnSuccess: |-
+            =If(saveAsDraft,
+            
+            
+            //Set(selectedRecord,Patch(selectedRecord,frmProjectAndDataDetails.Updates));
+            Set(varRecord,frmProjectAndDataDetails.LastSubmit);
+            EditForm(frmProjectAndDataDetails);
+            
+            Notify("Successfully saved as draft...",NotificationType.Success,1000);
+            
+            ,
+            Set(varRecord,frmProjectAndDataDetails.LastSubmit);
+            Navigate(Governance);
+            //Set(VarshowResearchEthics, false);Set(VarshowLegal,false);Set(VarshowOthers,false)
+            )
+        Width: =925
+        X: =224
+        Y: =184
+        ZIndex: =7
+
+        ApplicantName_DataCard1 As typedDataCard.textualEditCard:
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="cr110_applicantname"
+            Default: =ThisItem.ApplicantName
+            DisplayMode: =Parent.DisplayMode
+            DisplayName: =DataSourceInfo([@Treat_Data_V2S],DataSourceInfo.DisplayName,"cr110_applicantname")
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =50
+            MaxLength: =DataSourceInfo([@Treat_Data_V2S], DataSourceInfo.MaxLength, "cr110_applicantname")
+            Required: =true
+            Update: =DataCardValue49.Text
+            Width: =925
+            X: =0
+            Y: =0
+            ZIndex: =1
+
+            DataCardKey56 As label:
+                AutoHeight: =true
+                Height: =34
+                Text: ="Applicant Name"
+                Width: =Parent.Width - 60
+                Wrap: =false
+                X: =30
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue49 As text:
+                BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                Default: =Parent.Default
+                DelayOutput: =true
+                DisplayMode: =Parent.DisplayMode
+                MaxLength: =Parent.MaxLength
+                PaddingLeft: =5
+                RadiusBottomLeft: =0
+                RadiusBottomRight: =0
+                RadiusTopLeft: =0
+                RadiusTopRight: =0
+                Tooltip: =Parent.DisplayName
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardKey56.Y + DataCardKey56.Height + 5
+                ZIndex: =2
+
+            ErrorMessage75 As label:
+                AutoHeight: =true
+                Height: =10
+                Live: =Live.Assertive
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Text: =Parent.Error
+                Visible: =Parent.DisplayMode=DisplayMode.Edit
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardValue49.Y + DataCardValue49.Height
+                ZIndex: =3
+
+            StarVisible75 As label:
+                Align: =Align.Center
+                Height: =DataCardKey56.Height
+                Text: ="*"
+                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                Width: =30
+                Wrap: =false
+                Y: =DataCardKey56.Y
+                ZIndex: =4
+
+            Icon1_36 As icon.Information:
+                Height: =25
+                Icon: =Icon.Information
+                Width: =25
+                X: =173
+                Y: =15
+                ZIndex: =5
+
+        ApplicantEmailAddress_DataCard1 As typedDataCard.textualEditCard:
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="cr110_applicantemailaddress"
+            Default: =ThisItem.ApplicantEmailAddress
+            DisplayMode: =Parent.DisplayMode
+            DisplayName: =DataSourceInfo([@Treat_Data_V2S],DataSourceInfo.DisplayName,"cr110_applicantemailaddress")
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =50
+            MaxLength: =DataSourceInfo([@Treat_Data_V2S], DataSourceInfo.MaxLength, "cr110_applicantemailaddress")
+            Required: =true
+            Update: =DataCardValue59.Text
+            Width: =925
+            X: =0
+            Y: =1
+            ZIndex: =1
+
+            DataCardKey69 As label:
+                AutoHeight: =true
+                Height: =34
+                Text: ="Applicant Email Address"
+                Width: =Parent.Width - 60
+                Wrap: =false
+                X: =30
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue59 As text:
+                BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                Default: =Parent.Default
+                DelayOutput: =true
+                DisplayMode: =Parent.DisplayMode
+                MaxLength: =Parent.MaxLength
+                PaddingLeft: =5
+                RadiusBottomLeft: =0
+                RadiusBottomRight: =0
+                RadiusTopLeft: =0
+                RadiusTopRight: =0
+                Tooltip: =Parent.DisplayName
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardKey69.Y + DataCardKey69.Height + 5
+                ZIndex: =2
+
+            ErrorMessage80 As label:
+                AutoHeight: =true
+                Height: =10
+                Live: =Live.Assertive
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Text: =Parent.Error
+                Visible: =Parent.DisplayMode=DisplayMode.Edit
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardValue59.Y + DataCardValue59.Height
+                ZIndex: =3
+
+            StarVisible80 As label:
+                Align: =Align.Center
+                Height: =DataCardKey69.Height
+                Text: ="*"
+                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                Width: =30
+                Wrap: =false
+                Y: =DataCardKey69.Y
+                ZIndex: =4
+
+            Icon1_37 As icon.Information:
+                Height: =25
+                Icon: =Icon.Information
+                Width: =25
+                X: =237
+                Y: =14
+                ZIndex: =5
+
+        PDR_DatasetName_DataCard1 As typedDataCard.textualEditCard:
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="cr110_pdr_datasetname"
+            Default: =ThisItem.PDD_DatasetName
+            DisplayMode: =Parent.DisplayMode
+            DisplayName: =DataSourceInfo([@Treat_Data_V2S],DataSourceInfo.DisplayName,"cr110_pdr_datasetname")
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =50
+            MaxLength: =DataSourceInfo([@Treat_Data_V2S], DataSourceInfo.MaxLength, "cr110_pdr_datasetname")
+            Required: =true
+            Update: =DataCardValue3.Text
+            Width: =924
+            X: =0
+            Y: =3
+            ZIndex: =1
+
+            DataCardKey3 As label:
+                AutoHeight: =true
+                Height: =34
+                Text: ="Dataset Name"
+                Width: =Parent.Width - 60
+                Wrap: =false
+                X: =30
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue3 As text:
+                BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                Default: =Parent.Default
+                DelayOutput: =true
+                DisplayMode: =Parent.DisplayMode
+                MaxLength: =Parent.MaxLength
+                PaddingLeft: =5
+                RadiusBottomLeft: =0
+                RadiusBottomRight: =0
+                RadiusTopLeft: =0
+                RadiusTopRight: =0
+                Tooltip: =Parent.DisplayName
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardKey3.Y + DataCardKey3.Height + 5
+                ZIndex: =2
+
+            ErrorMessage2 As label:
+                AutoHeight: =true
+                Height: =10
+                Live: =Live.Assertive
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Text: =Parent.Error
+                Visible: =Parent.DisplayMode=DisplayMode.Edit
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardValue3.Y + DataCardValue3.Height
+                ZIndex: =3
+
+            StarVisible2 As label:
+                Align: =Align.Center
+                Height: =DataCardKey3.Height
+                Text: ="*"
+                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                Width: =30
+                Wrap: =false
+                Y: =DataCardKey3.Y
+                ZIndex: =4
+
+            Icon1_1 As icon.Information:
+                Height: =25
+                Icon: =Icon.Information
+                Tooltip: ="Provide the dataset name here. If it has no name, please give it a name"
+                Width: =25
+                X: =159
+                Y: =14
+                ZIndex: =5
+
+        PDR_ProjectStartDate_DataCard1 As typedDataCard.dateTimeEditCard:
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="cr110_pdr_startdate"
+            Default: =ThisItem.PDD_ProjectStartDate
+            DisplayMode: =Parent.DisplayMode
+            DisplayName: =DataSourceInfo([@Treat_Data_V2S],DataSourceInfo.DisplayName,"cr110_pdr_startdate")
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =100
+            Required: =true
+            Update: =DateValue1.SelectedDate 
+            Width: =924
+            X: =0
+            Y: =4
+            ZIndex: =1
+
+            DataCardKey5 As label:
+                AutoHeight: =true
+                Height: =34
+                Text: ="Start Date"
+                Width: =Parent.Width - 60
+                Wrap: =false
+                X: =30
+                Y: =10
+                ZIndex: =1
+
+            DateValue1 As datepicker:
+                BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                DefaultDate: =Parent.Default
+                DisplayMode: =Parent.DisplayMode
+                EndYear: =Year(Today())+100
+                Height: =41
+                IsEditable: =true
+                OnChange: |-
+                    =If(DateValue1.SelectedDate < Today(), 
+                        Notify("Start date cannot be before today.", NotificationType.Error); 
+                        Reset(DateValue1))
+                PaddingBottom: =0
+                PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                StartYear: =1899
+                Tooltip: =Parent.DisplayName
+                Width: =864
+                X: =30
+                Y: =43
+                ZIndex: =2
+
+            Separator1 As label:
+                Align: =Align.Center
+                FontWeight: =FontWeight.Bold
+                Height: =
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Text: |-
+                    =":"
+                Width: =10
+                Wrap: =false
+                X: =
+                Y: =
+                ZIndex: =4
+
+            MinuteValue1 As dropdown:
+                BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                Default: =Text(Minute(Parent.Default),"00")
+                DisplayMode: =Parent.DisplayMode
+                Height: =
+                Items: =["00","01","02","03","04","05","06","07","08","09","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31","32","33","34","35","36","37","38","39","40","41","42","43","44","45","46","47","48","49","50","51","52","53","54","55","56","57","58","59"]
+                PaddingBottom: =5
+                PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                PaddingRight: =5
+                PaddingTop: =5
+                Tooltip: =Parent.DisplayName
+                Width: =
+                X: =
+                Y: =
+                ZIndex: =5
+
+            ErrorMessage4 As label:
+                AutoHeight: =true
+                Height: =10
+                Live: =Live.Assertive
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Text: =Parent.Error
+                Visible: =Parent.DisplayMode=DisplayMode.Edit
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =84
+                ZIndex: =6
+
+            StarVisible4 As label:
+                Align: =Align.Center
+                Height: =DataCardKey5.Height
+                Text: ="*"
+                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                Width: =30
+                Wrap: =false
+                Y: =DataCardKey5.Y
+                ZIndex: =7
+
+            Icon1_2 As icon.Information:
+                Height: =25
+                Icon: =Icon.Information
+                Tooltip: ="Select dates to indicate start and end date of your project, or period for which you need access to secure research environment"
+                Width: =25
+                X: =125
+                Y: =14
+                ZIndex: =8
+
+        PDR_ProjectEndDate_DataCard1 As typedDataCard.dateTimeEditCard:
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="cr110_pdr_projectenddate"
+            Default: =ThisItem.PDD_ProjectEndDate
+            DisplayMode: =Parent.DisplayMode
+            DisplayName: =DataSourceInfo([@Treat_Data_V2S],DataSourceInfo.DisplayName,"cr110_pdr_projectenddate")
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =82
+            Required: =true
+            Update: =DateValue2.SelectedDate 
+            Width: =914
+            X: =0
+            Y: =5
+            ZIndex: =1
+
+            DataCardKey6 As label:
+                AutoHeight: =true
+                Height: =34
+                Text: ="End Date"
+                Width: =Parent.Width - 60
+                Wrap: =false
+                X: =30
+                Y: =10
+                ZIndex: =1
+
+            DateValue2 As datepicker:
+                BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                DefaultDate: =Parent.Default
+                DisplayMode: =Parent.DisplayMode
+                EndYear: =Year(Today())+100
+                Height: =41
+                IsEditable: =true
+                OnChange: |
+                    =If(
+                        DateValue1.SelectedDate > DateValue2.SelectedDate || DateValue2.SelectedDate < Today(),
+                        Notify("End date cannot be before the start date or before today.", NotificationType.Error);
+                        Reset(DateValue2)
+                    )
+                PaddingBottom: =0
+                PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                StartYear: =1899
+                Tooltip: =Parent.DisplayName
+                Width: =864
+                X: =30
+                Y: =43
+                ZIndex: =2
+
+            Separator2 As label:
+                Align: =Align.Center
+                FontWeight: =FontWeight.Bold
+                Height: =
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Text: |-
+                    =":"
+                Width: =10
+                Wrap: =false
+                X: =
+                Y: =
+                ZIndex: =4
+
+            MinuteValue2 As dropdown:
+                BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                Default: =Text(Minute(Parent.Default),"00")
+                DisplayMode: =Parent.DisplayMode
+                Height: =
+                Items: =["00","01","02","03","04","05","06","07","08","09","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31","32","33","34","35","36","37","38","39","40","41","42","43","44","45","46","47","48","49","50","51","52","53","54","55","56","57","58","59"]
+                PaddingBottom: =5
+                PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                PaddingRight: =5
+                PaddingTop: =5
+                Tooltip: =Parent.DisplayName
+                Width: =
+                X: =
+                Y: =
+                ZIndex: =5
+
+            ErrorMessage5 As label:
+                AutoHeight: =true
+                Height: =10
+                Live: =Live.Assertive
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Text: =Parent.Error
+                Visible: =Parent.DisplayMode=DisplayMode.Edit
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =84
+                ZIndex: =6
+
+            StarVisible5 As label:
+                Align: =Align.Center
+                Height: =DataCardKey6.Height
+                Text: ="*"
+                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                Width: =30
+                Wrap: =false
+                Y: =DataCardKey6.Y
+                ZIndex: =7
+
+            Icon1_3 As icon.Information:
+                Height: =25
+                Icon: =Icon.Information
+                Tooltip: ="Select dates to indicate start and end date of your project, or period for which you need access to secure research environment"
+                Width: =25
+                X: =117
+                Y: =14
+                ZIndex: =8
+
+        PDR_ProjectSummary_DataCard1 As typedDataCard.textualMultiLineEditCard:
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="cr110_pdr_projectsummary"
+            Default: =ThisItem.PDD_ProjectSummary
+            DisplayMode: =Parent.DisplayMode
+            DisplayName: =DataSourceInfo([@Treat_Data_V2S],DataSourceInfo.DisplayName,"cr110_pdr_projectsummary")
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =50
+            Required: =true
+            Update: =DataCardValue4.Text
+            Width: =924
+            X: =0
+            Y: =6
+            ZIndex: =1
+
+            DataCardKey4 As label:
+                AutoHeight: =true
+                Height: =34
+                Text: ="Project Summary (You can enter up to 500 characters at most.)"
+                Width: =Parent.Width - 60
+                Wrap: =false
+                X: =30
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue4 As text:
+                BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                Default: =Parent.Default
+                DelayOutput: =true
+                DisplayMode: =Parent.DisplayMode
+                Height: =120
+                MaxLength: =500
+                Mode: =TextMode.MultiLine
+                PaddingLeft: =5
+                RadiusBottomLeft: =0
+                RadiusBottomRight: =0
+                RadiusTopLeft: =0
+                RadiusTopRight: =0
+                Tooltip: =Parent.DisplayName
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardKey4.Y + DataCardKey4.Height + 5
+                ZIndex: =2
+
+            ErrorMessage3 As label:
+                AutoHeight: =true
+                Height: =10
+                Live: =Live.Assertive
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Text: =Parent.Error
+                Visible: =Parent.DisplayMode=DisplayMode.Edit
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardValue4.Y + DataCardValue4.Height
+                ZIndex: =3
+
+            StarVisible3 As label:
+                Align: =Align.Center
+                Height: =DataCardKey4.Height
+                Text: ="*"
+                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                Width: =30
+                Wrap: =false
+                Y: =DataCardKey4.Y
+                ZIndex: =4
+
+            Icon1_4 As icon.Information:
+                Height: =25
+                Icon: =Icon.Information
+                Tooltip: ="Provide a short summary of the project and/or data"
+                Width: =25
+                X: =547
+                Y: =18
+                ZIndex: =5
+
+        PDR_DataConfidentialityLevel_DataCard1 As typedDataCard.comboBoxOptionSetSingleEditCard:
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="cr110_pdr_dataconfidentialitylevel"
+            Default: =ThisItem.PDD_DataConfidentialityLevel
+            DisplayMode: =Parent.DisplayMode
+            DisplayName: =DataSourceInfo([@Treat_Data_V2S],DataSourceInfo.DisplayName,"cr110_pdr_dataconfidentialitylevel")
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =130
+            Required: =true
+            Update: =DataCardValue5.Selected.Value
+            Width: =924
+            X: =0
+            Y: =7
+            ZIndex: =1
+
+            DataCardKey7 As label:
+                AutoHeight: =true
+                Height: =34
+                Text: ="Data Confidentiality Level"
+                Width: =Parent.Width - 60
+                Wrap: =false
+                X: =30
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue5 As combobox:
+                BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                DefaultSelectedItems: =[Parent.Default]
+                DisplayFields: =["Value"]
+                DisplayMode: =Parent.DisplayMode
+                IsSearchable: =false
+                Items: =Choices('Data Confidentiality Level')
+                PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                SearchFields: =["Value"]
+                SearchItems: =[]
+                SelectMultiple: =false
+                Tooltip: =Parent.DisplayName
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardKey7.Y + DataCardKey7.Height + 5
+                ZIndex: =2
+
+            ErrorMessage6 As label:
+                AutoHeight: =true
+                Height: =10
+                Live: =Live.Assertive
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Text: =Parent.Error
+                Visible: =Parent.DisplayMode=DisplayMode.Edit
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardValue5.Y + DataCardValue5.Height
+                ZIndex: =3
+
+            StarVisible6 As label:
+                Align: =Align.Center
+                Height: =DataCardKey7.Height
+                Text: ="*"
+                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                Width: =30
+                Wrap: =false
+                Y: =DataCardKey7.Y
+                ZIndex: =4
+
+            Icon1_5 As icon.Information:
+                Height: =25
+                Icon: =Icon.Information
+                Tooltip: ="Select confidentiality level of data. Please do not select ‘public’ or ‘unrestricted’ options for confidential data"
+                Width: =25
+                X: =249
+                Y: =14
+                ZIndex: =5
+
+        "'PDR ProjectTitle_DataCard1' As typedDataCard.textualEditCard":
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="cr110_pdr_projecttitle"
+            Default: =ThisItem.PDD_ProjectTitle
+            DisplayMode: =Parent.DisplayMode
+            DisplayName: =DataSourceInfo([@Treat_Data_V2S],DataSourceInfo.DisplayName,"cr110_pdr_projecttitle")
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =50
+            MaxLength: =DataSourceInfo([@Treat_Data_V2S], DataSourceInfo.MaxLength, "cr110_pdr_projecttitle")
+            Required: =true
+            Update: =DataCardValue1.Text
+            Width: =924
+            X: =0
+            Y: =2
+            ZIndex: =8
+
+            DataCardKey1 As label:
+                AutoHeight: =true
+                Height: =34
+                Text: ="Project Title"
+                Width: =Parent.Width - 60
+                Wrap: =false
+                X: =30
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue1 As text:
+                BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                Default: =Parent.Default
+                DelayOutput: =true
+                DisplayMode: =Parent.DisplayMode
+                MaxLength: =Parent.MaxLength
+                PaddingLeft: =5
+                RadiusBottomLeft: =0
+                RadiusBottomRight: =0
+                RadiusTopLeft: =0
+                RadiusTopRight: =0
+                Tooltip: =Parent.DisplayName
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardKey1.Y + DataCardKey1.Height + 5
+                ZIndex: =2
+
+            ErrorMessage1 As label:
+                AutoHeight: =true
+                Height: =10
+                Live: =Live.Assertive
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Text: =Parent.Error
+                Visible: =Parent.DisplayMode=DisplayMode.Edit
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardValue1.Y + DataCardValue1.Height
+                ZIndex: =3
+
+            StarVisible1 As label:
+                Align: =Align.Center
+                Height: =DataCardKey1.Height
+                Text: ="*"
+                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                Width: =30
+                Wrap: =false
+                Y: =DataCardKey1.Y
+                ZIndex: =4
+
+            Icon1 As icon.Information:
+                Height: =25
+                Icon: =Icon.Information
+                Tooltip: ="Provide the project title here"
+                Width: =25
+                X: =135
+                Y: =14
+                ZIndex: =5
+
+    "'ico2.0GovernanceScreen' As icon.NextArrow":
+        Height: =117
+        Icon: =Icon.NextArrow
+        OnSelect: |+
+            =Set(saveAsDraft,false);
+            SubmitForm(frmProjectAndDataDetails);
+            
+        Width: =112
+        X: =1167
+        Y: =621
+        ZIndex: =8
+
+    icoDataRegistrationScreen As icon.BackArrow:
+        Height: =117
+        Icon: =Icon.BackArrow
+        OnSelect: =Navigate(DataRegistration)
+        Width: =112
+        X: =64
+        Y: =621
+        ZIndex: =9
+
+    lbl As label:
+        Align: =Align.Center
+        Color: =RGBA(184, 0, 0, 1)
+        Height: =55
+        Size: =15
+        Text: ="Enter the data and ensure you scroll to the bottom to make sure you have answered all questions"
+        Width: =1191
+        X: =88
+        Y: =129
+        ZIndex: =10
+
+    Component1_3 As Component1:
+        ZIndex: =16
+
+    lblTitle3 As label:
+        Align: =Align.Center
+        Color: =RGBA(255, 255, 255, 1)
+        FontWeight: =FontWeight.Bold
+        Height: =126
+        Size: =32
+        Text: ="1.0 Project And Data Details"
+        Width: =1366
+        ZIndex: =17
+
+    Circle1_20 As circle:
+        Fill: |-
+            =ColorValue("#CCCCCC")
+        Height: =86
+        Width: =88
+        X: =1175
+        Y: =25
+        ZIndex: =18
+
+    Button1_20 As button:
+        BorderThickness: =0
+        Color: |-
+            =ColorValue("#003366")
+        DisabledColor: |-
+            =ColorValue("#CCCCCC")
+        Fill: |-
+            =ColorValue("#CCCCCC")
+        FontWeight: =FontWeight.Bold
+        Height: =35
+        HoverColor: |-
+            =
+            ColorValue("#1596DD")
+        HoverFill: |-
+            =ColorValue("#CCCCCC")
+        OnSelect: |+
+            =//Set(varFormData2,
+            //Patch(Treat_Data_V2S,selectedRecord,  frmProjectAndDataDetails.Updates)
+            //);
+            Set(saveAsDraft,true);
+            SubmitForm(frmProjectAndDataDetails);
+            
+        PressedBorderColor: |-
+            =ColorValue("#CCCCCC")
+        PressedColor: |-
+            =ColorValue("#CCCCCC")
+        PressedFill: |-
+            =ColorValue("#CCCCCC")
+        Size: =8
+        Text: ="Save as Draft"
+        Width: =53
+        X: =1192
+        Y: =50
+        ZIndex: =19
+
+    "'Home Button_1' As icon.Home":
+        Icon: =Icon.Home
+        OnSelect: =Navigate(Welcome)
+        X: =1283
+        Y: =31
+        ZIndex: =20
+

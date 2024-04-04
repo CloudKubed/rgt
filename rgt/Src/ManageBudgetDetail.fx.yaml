@@ -1,0 +1,643 @@
+ManageBudgetDetail As screen:
+    Fill: =RGBA(241, 244, 249, 1)
+    OnVisible: =ResetForm(Form3_1);
+
+    Component1_23 As Component1:
+
+    lblTitle8_5 As label:
+        Align: =Align.Center
+        Color: =RGBA(255, 255, 255, 1)
+        FontWeight: =FontWeight.Bold
+        Height: =126
+        Size: =32
+        Text: ="Budget Information Submission"
+        Width: =694
+        X: =354
+        ZIndex: =4
+
+    Form3_1 As form:
+        BorderThickness: =2
+        DataSource: =Treat_Data_V2_BudgetInformations
+        Fill: =RGBA(255, 255, 255, 1)
+        Height: =458
+        Item: =BudgetSelectedRecord
+        NumberOfColumns: =1
+        OnSuccess: |
+            =RGAT_BudgetNotification.Run(Form3_1.LastSubmit.Treat_Data_V2_BudgetInformation);
+            Navigate(BudgetInformation);
+        Width: =925
+        X: =224
+        Y: =222
+        ZIndex: =6
+
+        BIS_BI_BudgetCode_DataCard2_1 As typedDataCard.textualEditCard:
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="cr110_bis_bi_budgetcode"
+            Default: =ThisItem.BIS_BI_BudgetCode
+            DisplayMode: =Parent.DisplayMode
+            DisplayName: =DataSourceInfo([@Treat_Data_V2_BudgetInformations],DataSourceInfo.DisplayName,"cr110_bis_bi_budgetcode")
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =50
+            MaxLength: =DataSourceInfo([@Treat_Data_V2_BudgetInformations], DataSourceInfo.MaxLength, "cr110_bis_bi_budgetcode")
+            Required: =true
+            Update: =DataCardValue65_1.Text
+            Width: =923
+            X: =0
+            Y: =0
+            ZIndex: =1
+
+            DataCardKey70_1 As label:
+                AutoHeight: =true
+                Height: =34
+                Text: ="Budget Code"
+                Width: =Parent.Width - 60
+                Wrap: =false
+                X: =30
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue65_1 As text:
+                BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                Default: =Parent.Default
+                DelayOutput: =true
+                DisplayMode: =Parent.DisplayMode
+                MaxLength: =Parent.MaxLength
+                PaddingLeft: =5
+                RadiusBottomLeft: =0
+                RadiusBottomRight: =0
+                RadiusTopLeft: =0
+                RadiusTopRight: =0
+                Tooltip: =Parent.DisplayName
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardKey70_1.Y + DataCardKey70_1.Height + 5
+                ZIndex: =2
+
+            ErrorMessage76_1 As label:
+                AutoHeight: =true
+                Height: =10
+                Live: =Live.Assertive
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Text: =Parent.Error
+                Visible: =Parent.DisplayMode=DisplayMode.Edit
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardValue65_1.Y + DataCardValue65_1.Height
+                ZIndex: =3
+
+            StarVisible76_1 As label:
+                Align: =Align.Center
+                Height: =DataCardKey70_1.Height
+                Text: ="*"
+                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                Width: =30
+                Wrap: =false
+                Y: =DataCardKey70_1.Y
+                ZIndex: =4
+
+            Icon1_31 As icon.Information:
+                Height: =25
+                Icon: =Icon.Information
+                Tooltip: ="Provide budget code to which the cost of workspace needed will be charged"
+                Width: =25
+                X: =146
+                Y: =14
+                ZIndex: =5
+
+        BIS_BI_Amount_DataCard1_1 As typedDataCard.numberEditCard:
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="cr110_bis_bi_amount"
+            Default: =ThisItem.BIS_BI_Amount
+            DisplayMode: =Parent.DisplayMode
+            DisplayName: =DataSourceInfo([@Treat_Data_V2_BudgetInformations],DataSourceInfo.DisplayName,"cr110_bis_bi_amount")
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =50
+            Required: =true
+            Update: =Value(DataCardValue66_1.Text)
+            Width: =923
+            X: =0
+            Y: =1
+            ZIndex: =1
+
+            DataCardKey71_1 As label:
+                AutoHeight: =true
+                Height: =34
+                Text: ="Amount available from this budget code"
+                Width: =Parent.Width - 60
+                Wrap: =false
+                X: =30
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue66_1 As text:
+                BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                Default: =Parent.Default
+                DelayOutput: =true
+                DisplayMode: =Parent.DisplayMode
+                Format: =TextFormat.Number
+                PaddingLeft: =5
+                RadiusBottomLeft: =0
+                RadiusBottomRight: =0
+                RadiusTopLeft: =0
+                RadiusTopRight: =0
+                Tooltip: =Parent.DisplayName
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardKey71_1.Y + DataCardKey71_1.Height + 5
+                ZIndex: =2
+
+            ErrorMessage77_1 As label:
+                AutoHeight: =true
+                Height: =10
+                Live: =Live.Assertive
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Text: =Parent.Error
+                Visible: =Parent.DisplayMode=DisplayMode.Edit
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardValue66_1.Y + DataCardValue66_1.Height
+                ZIndex: =3
+
+            StarVisible77_1 As label:
+                Align: =Align.Center
+                Height: =DataCardKey71_1.Height
+                Text: ="*"
+                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                Width: =30
+                Wrap: =false
+                Y: =DataCardKey71_1.Y
+                ZIndex: =4
+
+            Label18 As label:
+                Align: =Align.Center
+                FontWeight: =FontWeight.Bold
+                Height: =39
+                Text: ="£"
+                Width: =30
+                Y: =50
+                ZIndex: =5
+
+            Icon1_39 As icon.Information:
+                Height: =25
+                Icon: =Icon.Information
+                Tooltip: ="If you know, please provide the total amount of money being made available for the workspaces"
+                Width: =25
+                X: =366
+                Y: =14
+                ZIndex: =6
+
+        BIS_BI_BudgetApproverName_DataCard1_1 As typedDataCard.textualEditCard:
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="cr110_bis_bi_budgetapprovername"
+            Default: =ThisItem.BIS_BI_BudgetApproverName
+            DisplayMode: =Parent.DisplayMode
+            DisplayName: =DataSourceInfo([@Treat_Data_V2_BudgetInformations],DataSourceInfo.DisplayName,"cr110_bis_bi_budgetapprovername")
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =50
+            MaxLength: =DataSourceInfo([@Treat_Data_V2_BudgetInformations], DataSourceInfo.MaxLength, "cr110_bis_bi_budgetapprovername")
+            Required: =true
+            Update: =DataCardValue67_1.Text
+            Width: =923
+            X: =0
+            Y: =2
+            ZIndex: =1
+
+            DataCardKey72_1 As label:
+                AutoHeight: =true
+                Height: =34
+                Text: ="Budget Approver Name"
+                Width: =Parent.Width - 60
+                Wrap: =false
+                X: =30
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue67_1 As text:
+                BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                Default: =
+                DelayOutput: =true
+                DisplayMode: =Parent.DisplayMode
+                MaxLength: =Parent.MaxLength
+                PaddingLeft: =5
+                RadiusBottomLeft: =0
+                RadiusBottomRight: =0
+                RadiusTopLeft: =0
+                RadiusTopRight: =0
+                Tooltip: =Parent.DisplayName
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardKey72_1.Y + DataCardKey72_1.Height + 5
+                ZIndex: =2
+
+            ErrorMessage78_1 As label:
+                AutoHeight: =true
+                Height: =10
+                Live: =Live.Assertive
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Text: =Parent.Error
+                Visible: =Parent.DisplayMode=DisplayMode.Edit
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardValue67_1.Y + DataCardValue67_1.Height
+                ZIndex: =3
+
+            StarVisible78_1 As label:
+                Align: =Align.Center
+                Height: =DataCardKey72_1.Height
+                Text: ="*"
+                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                Width: =30
+                Wrap: =false
+                Y: =DataCardKey72_1.Y
+                ZIndex: =4
+
+            Icon1_40 As icon.Information:
+                Height: =25
+                Icon: =Icon.Information
+                Tooltip: ="Provide full name of the budget approver"
+                Width: =25
+                X: =230
+                Y: =14
+                ZIndex: =5
+
+        BIS_BI_BudgetApproverEmail_DataCard1_1 As typedDataCard.textualEditCard:
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="cr110_bis_bi_budgetapproveremail"
+            Default: =ThisItem.BIS_BI_BudgetApproverEmail
+            DisplayMode: =Parent.DisplayMode
+            DisplayName: =DataSourceInfo([@Treat_Data_V2_BudgetInformations],DataSourceInfo.DisplayName,"cr110_bis_bi_budgetapproveremail")
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =50
+            MaxLength: =DataSourceInfo([@Treat_Data_V2_BudgetInformations], DataSourceInfo.MaxLength, "cr110_bis_bi_budgetapproveremail")
+            Required: =true
+            Update: =DataCardValue68_1.Text
+            Width: =923
+            X: =0
+            Y: =3
+            ZIndex: =1
+
+            DataCardKey73_1 As label:
+                AutoHeight: =true
+                Height: =34
+                Text: ="Budget Approver Email"
+                Width: =Parent.Width - 60
+                Wrap: =false
+                X: =30
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue68_1 As text:
+                BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                Default: =Parent.Default
+                DelayOutput: =true
+                DisplayMode: =Parent.DisplayMode
+                MaxLength: =Parent.MaxLength
+                PaddingLeft: =5
+                RadiusBottomLeft: =0
+                RadiusBottomRight: =0
+                RadiusTopLeft: =0
+                RadiusTopRight: =0
+                Tooltip: =Parent.DisplayName
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardKey73_1.Y + DataCardKey73_1.Height + 5
+                ZIndex: =2
+
+            ErrorMessage79_1 As label:
+                AutoHeight: =true
+                Height: =10
+                Live: =Live.Assertive
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Text: =Parent.Error
+                Visible: =Parent.DisplayMode=DisplayMode.Edit
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardValue68_1.Y + DataCardValue68_1.Height
+                ZIndex: =3
+
+            StarVisible79_1 As label:
+                Align: =Align.Center
+                Height: =DataCardKey73_1.Height
+                Text: ="*"
+                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                Width: =30
+                Wrap: =false
+                Y: =DataCardKey73_1.Y
+                ZIndex: =4
+
+            Icon1_41 As icon.Information:
+                Height: =25
+                Icon: =Icon.Information
+                Tooltip: ="Provide email address of the budget approver. This person will be contacted to approve your budget request"
+                Width: =25
+                X: =225
+                Y: =14
+                ZIndex: =5
+
+        ParentID_DataCard2_1 As typedDataCard.textualEditCard:
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="cr110_parentid"
+            Default: =ThisItem.ParentID
+            DisplayMode: =Parent.DisplayMode
+            DisplayName: =DataSourceInfo([@Treat_Data_V2_BudgetInformations],DataSourceInfo.DisplayName,"cr110_parentid")
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =50
+            MaxLength: =DataSourceInfo([@Treat_Data_V2_BudgetInformations], DataSourceInfo.MaxLength, "cr110_parentid")
+            Required: =false
+            Update: =DataCardValue70_1.Text
+            Visible: =false
+            Width: =925
+            X: =0
+            Y: =4
+            ZIndex: =1
+
+            DataCardKey75_1 As label:
+                AutoHeight: =true
+                Height: =34
+                Text: =Parent.DisplayName
+                Width: =Parent.Width - 60
+                Wrap: =false
+                X: =30
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue70_1 As text:
+                BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                Default: =ParentId
+                DelayOutput: =true
+                DisplayMode: =Parent.DisplayMode
+                MaxLength: =Parent.MaxLength
+                PaddingLeft: =5
+                RadiusBottomLeft: =0
+                RadiusBottomRight: =0
+                RadiusTopLeft: =0
+                RadiusTopRight: =0
+                Tooltip: =Parent.DisplayName
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardKey75_1.Y + DataCardKey75_1.Height + 5
+                ZIndex: =2
+
+            ErrorMessage84_1 As label:
+                AutoHeight: =true
+                Height: =10
+                Live: =Live.Assertive
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Text: =Parent.Error
+                Visible: =Parent.DisplayMode=DisplayMode.Edit
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardValue70_1.Y + DataCardValue70_1.Height
+                ZIndex: =3
+
+            StarVisible84_1 As label:
+                Align: =Align.Center
+                Height: =DataCardKey75_1.Height
+                Text: ="*"
+                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                Width: =30
+                Wrap: =false
+                Y: =DataCardKey75_1.Y
+                ZIndex: =4
+
+        BIS_BI_DateBudgetApprovalRequestSubmitted_DataCard1 As typedDataCard.dateTimeEditCard:
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="cr110_bis_bi_datebudgetapprovalrequestsubmitted"
+            Default: =Now()
+            DisplayMode: =Parent.DisplayMode
+            DisplayName: =DataSourceInfo([@Treat_Data_V2_BudgetInformations],DataSourceInfo.DisplayName,"cr110_bis_bi_datebudgetapprovalrequestsubmitted")
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =50
+            Required: =false
+            Update: =DateValue6.SelectedDate + Time(Value(HourValue4.Selected.Value), Value(MinuteValue6.Selected.Value), 0)
+            Visible: =false
+            Width: =925
+            X: =0
+            Y: =5
+            ZIndex: =1
+
+            DataCardKey8 As label:
+                AutoHeight: =true
+                Height: =34
+                Text: =Parent.DisplayName
+                Width: =Parent.Width - 60
+                Wrap: =false
+                X: =30
+                Y: =10
+                ZIndex: =1
+
+            DateValue6 As datepicker:
+                BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                DefaultDate: =Parent.Default
+                DisplayMode: =Parent.DisplayMode
+                EndYear: =Year(Today())+100
+                IsEditable: =true
+                PaddingBottom: =0
+                PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                StartYear: =1899
+                Tooltip: =Parent.DisplayName
+                Width: =(Parent.Width - 60) / 2
+                X: =30
+                Y: =DataCardKey8.Y + DataCardKey8.Height + 5
+                ZIndex: =2
+
+            HourValue4 As dropdown:
+                BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                Default: =Text(Hour(Parent.Default),"00")
+                DisplayMode: =Parent.DisplayMode
+                Height: =DateValue6.Height
+                Items: =["00","01","02","03","04","05","06","07","08","09","10","11","12","13","14","15","16","17","18","19","20","21","22","23"]
+                PaddingBottom: =5
+                PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                PaddingRight: =5
+                PaddingTop: =5
+                Tooltip: =Parent.DisplayName
+                Width: =DateValue6.Width / 2 - 10
+                X: =DateValue6.X + DateValue6.Width + 10
+                Y: =DateValue6.Y
+                ZIndex: =3
+
+            Separator7 As label:
+                Align: =Align.Center
+                FontWeight: =FontWeight.Bold
+                Height: =HourValue4.Height
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Text: |-
+                    =":"
+                Width: =10
+                Wrap: =false
+                X: =HourValue4.X + HourValue4.Width
+                Y: =HourValue4.Y
+                ZIndex: =4
+
+            MinuteValue6 As dropdown:
+                BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                Default: =Text(Minute(Parent.Default),"00")
+                DisplayMode: =Parent.DisplayMode
+                Height: =HourValue4.Height
+                Items: =["00","01","02","03","04","05","06","07","08","09","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31","32","33","34","35","36","37","38","39","40","41","42","43","44","45","46","47","48","49","50","51","52","53","54","55","56","57","58","59"]
+                PaddingBottom: =5
+                PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                PaddingRight: =5
+                PaddingTop: =5
+                Tooltip: =Parent.DisplayName
+                Width: =HourValue4.Width
+                X: =HourValue4.X + HourValue4.Width + Separator7.Width
+                Y: =HourValue4.Y
+                ZIndex: =5
+
+            ErrorMessage55 As label:
+                AutoHeight: =true
+                Height: =10
+                Live: =Live.Assertive
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Text: =Parent.Error
+                Visible: =Parent.DisplayMode=DisplayMode.Edit
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =HourValue4.Y + HourValue4.Height
+                ZIndex: =6
+
+            StarVisible55 As label:
+                Align: =Align.Center
+                Height: =DataCardKey8.Height
+                Text: ="*"
+                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                Width: =30
+                Wrap: =false
+                Y: =DataCardKey8.Y
+                ZIndex: =7
+
+        BIS_BI_ApprovalStatus_DataCard1 As typedDataCard.textualEditCard:
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="cr110_bis_bi_approvalstatus"
+            Default: =ThisItem.BIS_BI_ApprovalStatus
+            DisplayMode: =Parent.DisplayMode
+            DisplayName: =DataSourceInfo([@Treat_Data_V2_BudgetInformations],DataSourceInfo.DisplayName,"cr110_bis_bi_approvalstatus")
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =50
+            MaxLength: =DataSourceInfo([@Treat_Data_V2_BudgetInformations], DataSourceInfo.MaxLength, "cr110_bis_bi_approvalstatus")
+            Required: =false
+            Update: =DataCardValue6.Text
+            Visible: =false
+            Width: =925
+            X: =0
+            Y: =6
+            ZIndex: =1
+
+            DataCardKey70 As label:
+                AutoHeight: =true
+                Height: =34
+                Text: =Parent.DisplayName
+                Width: =Parent.Width - 60
+                Wrap: =false
+                X: =30
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue6 As text:
+                BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                Default: ="Pending"
+                DelayOutput: =true
+                DisplayMode: =Parent.DisplayMode
+                MaxLength: =Parent.MaxLength
+                PaddingLeft: =5
+                RadiusBottomLeft: =0
+                RadiusBottomRight: =0
+                RadiusTopLeft: =0
+                RadiusTopRight: =0
+                Tooltip: =Parent.DisplayName
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardKey70.Y + DataCardKey70.Height + 5
+                ZIndex: =2
+
+            ErrorMessage76 As label:
+                AutoHeight: =true
+                Height: =10
+                Live: =Live.Assertive
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Text: =Parent.Error
+                Visible: =Parent.DisplayMode=DisplayMode.Edit
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardValue6.Y + DataCardValue6.Height
+                ZIndex: =3
+
+            StarVisible76 As label:
+                Align: =Align.Center
+                Height: =DataCardKey70.Height
+                Text: ="*"
+                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                Width: =30
+                Wrap: =false
+                Y: =DataCardKey70.Y
+                ZIndex: =4
+
+    btnFinish_5 As button:
+        BorderColor: =ColorFade(Self.Fill, -100%)
+        BorderThickness: =0
+        Height: =46
+        HoverFill: =Self.Fill
+        OnSelect: =SubmitForm(Form3_1);
+        RadiusBottomLeft: =25
+        RadiusBottomRight: =25
+        RadiusTopLeft: =25
+        RadiusTopRight: =25
+        Text: ="Submit"
+        Width: =217
+        X: =898
+        Y: =696
+        ZIndex: =7
+
+    btnPrevious_5 As button:
+        BorderColor: =ColorFade(Self.Fill, -200%)
+        BorderThickness: =0
+        Height: =46
+        HoverFill: =Self.Fill
+        OnSelect: =Navigate(BudgetInformation);
+        RadiusBottomLeft: =25
+        RadiusBottomRight: =25
+        RadiusTopLeft: =25
+        RadiusTopRight: =25
+        Text: ="Cancel"
+        Width: =217
+        X: =272
+        Y: =696
+        ZIndex: =8
+
+    Label7_7 As label:
+        Align: =Align.Center
+        FontWeight: =FontWeight.Bold
+        Height: =96
+        Size: =20
+        Text: ="Budget Information"
+        Width: =522
+        X: =440
+        Y: =126
+        ZIndex: =10
+

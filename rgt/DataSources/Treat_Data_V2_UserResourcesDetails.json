@@ -1,0 +1,99 @@
+[
+  {
+    "CdsFCBContext": "{\"FileType\":true,\"ImageExternalStorage\":true}",
+    "EntitySetName": "cr110_treat_data_v2_userresourcesdetails",
+    "IsHidden": false,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "LogicalName": "cr110_treat_data_v2_userresourcesdetail",
+    "MaxGetRowsCount": 500,
+    "Name": "Treat_Data_V2_UserResourcesDetails",
+    "NativeCDSDataSourceInfoNameMapping": {
+      "_ownerid_value": "Owner",
+      "cr110_parentid": "ParentID",
+      "cr110_treat_data_v2_userresourcesdetail_AsyncOperations": "System Jobs",
+      "cr110_treat_data_v2_userresourcesdetail_BulkDeleteFailures": "Bulk Delete Failures",
+      "cr110_treat_data_v2_userresourcesdetail_DuplicateBaseRecord": "Duplicate Records (cr110_treat_data_v2_userresourcesdetail_DuplicateBaseRecord)",
+      "cr110_treat_data_v2_userresourcesdetail_DuplicateMatchingRecord": "Duplicate Records (cr110_treat_data_v2_userresourcesdetail_DuplicateMatchingRecord)",
+      "cr110_treat_data_v2_userresourcesdetail_MailboxTrackingFolders": "Mailbox Auto Tracking Folders",
+      "cr110_treat_data_v2_userresourcesdetail_PrincipalObjectAttributeAccesses": "Field Sharing",
+      "cr110_treat_data_v2_userresourcesdetail_ProcessSession": "Process Sessions",
+      "cr110_treat_data_v2_userresourcesdetail_SyncErrors": "Sync Errors",
+      "cr110_treat_data_v2_userresourcesdetailid": "Treat_Data_V2_UserResourcesDetail",
+      "cr110_userresourcedetailid": "UserResourceDetailID",
+      "cr110_userresourceid": "UserResourceID",
+      "createdby": "Created By",
+      "createdon": "Created On",
+      "createdonbehalfby": "Created By (Delegate)",
+      "importsequencenumber": "Import Sequence Number",
+      "modifiedby": "Modified By",
+      "modifiedon": "Modified On",
+      "modifiedonbehalfby": "Modified By (Delegate)",
+      "overriddencreatedon": "Record Created On",
+      "owningbusinessunit": "Owning Business Unit",
+      "owningteam": "Owning Team",
+      "owninguser": "Owning User",
+      "statecode": "Status",
+      "statuscode": "Status Reason",
+      "timezoneruleversionnumber": "Time Zone Rule Version Number",
+      "utcconversiontimezonecode": "UTC Conversion Time Zone Code",
+      "versionnumber": "Version Number"
+    },
+    "PreferredName": "Treat_Data_V2_UserResourcesDetails",
+    "Type": "NativeCDSDataSourceInfo"
+  },
+  {
+    "DisplayName": "Treat_Data_V2_UserResourcesDetails (Views)",
+    "Name": "_cr110_treat_data_v2_userresourcesdetail_views",
+    "RelatedEntityName": "Treat_Data_V2_UserResourcesDetails",
+    "TrimmedViewName": true,
+    "Type": "ViewInfo",
+    "ViewInfoNameMapping": {
+      "1e2c48c1-b4db-4249-914a-30b82224bd13": "Inactive Treat_Data_V2_UserResourcesDetails",
+      "27d4e778-4332-48e5-a42c-969f353bd4c5": "Treat_Data_V2_UserResourcesDetail Lookup View",
+      "8252e7b1-aa05-4b4d-aa80-b221767f0e64": "Treat_Data_V2_UserResourcesDetail Advanced Find View",
+      "ec03c940-edbf-4ad8-96e3-dbbbd7b4462b": "Active Treat_Data_V2_UserResourcesDetails",
+      "fb5d2e5c-28c6-4bf0-b33f-c151346a6c73": "Treat_Data_V2_UserResourcesDetail Associated View"
+    }
+  },
+  {
+    "DisplayName": "Status (Treat_Data_V2_UserResourcesDetails)",
+    "Name": "cr110_treat_data_v2_userresourcesdetail_statecode",
+    "OptionSetInfoNameMapping": {
+      "0": "Active",
+      "1": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statecode",
+        "OptionSetReferenceEntityName": "Treat_Data_V2_UserResourcesDetails"
+      }
+    },
+    "OptionSetTypeKey": "StateType",
+    "RelatedColumnInvariantName": "statecode",
+    "RelatedEntityName": "Treat_Data_V2_UserResourcesDetails",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status Reason (Treat_Data_V2_UserResourcesDetails)",
+    "Name": "cr110_treat_data_v2_userresourcesdetail_statuscode",
+    "OptionSetInfoNameMapping": {
+      "1": "Active",
+      "2": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statuscode",
+        "OptionSetReferenceEntityName": "Treat_Data_V2_UserResourcesDetails"
+      }
+    },
+    "OptionSetTypeKey": "StatusType",
+    "RelatedColumnInvariantName": "statuscode",
+    "RelatedEntityName": "Treat_Data_V2_UserResourcesDetails",
+    "Type": "OptionSetInfo"
+  }
+]

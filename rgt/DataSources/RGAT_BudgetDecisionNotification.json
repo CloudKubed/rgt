@@ -1,0 +1,10 @@
+[
+  {
+    "ApiId": "/providers/microsoft.powerapps/apis/shared_logicflows",
+    "FlowNameId": "28210e1b-cd62-4aa9-974f-5f2acd6d1027",
+    "Name": "RGAT_BudgetDecisionNotification",
+    "ServiceKind": "ConnectedWadl",
+    "Type": "ServiceInfo",
+    "WorkflowEntityId": "12a08c6a-0bcf-ee11-9079-6045bdc1e5e4"
+  }
+]

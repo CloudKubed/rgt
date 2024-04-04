@@ -1,0 +1,113 @@
+Welcome As screen:
+    Fill: =RGBA(241, 244, 249, 1)
+
+    shp As rectangle:
+        Fill: =RGBA(0, 134, 208, 1)
+        Height: =126
+        Width: =1366
+        Y: =657
+        ZIndex: =2
+
+    lblUserName As label:
+        Align: =Align.Center
+        FontWeight: =FontWeight.Bold
+        Height: =86
+        Size: =30
+        Text: =Concatenate("Welcome " , User().FullName)
+        Width: =558
+        X: =410
+        Y: =334
+        ZIndex: =3
+
+    btnNext As button:
+        BorderColor: =ColorFade(Self.Fill, -200%)
+        BorderThickness: =0
+        Font: =Font.Arial
+        FontWeight: =FontWeight.Normal
+        Height: =70
+        HoverFill: =Self.Fill
+        OnSelect: =Navigate(DataRegistration)
+        RadiusBottomLeft: =20
+        RadiusBottomRight: =20
+        RadiusTopLeft: =20
+        RadiusTopRight: =20
+        Size: =20
+        Text: ="Continue"
+        Width: =318
+        X: =524
+        Y: =677
+        ZIndex: =4
+
+    Component1_1 As Component1:
+        ZIndex: =12
+
+    lblTitle As label:
+        Color: =RGBA(255, 255, 255, 1)
+        FontWeight: =FontWeight.Bold
+        Height: =126
+        PaddingLeft: =400
+        Size: =40
+        Text: ="Research Governance Tool"
+        Width: =1366
+        ZIndex: =13
+
+    btnNext_1 As button:
+        BorderColor: =ColorFade(Self.Fill, -200%)
+        BorderThickness: =0
+        Font: =Font.Arial
+        FontWeight: =FontWeight.Normal
+        Height: =70
+        HoverFill: =Self.Fill
+        OnSelect: =Navigate(BudgetApprovalList)
+        RadiusBottomLeft: =20
+        RadiusBottomRight: =20
+        RadiusTopLeft: =20
+        RadiusTopRight: =20
+        Size: =20
+        Text: ="Budget Approver"
+        Visible: =If(CountRows(Filter(Treat_Data_V2_OfficeStaffs, Staff_Email_ID = User().Email))>0, true,false)
+        Width: =318
+        X: =24
+        Y: =295
+        ZIndex: =14
+
+    btnNext_2 As button:
+        BorderColor: =ColorFade(Self.Fill, -200%)
+        BorderThickness: =0
+        Font: =Font.Arial
+        FontWeight: =FontWeight.Normal
+        Height: =70
+        HoverFill: =Self.Fill
+        OnSelect: =Navigate(ProjectDataRegistrationsListApplications)
+        RadiusBottomLeft: =20
+        RadiusBottomRight: =20
+        RadiusTopLeft: =20
+        RadiusTopRight: =20
+        Size: =20
+        Text: ="Research Office "
+        Visible: =If(CountRows(Filter(Treat_Data_V2_OfficeStaffs, Staff_Email_ID = User().Email))>0, true,false)
+        Width: =318
+        X: =24
+        Y: =195
+        ZIndex: =15
+
+    btnNext_3 As button:
+        BorderColor: =ColorFade(Self.Fill, -200%)
+        BorderThickness: =0
+        Font: =Font.Arial
+        FontWeight: =FontWeight.Normal
+        Height: =70
+        HoverFill: =Self.Fill
+        OnSelect: =Navigate(ManagedServices)
+        RadiusBottomLeft: =20
+        RadiusBottomRight: =20
+        RadiusTopLeft: =20
+        RadiusTopRight: =20
+        Size: =20
+        Text: ="Manage Service"
+        Visible: =If(CountRows(Filter(Treat_Data_V2_OfficeStaffs, Staff_Email_ID = User().Email))>0, true,false)
+        Width: =318
+        X: =24
+        Y: =403
+        ZIndex: =16
+

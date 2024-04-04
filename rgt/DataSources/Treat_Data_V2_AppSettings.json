@@ -1,0 +1,98 @@
+[
+  {
+    "CdsFCBContext": "{\"FileType\":true,\"ImageExternalStorage\":true}",
+    "EntitySetName": "cre9c_treat_data_v2_appsettingses",
+    "IsHidden": false,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "LogicalName": "cre9c_treat_data_v2_appsettings",
+    "MaxGetRowsCount": 500,
+    "Name": "Treat_Data_V2_AppSettings",
+    "NativeCDSDataSourceInfoNameMapping": {
+      "_ownerid_value": "Owner",
+      "cre9c_settingsname": "SettingsName",
+      "cre9c_settingsvalue": "SettingsValue",
+      "cre9c_treat_data_v2_appsettings_AsyncOperations": "System Jobs",
+      "cre9c_treat_data_v2_appsettings_BulkDeleteFailures": "Bulk Delete Failures",
+      "cre9c_treat_data_v2_appsettings_DuplicateBaseRecord": "Duplicate Records (cre9c_treat_data_v2_appsettings_DuplicateBaseRecord)",
+      "cre9c_treat_data_v2_appsettings_DuplicateMatchingRecord": "Duplicate Records (cre9c_treat_data_v2_appsettings_DuplicateMatchingRecord)",
+      "cre9c_treat_data_v2_appsettings_MailboxTrackingFolders": "Mailbox Auto Tracking Folders",
+      "cre9c_treat_data_v2_appsettings_PrincipalObjectAttributeAccesses": "Field Sharing",
+      "cre9c_treat_data_v2_appsettings_ProcessSession": "Process Sessions",
+      "cre9c_treat_data_v2_appsettings_SyncErrors": "Sync Errors",
+      "cre9c_treat_data_v2_appsettingsid": "Treat_Data_V2_Appsettings",
+      "createdby": "Created By",
+      "createdon": "Created On",
+      "createdonbehalfby": "Created By (Delegate)",
+      "importsequencenumber": "Import Sequence Number",
+      "modifiedby": "Modified By",
+      "modifiedon": "Modified On",
+      "modifiedonbehalfby": "Modified By (Delegate)",
+      "overriddencreatedon": "Record Created On",
+      "owningbusinessunit": "Owning Business Unit",
+      "owningteam": "Owning Team",
+      "owninguser": "Owning User",
+      "statecode": "Status",
+      "statuscode": "Status Reason",
+      "timezoneruleversionnumber": "Time Zone Rule Version Number",
+      "utcconversiontimezonecode": "UTC Conversion Time Zone Code",
+      "versionnumber": "Version Number"
+    },
+    "PreferredName": "Treat_Data_V2_AppSettings",
+    "Type": "NativeCDSDataSourceInfo"
+  },
+  {
+    "DisplayName": "Treat_Data_V2_AppSettings (Views)",
+    "Name": "_cre9c_treat_data_v2_appsettings_views",
+    "RelatedEntityName": "Treat_Data_V2_AppSettings",
+    "TrimmedViewName": true,
+    "Type": "ViewInfo",
+    "ViewInfoNameMapping": {
+      "08c72d5e-fcf0-4393-b8fd-7e30958fe14e": "Treat_Data_V2_Appsettings Associated View",
+      "5cc2f3bc-875a-4f5f-a530-d35f575d00d1": "Inactive Treat_Data_V2_Appsettings",
+      "5d90e87a-0a6c-4aee-bc55-58575a77de57": "Treat_Data_V2_Appsettings Lookup View",
+      "744ef417-09b1-468c-8362-72db31f2d7a1": "Treat_Data_V2_Appsettings Advanced Find View",
+      "995f5835-377f-4737-9355-a95913e3c3a8": "Active Treat_Data_V2_Appsettings"
+    }
+  },
+  {
+    "DisplayName": "Status (Treat_Data_V2_AppSettings)",
+    "Name": "cre9c_treat_data_v2_appsettings_statecode",
+    "OptionSetInfoNameMapping": {
+      "0": "Active",
+      "1": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statecode",
+        "OptionSetReferenceEntityName": "Treat_Data_V2_AppSettings"
+      }
+    },
+    "OptionSetTypeKey": "StateType",
+    "RelatedColumnInvariantName": "statecode",
+    "RelatedEntityName": "Treat_Data_V2_AppSettings",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status Reason (Treat_Data_V2_AppSettings)",
+    "Name": "cre9c_treat_data_v2_appsettings_statuscode",
+    "OptionSetInfoNameMapping": {
+      "1": "Active",
+      "2": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statuscode",
+        "OptionSetReferenceEntityName": "Treat_Data_V2_AppSettings"
+      }
+    },
+    "OptionSetTypeKey": "StatusType",
+    "RelatedColumnInvariantName": "statuscode",
+    "RelatedEntityName": "Treat_Data_V2_AppSettings",
+    "Type": "OptionSetInfo"
+  }
+]
